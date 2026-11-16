@@ -1,9 +1,12 @@
-# Compose for Hostinger Docker Manager: runs the prebuilt GHCR image behind the
-# VPS's existing Traefik (entrypoint websecure, resolver letsencrypt).
+# Compose for Hostinger Docker Manager. Builds the image from the public GitHub repo and
+# runs it behind the VPS's existing Traefik (entrypoint websecure, resolver letsencrypt).
 # ADMIN_PASSWORD is supplied as a project environment variable.
 services:
   infosec-tools:
-    image: ghcr.io/shivdasaj/infosec-tools:latest
+    build:
+      context: https://github.com/ShivdaSaj/sajin-rea.git#claude/eloquent-curie-pot0eb:infosec-tools
+    image: infosec-tools:local
+    pull_policy: build
     restart: unless-stopped
     environment:
       - ADMIN_PASSWORD=${ADMIN_PASSWORD:?ADMIN_PASSWORD must be set}
