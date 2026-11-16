@@ -1,23 +1,45 @@
-# Compose for Hostinger Docker Manager. Builds the image from the public GitHub repo and
-# runs it behind the VPS's existing Traefik (entrypoint websecure, resolver letsencrypt).
+# Compose for Hostinger Docker Manager (same pattern as the other projects: pull an image,
+# Traefik on entrypoint websecure + resolver letsencrypt). Uses the stock node:24-alpine
+# image; at start-up Node fetches this app from the public repo, pinned to one commit,
+# over verified HTTPS. To deploy a new version, change APP_REF and redeploy.
 # ADMIN_PASSWORD is supplied as a project environment variable.
 services:
   infosec-tools:
-    build:
-      context: https://github.com/ShivdaSaj/sajin-rea.git#claude/eloquent-curie-pot0eb:infosec-tools
-    image: infosec-tools:local
-    pull_policy: build
+    image: node:24-alpine
     restart: unless-stopped
+    user: node
+    working_dir: /app
     environment:
       - ADMIN_PASSWORD=${ADMIN_PASSWORD:?ADMIN_PASSWORD must be set}
+      - APP_REF=7ff094fa3089f43be01cb38f9f6ba9e3c26b6faa
+      - DATA_DIR=/home/node/data
+      - NODE_ENV=production
+      - PORT=8080
+    command:
+      - sh
+      - -c
+      - >-
+        mkdir -p /tmp/src &&
+        node -e 'fetch("https://codeload.github.com/ShivdaSaj/sajin-rea/tar.gz/" + process.env.APP_REF).then(async (r) => { if (!r.ok) throw new Error("download failed: HTTP " + r.status); process.stdout.write(Buffer.from(await r.arrayBuffer())); })' |
+        tar -xz -C /tmp/src &&
+        cp -r /tmp/src/*/infosec-tools/. /app/ &&
+        rm -rf /tmp/src &&
+        exec node server.mjs
     volumes:
-      - infosec-tools-data:/data
-    read_only: true
+      - infosec-tools-data:/home/node
     tmpfs:
-      - /tmp
+      - /app:uid=1000,gid=1000,mode=0755
+      - /tmp:uid=1000,gid=1000
+    read_only: true
     security_opt:
       - no-new-privileges:true
     mem_limit: 512m
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8080/healthz"]
+      interval: 30s
+      timeout: 5s
+      start_period: 40s
+      retries: 3
     labels:
       - traefik.enable=true
       - traefik.http.routers.infosectools.rule=Host(`infosectools.sajinshivdas.online`)
