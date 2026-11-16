@@ -11,7 +11,7 @@ services:
     working_dir: /app
     environment:
       - ADMIN_PASSWORD=${ADMIN_PASSWORD:?ADMIN_PASSWORD must be set}
-      - APP_REF=6680787724081a29575e2661608b01eb204949cf
+      - APP_REF=fc415ccfa09bef4a80e64adcb126382f87bfebe4
       - DATA_DIR=/home/node/data
       - NODE_ENV=production
       - PORT=8080
