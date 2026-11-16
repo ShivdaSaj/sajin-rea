@@ -4,14 +4,14 @@ One site that combines four self-hosted toolkits as tabs. The tool catalog was b
 
 | Tab | Source site | Tools | Native now |
 |---|---|---|---|
-| **IT Utilities** | ittools.sajinshivdas.online (IT-Tools) | 86 | 47 |
-| **Cipher Lab** | cyberchef.sajinshivdas.online (CyberChef) | 504 | 109 |
-| **Web Recon** | webcheck.sajinshivdas.online (Web-Check) | 39 | 32 |
-| **Network Toolkit** | networking-toolbox.sajinshivdas.online | 160 | 66 |
-| **Total** | | **789** | **254** |
+| **IT Utilities** | ittools.sajinshivdas.online (IT-Tools) | 86 | 69 |
+| **Cipher Lab** | cyberchef.sajinshivdas.online (CyberChef) | 504 | 314 |
+| **Web Recon** | webcheck.sajinshivdas.online (Web-Check) | 39 | 34 |
+| **Network Toolkit** | networking-toolbox.sajinshivdas.online | 160 | 157 |
+| **Total** | | **789** | **574** |
 
-- **Native** tools run entirely in the browser: encoders, hashes, AES/JWT/TOTP, subnet and CIDR math, IPv6, text and data converters. Cipher Lab also has a CyberChef-style **recipe builder** that chains operations.
-- **Live** tools run on the server: DNS, propagation, SPF/DMARC/DKIM, DNSSEC, TLS chain and versions, security headers, HSTS, cookies, redirects, RDAP/WHOIS, DNSBL, CT-log subdomains, open ports and more. Every outbound request goes through an SSRF guard (`lib/netsafe.mjs`). The guard refuses private, loopback, link-local, CGNAT, metadata and reserved addresses, and connects only to the IP it checked.
+- **Native** tools run entirely in the browser: encoders and data formats, hashes and checksums (SHA-2/3, BLAKE2, RIPEMD, CRC family…), ciphers (AES, ChaCha20, Salsa20, RC4, TEA, classical), KDFs (PBKDF2, HKDF, scrypt), X.509/CSR/CRL and ASN.1 parsing, RSA/ECDSA signing and encryption, YAML/TOML/XML/MessagePack/CBOR conversion, compression, subnet/CIDR/IPv6 math, DNS and DNSSEC record builders, DHCP option encoders and network reference sheets. Cipher Lab also has a CyberChef-style **recipe builder** that chains operations.
+- **Live** tools run on the server: DNS, propagation, resolver timing, SPF/DMARC/DKIM and SPF flattening, DNSSEC, TLS chain/versions/OCSP stapling, mail STARTTLS, security headers, CORS, compression, HSTS, cookies, redirects, RDAP/WHOIS/ASN, BGP prefix and RPKI, DNSBL, CT-log subdomains, IPv6 reachability, open ports, Tranco rank, carbon footprint and more. Every outbound request goes through an SSRF guard (`lib/netsafe.mjs`). The guard refuses private, loopback, link-local, CGNAT, metadata and reserved addresses, and connects only to the IP it checked.
 - **Link** tools aren't rebuilt yet. They open the matching tool on your existing instance.
 
 ## Admin panel
@@ -23,6 +23,8 @@ One site that combines four self-hosted toolkits as tabs. The tool catalog was b
 - set a tool's link to the original
 - mark tools as featured on the landing page
 - import and export the catalog as JSON
+
+When a new release ships a newer seed catalog, the server upgrades the stored catalog on start-up: tools gain new native implementations and new tools are added, while admin renames, hidden tools, deletions and deliberately unlinked tools are kept. A backup is written first.
 
 Every save takes a backup first (the latest 50 are kept). You can restore any backup, or reset to the REA-built seed. The catalog lives in the `/data` volume, so it survives redeploys.
 

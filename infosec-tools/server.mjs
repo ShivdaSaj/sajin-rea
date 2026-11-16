@@ -20,8 +20,42 @@ const SECURE_COOKIE = process.env.COOKIE_SECURE !== "false";
 
 // ---------- catalog store ----------
 fs.mkdirSync(path.join(DATA_DIR, "backups"), { recursive: true });
-if (!fs.existsSync(CATALOG_FILE)) fs.copyFileSync(path.join(ROOT, "seed", "catalog.json"), CATALOG_FILE);
+if (!fs.existsSync(CATALOG_FILE)) { const seed = JSON.parse(fs.readFileSync(path.join(ROOT, "seed", "catalog.json"), "utf8")); seed.seedGeneratedAt = seed.generatedAt; seed.seedIds = seed.tabs.flatMap((t) => t.tools.map((x) => `${t.id}/${x.id}`)); seed.seedNative = seed.tabs.flatMap((t) => t.tools.filter((x) => x.native).map((x) => `${t.id}/${x.id}`)); fs.writeFileSync(CATALOG_FILE, JSON.stringify(seed, null, 1)); }
 let catalog = JSON.parse(fs.readFileSync(CATALOG_FILE, "utf8"));
+
+// Seed upgrade: when a new release ships a newer seed catalog, bring its improvements into the
+// stored (admin-editable) catalog without overwriting admin decisions:
+//  - a tool gains a native implementation only if the previous seed had none for it either;
+//  - tools/tabs new to the seed are added; ones the admin deleted are not restored;
+//  - names, descriptions, visibility and order are left as the admin set them.
+function upgradeFromSeed() {
+  const seed = JSON.parse(fs.readFileSync(path.join(ROOT, "seed", "catalog.json"), "utf8"));
+  if (catalog.seedGeneratedAt === seed.generatedAt) return;
+  const key = (t, x) => `${t}/${x}`;
+  const firstUpgrade = !Array.isArray(catalog.seedIds);
+  // Phase 1 shipped the full inventory, so on the first upgrade every current seed tool counts as
+  // "previously seeded": nothing is re-added, and tools the admin deleted stay deleted.
+  const prevIds = new Set(catalog.seedIds || seed.tabs.flatMap((t) => t.tools.map((x) => key(t.id, x.id))));
+  const prevNative = new Set(catalog.seedNative || []);
+  let filled = 0, added = 0, tabsAdded = 0;
+  for (const st of seed.tabs) {
+    let tab = catalog.tabs.find((t) => t.id === st.id);
+    if (!tab) { if (st.tools.some((x) => prevIds.has(key(st.id, x.id)))) continue; catalog.tabs.push(structuredClone(st)); tabsAdded++; continue; }
+    for (const sx of st.tools) {
+      const k = key(st.id, sx.id); const cur = tab.tools.find((x) => x.id === sx.id);
+      if (!cur) { if (!prevIds.has(k)) { tab.tools.push(structuredClone(sx)); added++; } continue; }
+      if (!cur.native && sx.native && (firstUpgrade || !prevNative.has(k))) { cur.native = structuredClone(sx.native); filled++; }
+    }
+  }
+  catalog.seedGeneratedAt = seed.generatedAt;
+  catalog.seedIds = seed.tabs.flatMap((t) => t.tools.map((x) => key(t.id, x.id)));
+  catalog.seedNative = seed.tabs.flatMap((t) => t.tools.filter((x) => x.native).map((x) => key(t.id, x.id)));
+  const stamp = new Date().toISOString().replace(/[:.]/g, "-");
+  fs.copyFileSync(CATALOG_FILE, path.join(DATA_DIR, "backups", `catalog-${stamp}-pre-upgrade.json`));
+  fs.writeFileSync(CATALOG_FILE + ".tmp", JSON.stringify(catalog, null, 1)); fs.renameSync(CATALOG_FILE + ".tmp", CATALOG_FILE);
+  console.log(`[seed] upgraded catalog to seed ${seed.generatedAt}: ${filled} tools gained native implementations, ${added} tools and ${tabsAdded} tabs added`);
+}
+upgradeFromSeed();
 const provenance = JSON.parse(fs.readFileSync(path.join(ROOT, "seed", "provenance.json"), "utf8"));
 
 const ID_RE = /^[a-z0-9][a-z0-9._-]{0,80}$/i;
@@ -45,7 +79,8 @@ function validateCatalog(c) {
     const src = str(t.sourceUrl, 500); if (src && !/^https?:\/\//i.test(src)) throw httpError(400, `Tab "${t.id}" source URL must start with http(s)://`);
     return { id: t.id, name: str(t.name, 80).trim(), description: str(t.description, 1000), icon: str(t.icon, 30) || "wrench", source: str(t.source, 60), sourceUrl: src, visible: t.visible !== false, tools };
   });
-  return { version: 1, title: str(c.title, 80) || "Infosec Tools", tagline: str(c.tagline, 200), updatedAt: new Date().toISOString(), tabs };
+  // Seed bookkeeping is server-owned: carry it over regardless of what the client sent.
+  return { version: 1, title: str(c.title, 80) || "Infosec Tools", tagline: str(c.tagline, 200), updatedAt: new Date().toISOString(), seedGeneratedAt: catalog.seedGeneratedAt, seedIds: catalog.seedIds, seedNative: catalog.seedNative, tabs };
 }
 async function saveCatalog(next, who) {
   const stamp = new Date().toISOString().replace(/[:.]/g, "-");
@@ -125,7 +160,7 @@ async function handle(req, res) {
     if (p === "/api/admin/server-ops" && req.method === "GET") return json(res, 200, Object.fromEntries(Object.entries(serverOps).map(([k, v]) => [k, v.name])));
     if (p === "/api/admin/backups" && req.method === "GET") return json(res, 200, (await fsp.readdir(path.join(DATA_DIR, "backups"))).sort().reverse());
     if (p === "/api/admin/restore" && req.method === "POST") { const { file } = await readJson(req, 4096); if (!/^catalog-[\w-]+\.json$/.test(file || "")) throw httpError(400, "Invalid backup name"); const next = validateCatalog(JSON.parse(await fsp.readFile(path.join(DATA_DIR, "backups", file), "utf8"))); await saveCatalog(next, ip); return json(res, 200, { ok: true }); }
-    if (p === "/api/admin/reset" && req.method === "POST") { const next = validateCatalog(JSON.parse(await fsp.readFile(path.join(ROOT, "seed", "catalog.json"), "utf8"))); await saveCatalog(next, ip); return json(res, 200, { ok: true }); }
+    if (p === "/api/admin/reset" && req.method === "POST") { const seed = JSON.parse(await fsp.readFile(path.join(ROOT, "seed", "catalog.json"), "utf8")); const next = validateCatalog(seed); next.seedGeneratedAt = seed.generatedAt; next.seedIds = seed.tabs.flatMap((t) => t.tools.map((x) => `${t.id}/${x.id}`)); next.seedNative = seed.tabs.flatMap((t) => t.tools.filter((x) => x.native).map((x) => `${t.id}/${x.id}`)); await saveCatalog(next, ip); return json(res, 200, { ok: true }); }
     throw httpError(404, "Unknown admin endpoint");
   }
   if (p.startsWith("/api/")) throw httpError(404, "Unknown endpoint");

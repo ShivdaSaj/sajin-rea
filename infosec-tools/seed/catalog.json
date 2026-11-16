@@ -1,6 +1,6 @@
 {
  "version": 1,
- "generatedAt": "2026-11-16T12:06:04.604Z",
+ "generatedAt": "2026-11-16T14:41:33.396Z",
  "title": "Infosec Tools",
  "tabs": [
   {
@@ -500,7 +500,10 @@
       "to",
       "json"
      ],
-     "native": null,
+     "native": {
+      "op": "yaml-to-json",
+      "mode": "client"
+     },
      "external": "https://ittools.sajinshivdas.online/yaml-to-json-converter",
      "visible": true
     },
@@ -516,7 +519,10 @@
       "convert",
       "transform"
      ],
-     "native": null,
+     "native": {
+      "op": "yaml-to-toml",
+      "mode": "client"
+     },
      "external": "https://ittools.sajinshivdas.online/yaml-to-toml",
      "visible": true
     },
@@ -549,7 +555,10 @@
       "convert",
       "transform"
      ],
-     "native": null,
+     "native": {
+      "op": "json-to-toml",
+      "mode": "client"
+     },
      "external": "https://ittools.sajinshivdas.online/json-to-toml",
      "visible": true
     },
@@ -588,7 +597,10 @@
       "transform",
       "parser"
      ],
-     "native": null,
+     "native": {
+      "op": "toml-to-json",
+      "mode": "client"
+     },
      "external": "https://ittools.sajinshivdas.online/toml-to-json",
      "visible": true
     },
@@ -605,7 +617,10 @@
       "transform",
       "parse"
      ],
-     "native": null,
+     "native": {
+      "op": "toml-to-yaml",
+      "mode": "client"
+     },
      "external": "https://ittools.sajinshivdas.online/toml-to-yaml",
      "visible": true
     },
@@ -618,7 +633,10 @@
       "xml",
       "json"
      ],
-     "native": null,
+     "native": {
+      "op": "xml-to-json",
+      "mode": "client"
+     },
      "external": "https://ittools.sajinshivdas.online/xml-to-json",
      "visible": true
     },
@@ -738,7 +756,10 @@
       "user",
       "agent"
      ],
-     "native": null,
+     "native": {
+      "op": "device-info",
+      "mode": "client"
+     },
      "external": "https://ittools.sajinshivdas.online/device-information",
      "visible": true
     },
@@ -785,7 +806,10 @@
       "graph",
       "og"
      ],
-     "native": null,
+     "native": {
+      "op": "og-meta",
+      "mode": "client"
+     },
      "external": "https://ittools.sajinshivdas.online/og-meta-generator",
      "visible": true
     },
@@ -830,7 +854,10 @@
       "content",
       "type"
      ],
-     "native": null,
+     "native": {
+      "op": "mime-types",
+      "mode": "client"
+     },
      "external": "https://ittools.sajinshivdas.online/mime-types",
      "visible": true
     },
@@ -963,7 +990,10 @@
       "status",
       "codes"
      ],
-     "native": null,
+     "native": {
+      "op": "http-status",
+      "mode": "client"
+     },
      "external": "https://ittools.sajinshivdas.online/http-status-codes",
      "visible": true
     },
@@ -980,7 +1010,10 @@
       "object",
       "data"
      ],
-     "native": null,
+     "native": {
+      "op": "json-diff",
+      "mode": "client"
+     },
      "external": "https://ittools.sajinshivdas.online/json-diff",
      "visible": true
     },
@@ -994,7 +1027,10 @@
       "safelink",
       "decoder"
      ],
-     "native": null,
+     "native": {
+      "op": "safelink-decode",
+      "mode": "client"
+     },
      "external": "https://ittools.sajinshivdas.online/safelink-decoder",
      "visible": true
     },
@@ -1056,7 +1092,10 @@
       "size",
       "mockup"
      ],
-     "native": null,
+     "native": {
+      "op": "svg-placeholder",
+      "mode": "client"
+     },
      "external": "https://ittools.sajinshivdas.online/svg-placeholder-generator",
      "visible": true
     },
@@ -1110,7 +1149,10 @@
       "development",
       "computer"
      ],
-     "native": null,
+     "native": {
+      "op": "random-port",
+      "mode": "client"
+     },
      "external": "https://ittools.sajinshivdas.online/random-port-generator",
      "visible": true
     },
@@ -1134,7 +1176,10 @@
       "minute",
       "second"
      ],
-     "native": null,
+     "native": {
+      "op": "cron-describe",
+      "mode": "client"
+     },
      "external": "https://ittools.sajinshivdas.online/crontab-generator",
      "visible": true
     },
@@ -1212,7 +1257,10 @@
       "Spark",
       "SQL Server Transact-SQL"
      ],
-     "native": null,
+     "native": {
+      "op": "sql-format",
+      "mode": "client"
+     },
      "external": "https://ittools.sajinshivdas.online/sql-prettify",
      "visible": true
     },
@@ -1254,7 +1302,10 @@
       "convert",
       "deamon"
      ],
-     "native": null,
+     "native": {
+      "op": "docker-run-to-compose",
+      "mode": "client"
+     },
      "external": "https://ittools.sajinshivdas.online/docker-run-to-docker-compose-converter",
      "visible": true
     },
@@ -1286,7 +1337,10 @@
       "prettify",
       "format"
      ],
-     "native": null,
+     "native": {
+      "op": "yaml-prettify",
+      "mode": "client"
+     },
      "external": "https://ittools.sajinshivdas.online/yaml-prettify",
      "visible": true
     },
@@ -1299,7 +1353,10 @@
       "email",
       "normalizer"
      ],
-     "native": null,
+     "native": {
+      "op": "email-normalize",
+      "mode": "client"
+     },
      "external": "https://ittools.sajinshivdas.online/email-normalizer",
      "visible": true
     },
@@ -1497,7 +1554,10 @@
       "tan",
       "tanh"
      ],
-     "native": null,
+     "native": {
+      "op": "math-eval",
+      "mode": "client"
+     },
      "external": "https://ittools.sajinshivdas.online/math-evaluator",
      "visible": true
     },
@@ -1514,7 +1574,10 @@
       "arrival",
       "average"
      ],
-     "native": null,
+     "native": {
+      "op": "eta-calc",
+      "mode": "client"
+     },
      "external": "https://ittools.sajinshivdas.online/eta-calculator",
      "visible": true
     },
@@ -1772,7 +1835,10 @@
       "bic",
       "bank"
      ],
-     "native": null,
+     "native": {
+      "op": "iban-validate",
+      "mode": "client"
+     },
      "external": "https://ittools.sajinshivdas.online/iban-validator-and-parser",
      "visible": true
     }
@@ -1793,7 +1859,10 @@
      "description": "",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "to-hexdump",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=To_Hexdump()",
      "visible": true
     },
@@ -1803,7 +1872,10 @@
      "description": "Attempts to convert a hexdump back into raw data. This operation supports many different hexdump variations, but probably not all. Make sure you verify that the data it gives you is correct before continuing analysis.",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "from-hexdump",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=From_Hexdump()",
      "visible": true
     },
@@ -1989,7 +2061,10 @@
      "description": "Base45 is a notation for encoding arbitrary byte data using a restricted set of symbols that can be conveniently used by humans and processed by computers. The high number base results in shorter strings than with the decimal or hexadecimal system. Base45 is optimized for usage with QR codes.",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "base45-encode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=To_Base45()",
      "visible": true
     },
@@ -1999,7 +2074,10 @@
      "description": "Base45 is a notation for encoding arbitrary byte data using a restricted set of symbols that can be conveniently used by humans and processed by computers. The high number base results in shorter strings than with the decimal or hexadecimal system. Base45 is optimized for usage with QR codes.",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "base45-decode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=From_Base45()",
      "visible": true
     },
@@ -2055,7 +2133,10 @@
      "description": "Base62 is a notation for encoding arbitrary byte data using a restricted set of symbols that can be conveniently used by humans and processed by computers. The high number base results in shorter strings than with the decimal or hexadecimal system.",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "base62-encode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=To_Base62()",
      "visible": true
     },
@@ -2065,7 +2146,10 @@
      "description": "Base62 is a notation for encoding arbitrary byte data using a restricted set of symbols that can be conveniently used by humans and processed by computers. The high number base results in shorter strings than with the decimal or hexadecimal system.",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "base62-decode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=From_Base62()",
      "visible": true
     },
@@ -2131,7 +2215,10 @@
      "description": "",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "base85-encode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=To_Base85()",
      "visible": true
     },
@@ -2141,7 +2228,10 @@
      "description": "",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "base85-decode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=From_Base85()",
      "visible": true
     },
@@ -2151,7 +2241,10 @@
      "description": "Converts a decimal number to a given numerical base.",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "to-radix",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=To_Base()",
      "visible": true
     },
@@ -2161,7 +2254,10 @@
      "description": "Converts a number to decimal from a given numerical base.",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "from-radix",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=From_Base()",
      "visible": true
     },
@@ -2171,7 +2267,10 @@
      "description": "Binary-Coded Decimal (BCD) is a class of binary encodings of decimal numbers where each decimal digit is represented by a fixed number of bits, usually four or eight. Special bit patterns are sometimes used for a sign",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "to-bcd",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=To_BCD()",
      "visible": true
     },
@@ -2181,7 +2280,10 @@
      "description": "Binary-Coded Decimal (BCD) is a class of binary encodings of decimal numbers where each decimal digit is represented by a fixed number of bits, usually four or eight. Special bit patterns are sometimes used for a sign.",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "from-bcd",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=From_BCD()",
      "visible": true
     },
@@ -2191,7 +2293,10 @@
      "description": "Converts between text strings and large integers (decimal or hexadecimal). Text is interpreted as a big-endian sequence of character codes. For example: ABC is 0x414243 (hex) is 4276803 (decimal) Input format detection: Decimal: digits 0-9 only Hexadecimal: 0x... prefix Quoted or unquoted text: trea",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "text-to-integer",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Text-Integer_Conversion()",
      "visible": true
     },
@@ -2279,7 +2384,10 @@
      "description": "Transform Unicode characters to one of the Normalisation Forms",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "normalise-unicode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Normalise_Unicode()",
      "visible": true
     },
@@ -2289,7 +2397,10 @@
      "description": "",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "escape-smart",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Escape_Smart_Characters()",
      "visible": true
     },
@@ -2338,7 +2449,10 @@
      "description": "Punycode is a way to represent Unicode with the limited character subset of ASCII supported by the Domain Name System. e.g. mnchen-3ya decodes to münchen",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "punycode-decode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=From_Punycode()",
      "visible": true
     },
@@ -2368,7 +2482,10 @@
      "description": "Converts special characters in a string to hexadecimal. This format is used by SNORT for representing hex within ASCII text. e.g. foo=bar becomes foo|3d|bar .",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "to-hex-content",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=To_Hex_Content()",
      "visible": true
     },
@@ -2378,7 +2495,10 @@
      "description": "Translates hexadecimal bytes in text back to raw bytes. This format is used by SNORT for representing hex within ASCII text. e.g. foo|3d|bar becomes foo=bar .",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "from-hex-content",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=From_Hex_Content()",
      "visible": true
     },
@@ -2388,7 +2508,10 @@
      "description": "Converts PEM (Privacy Enhanced Mail) format to a hexadecimal DER (Distinguished Encoding Rules) string.",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "pem-to-hex",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=PEM_to_Hex()",
      "visible": true
     },
@@ -2398,7 +2521,10 @@
      "description": "Converts a hexadecimal DER (Distinguished Encoding Rules) string into PEM (Privacy Enhanced Mail) format.",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "hex-to-pem",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Hex_to_PEM()",
      "visible": true
     },
@@ -2408,7 +2534,10 @@
      "description": "",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "parse-asn1",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Parse_ASN.1_hex_string()",
      "visible": true
     },
@@ -2461,7 +2590,10 @@
      "description": "Switches the data from big-endian to little-endian or vice-versa. Data can be read in as hexadecimal or raw bytes. It will be returned in the same format as it is entered.",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "swap-endianness",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Swap_endianness()",
      "visible": true
     },
@@ -2471,7 +2603,10 @@
      "description": "Converts JSON to MessagePack encoded byte buffer. MessagePack is a computer data interchange format. It is a binary form for representing simple data structures like arrays and associative arrays.",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "msgpack-encode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=To_MessagePack()",
      "visible": true
     },
@@ -2481,7 +2616,10 @@
      "description": "Converts MessagePack encoded data to JSON. MessagePack is a computer data interchange format. It is a binary form for representing simple data structures like arrays and associative arrays.",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "msgpack-decode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=From_MessagePack()",
      "visible": true
     },
@@ -2491,7 +2629,10 @@
      "description": "Converts text to six-dot braille symbols.",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "braille-encode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=To_Braille()",
      "visible": true
     },
@@ -2501,7 +2642,10 @@
      "description": "Converts six-dot braille symbols to text.",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "braille-decode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=From_Braille()",
      "visible": true
     },
@@ -2557,7 +2701,10 @@
      "description": "Concise Binary Object Representation (CBOR) is a binary data serialization format loosely based on JSON. Like JSON it allows the transmission of data objects that contain name–value pairs, but in a more concise manner. This increases processing and transfer speeds at the cost of human readability. I",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "cbor-encode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=CBOR_Encode()",
      "visible": true
     },
@@ -2567,7 +2714,10 @@
      "description": "Concise Binary Object Representation (CBOR) is a binary data serialization format loosely based on JSON. Like JSON it allows the transmission of data objects that contain name–value pairs, but in a more concise manner. This increases processing and transfer speeds at the cost of human readability. I",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "cbor-decode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=CBOR_Decode()",
      "visible": true
     },
@@ -2577,7 +2727,10 @@
      "description": "Convert YAML to JSON",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "yaml-to-json",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=YAML_to_JSON()",
      "visible": true
     },
@@ -2587,7 +2740,10 @@
      "description": "Format a JSON object into YAML",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "json-to-yaml2",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=JSON_to_YAML()",
      "visible": true
     },
@@ -2597,7 +2753,10 @@
      "description": "Decodes caret or M-encoded strings, i.e. ^M turns into a newline, M-^] turns into 0x9d. Sources such as `cat -v`.\\\\n\\\\nPlease be aware that when using `cat -v` ^_ (caret-underscore) will not be encoded, but represents a valid encoding (namely that of 0x1f).",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "caret-decode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Caret%2FM-decode()",
      "visible": true
     },
@@ -2607,7 +2766,10 @@
      "description": "Rison, a data serialization format optimized for compactness in URIs. Rison is a slight variation of JSON that looks vastly superior after URI encoding. Rison still expresses exactly the same set of data structures as JSON, so data can be translated back and forth without loss or guesswork.",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "rison-encode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Rison_Encode()",
      "visible": true
     },
@@ -2617,7 +2779,10 @@
      "description": "Rison, a data serialization format optimized for compactness in URIs. Rison is a slight variation of JSON that looks vastly superior after URI encoding. Rison still expresses exactly the same set of data structures as JSON, so data can be translated back and forth without loss or guesswork.",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "rison-decode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Rison_Decode()",
      "visible": true
     },
@@ -2627,7 +2792,10 @@
      "description": "Converts the input string to modhex bytes separated by the specified delimiter.",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "modhex-encode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=To_Modhex()",
      "visible": true
     },
@@ -2637,7 +2805,10 @@
      "description": "Converts a modhex byte string back into its raw value.",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "modhex-decode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=From_Modhex()",
      "visible": true
     },
@@ -2657,7 +2828,10 @@
      "description": "Encodes bytes in COBS format",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "cobs-encode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=To_COBS()",
      "visible": true
     },
@@ -2667,7 +2841,10 @@
      "description": "Decodes COBS encoded bytes",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "cobs-decode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=From_COBS()",
      "visible": true
     },
@@ -2763,7 +2940,10 @@
      "description": "Fernet is a symmetric encryption method which makes sure that the message encrypted cannot be manipulated/read without the key. It uses URL safe encoding for the keys. Fernet uses 128-bit AES in CBC mode and PKCS7 padding, with HMAC using SHA256 for authentication. The IV is created from os.random()",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "fernet-encrypt",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Fernet_Encrypt()",
      "visible": true
     },
@@ -2773,7 +2953,10 @@
      "description": "Fernet is a symmetric encryption method which makes sure that the message encrypted cannot be manipulated/read without the key. It uses URL safe encoding for the keys. Fernet uses 128-bit AES in CBC mode and PKCS7 padding, with HMAC using SHA256 for authentication. The IV is created from os.random()",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "fernet-decrypt",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Fernet_Decrypt()",
      "visible": true
     },
@@ -2823,7 +3006,10 @@
      "description": "",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "rc4",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=RC4()",
      "visible": true
     },
@@ -2833,7 +3019,10 @@
      "description": "It was discovered that the first few bytes of the RC4 keystream are strongly non-random and leak information about the key. We can defend against this attack by discarding the initial portion of the keystream. This modified algorithm is traditionally called RC4-drop.",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "rc4-drop",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=RC4_Drop()",
      "visible": true
     },
@@ -2843,7 +3032,10 @@
      "description": "",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "chacha20",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=ChaCha()",
      "visible": true
     },
@@ -2853,7 +3045,10 @@
      "description": "Salsa20 is a stream cipher designed by Daniel J. Bernstein and submitted to the eSTREAM project; Salsa20/8 and Salsa20/12 are round-reduced variants. It is closely related to the ChaCha stream cipher. Key: Salsa20 uses a key of 16 or 32 bytes (128 or 256 bits). Nonce: Salsa20 uses a nonce of 8 bytes",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "salsa20",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Salsa20()",
      "visible": true
     },
@@ -2863,7 +3058,10 @@
      "description": "XSalsa20 is a variant of the Salsa20 stream cipher designed by Daniel J. Bernstein; XSalsa uses longer nonces. Key: XSalsa20 uses a key of 16 or 32 bytes (128 or 256 bits). Nonce: XSalsa20 uses a nonce of 24 bytes (192 bits). Counter: XSalsa uses a counter of 8 bytes (64 bits). The counter starts at",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "xsalsa20",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=XSalsa20()",
      "visible": true
     },
@@ -3066,7 +3264,10 @@
      "description": "Try all meaningful amounts for ROT13. Optionally you can enter your known plaintext (crib) to filter the result.",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "rot13-brute",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=ROT13_Brute_Force()",
      "visible": true
     },
@@ -3089,7 +3290,10 @@
      "description": "Try all meaningful amounts for ROT47. Optionally you can enter your known plaintext (crib) to filter the result.",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "rot47-brute",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=ROT47_Brute_Force()",
      "visible": true
     },
@@ -3099,7 +3303,10 @@
      "description": "The simple Caesar-cypher encryption that replaces each Unicode character with the one 0x8000 places forward or back along the alphabet.",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "rot8000",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=ROT8000()",
      "visible": true
     },
@@ -3122,7 +3329,10 @@
      "description": "Enumerate all possible XOR solutions. Current maximum key length is 2 due to browser performance. Optionally enter a string that you expect to find in the plaintext to filter results (crib).",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "xor-brute",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=XOR_Brute_Force()",
      "visible": true
     },
@@ -3158,7 +3368,10 @@
      "description": "TEA (Tiny Encryption Algorithm) is a block cipher designed by David Wheeler and Roger Needham in 1994. It operates on 64-bit blocks using a 128-bit key and performs 32 cycles (64 Feistel rounds) with the DELTA constant 0x9E3779B9 derived from the golden ratio. TEA is notable for its simplicity and c",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "tea-encrypt",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=TEA_Encrypt()",
      "visible": true
     },
@@ -3168,7 +3381,10 @@
      "description": "TEA (Tiny Encryption Algorithm) is a block cipher designed by David Wheeler and Roger Needham in 1994. It operates on 64-bit blocks using a 128-bit key and performs 32 cycles (64 Feistel rounds) with the DELTA constant 0x9E3779B9 derived from the golden ratio. TEA is notable for its simplicity and c",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "tea-decrypt",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=TEA_Decrypt()",
      "visible": true
     },
@@ -3178,7 +3394,10 @@
      "description": "XTEA (eXtended Tiny Encryption Algorithm) is a block cipher designed by David Wheeler and Roger Needham in 1997 as a successor to TEA, correcting several weaknesses identified in the original algorithm. It operates on 64-bit blocks using a 128-bit key with an improved key schedule that uses sum-depe",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "xtea-encrypt",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=XTEA_Encrypt()",
      "visible": true
     },
@@ -3188,7 +3407,10 @@
      "description": "XTEA (eXtended Tiny Encryption Algorithm) is a block cipher designed by David Wheeler and Roger Needham in 1997 as a successor to TEA, correcting several weaknesses identified in the original algorithm. It operates on 64-bit blocks using a 128-bit key with an improved key schedule that uses sum-depe",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "xtea-decrypt",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=XTEA_Decrypt()",
      "visible": true
     },
@@ -3198,7 +3420,10 @@
      "description": "Corrected Block TEA (often referred to as XXTEA) is a block cipher designed to correct weaknesses in the original Block TEA. XXTEA operates on variable-length blocks that are some arbitrary multiple of 32 bits in size (minimum 64 bits). The number of full cycles depends on the block size, but there ",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "xxtea-encrypt",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=XXTEA_Encrypt()",
      "visible": true
     },
@@ -3208,7 +3433,10 @@
      "description": "Corrected Block TEA (often referred to as XXTEA) is a block cipher designed to correct weaknesses in the original Block TEA. XXTEA operates on variable-length blocks that are some arbitrary multiple of 32 bits in size (minimum 64 bits). The number of full cycles depends on the block size, but there ",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "xxtea-decrypt",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=XXTEA_Decrypt()",
      "visible": true
     },
@@ -3270,7 +3498,10 @@
      "description": "The Bifid cipher is a cipher which uses a Polybius square in conjunction with transposition, which can be fairly difficult to decipher without knowing the alphabet keyword.",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "bifid-encode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Bifid_Cipher_Encode()",
      "visible": true
     },
@@ -3280,7 +3511,10 @@
      "description": "The Bifid cipher is a cipher which uses a Polybius square in conjunction with transposition, which can be fairly difficult to decipher without knowing the alphabet keyword.",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "bifid-decode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Bifid_Cipher_Decode()",
      "visible": true
     },
@@ -3290,7 +3524,10 @@
      "description": "Caesar Box is a transposition cipher used in the Roman Empire, in which letters of the message are written in rows in a square (or a rectangle) and then, read by column.",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "caesar-box",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Caesar_Box_Cipher()",
      "visible": true
     },
@@ -3352,7 +3589,10 @@
      "description": "Encodes Strings using the Rail fence Cipher provided a key and an offset",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "rail-fence-encode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Rail_Fence_Cipher_Encode()",
      "visible": true
     },
@@ -3362,7 +3602,10 @@
      "description": "Decodes Strings that were created using the Rail fence Cipher provided a key and an offset",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "rail-fence-decode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Rail_Fence_Cipher_Decode()",
      "visible": true
     },
@@ -3385,7 +3628,10 @@
      "description": "",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "ciphersaber2-encrypt",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=CipherSaber2_Encrypt()",
      "visible": true
     },
@@ -3395,7 +3641,10 @@
      "description": "",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "ciphersaber2-decrypt",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=CipherSaber2_Decrypt()",
      "visible": true
     },
@@ -3405,7 +3654,10 @@
      "description": "Converts any input into Cetacean Cipher. e.g. hi becomes EEEEEEEEEeeEeEEEEEEEEEEEEeeEeEEe",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "cetacean-encode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Cetacean_Cipher_Encode()",
      "visible": true
     },
@@ -3415,7 +3667,10 @@
      "description": "Decode Cetacean Cipher input. e.g. EEEEEEEEEeeEeEEEEEEEEEEEEeeEeEEe becomes hi",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "cetacean-decode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Cetacean_Cipher_Decode()",
      "visible": true
     },
@@ -3425,7 +3680,10 @@
      "description": "A substitution cipher allowing you to specify bytes to replace with other byte values. This can be used to create Caesar ciphers but is more powerful as any byte value can be substituted, not just letters, and the substitution values need not be in order. Enter the bytes you want to replace in the P",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "substitute",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Substitute()",
      "visible": true
     },
@@ -3458,7 +3716,10 @@
      "description": "A simple Hashed Message Authenticaton Code (HMAC)-based key derivation function (HKDF), defined in RFC5869.",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "hkdf",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Derive_HKDF_key()",
      "visible": true
     },
@@ -3478,7 +3739,10 @@
      "description": "scrypt is a password-based key derivation function (PBKDF) created by Colin Percival. The algorithm was specifically designed to make it costly to perform large-scale custom hardware attacks by requiring large amounts of memory. In 2016, the scrypt algorithm was published by IETF as RFC 7914. Enter ",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "scrypt",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Scrypt()",
      "visible": true
     },
@@ -3527,7 +3791,10 @@
      "description": "Encodes strings to Citrix CTX1 password format.",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "ctx1-encode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Citrix_CTX1_Encode()",
      "visible": true
     },
@@ -3537,7 +3804,10 @@
      "description": "Decodes strings in a Citrix CTX1 password format to plaintext.",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "ctx1-decode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Citrix_CTX1_Decode()",
      "visible": true
     },
@@ -3547,7 +3817,10 @@
      "description": "A key wrapping algorithm defined in RFC3394, which is used to protect keys in untrusted storage or communications, using AES. This algorithm uses an AES key (KEK: key-encryption key) and a 64-bit IV to encrypt 64-bit blocks.",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "aes-key-wrap",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=AES_Key_Wrap()",
      "visible": true
     },
@@ -3557,7 +3830,10 @@
      "description": "Decryptor for a key wrapping algorithm defined in RFC3394, which is used to protect keys in untrusted storage or communications, using AES. This algorithm uses an AES key (KEK: key-encryption key) and a 64-bit IV to decrypt 64-bit blocks.",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "aes-key-unwrap",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=AES_Key_Unwrap()",
      "visible": true
     },
@@ -3580,7 +3856,10 @@
      "description": "Generates a random probable prime number of specified bit length using the Miller-Rabin primality test. Primality guarantee: For numbers . 3,317, the result is guaranteed prime (deterministic test). For larger numbers, uses probabilistic testing: - Standard (7 rounds): Probability of composite appro",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "prime-gen",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Pseudo-Random_Prime_Generator()",
      "visible": true
     },
@@ -3660,7 +3939,10 @@
      "description": "Decodes the payload of a Flask session cookie (itsdangerous) into JSON.",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "flask-session-decode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Flask_Session_Decode()",
      "visible": true
     },
@@ -3690,7 +3972,10 @@
      "description": "X.509 is an ITU-T standard for a public key infrastructure (PKI) and Privilege Management Infrastructure (PMI). It is commonly involved with SSL/TLS security. This operation displays the contents of a certificate in a human readable format, similar to the openssl command line tool. Tags: X509, serve",
      "category": "Public Key",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "parse-x509",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Parse_X.509_certificate()",
      "visible": true
     },
@@ -3700,7 +3985,10 @@
      "description": "Parse Certificate Revocation List (CRL)",
      "category": "Public Key",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "parse-crl",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Parse_X.509_CRL()",
      "visible": true
     },
@@ -3710,7 +3998,10 @@
      "description": "Converts a hexadecimal string into an object identifier (OID).",
      "category": "Public Key",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "hex-to-oid",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Hex_to_Object_Identifier()",
      "visible": true
     },
@@ -3720,7 +4011,10 @@
      "description": "Converts an object identifier (OID) into a hexadecimal string.",
      "category": "Public Key",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "oid-to-hex",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Object_Identifier_to_Hex()",
      "visible": true
     },
@@ -3730,7 +4024,10 @@
      "description": "Converts Keys in PEM format to a JSON Web Key format.",
      "category": "Public Key",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "pem-to-jwk",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=PEM_to_JWK()",
      "visible": true
     },
@@ -3740,7 +4037,10 @@
      "description": "",
      "category": "Public Key",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "jwk-to-pem",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=JWK_to_PEM()",
      "visible": true
     },
@@ -3833,7 +4133,10 @@
      "description": "Sign a plaintext message with a PEM encoded RSA key.",
      "category": "Public Key",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "rsa-sign",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=RSA_Sign()",
      "visible": true
     },
@@ -3843,7 +4146,10 @@
      "description": "Verify a message against a signature and a public PEM encoded RSA key.",
      "category": "Public Key",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "rsa-verify",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=RSA_Verify()",
      "visible": true
     },
@@ -3853,7 +4159,10 @@
      "description": "Encrypt a message with a PEM encoded RSA public key.",
      "category": "Public Key",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "rsa-encrypt",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=RSA_Encrypt()",
      "visible": true
     },
@@ -3863,7 +4172,10 @@
      "description": "Decrypt an RSA encrypted message with a PEM encoded private key.",
      "category": "Public Key",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "rsa-decrypt",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=RSA_Decrypt()",
      "visible": true
     },
@@ -3873,7 +4185,10 @@
      "description": "Generate an ECDSA key pair with a given Curve. WARNING: Cryptographic operations in CyberChef should not be relied upon to provide security in any situation. No guarantee is offered for their correctness. We advise you not to use keys generated from CyberChef in operational contexts.",
      "category": "Public Key",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "ecdsa-keygen",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Generate_ECDSA_Key_Pair()",
      "visible": true
     },
@@ -3883,7 +4198,10 @@
      "description": "Convert an ECDSA signature between hex, asn1 and json.",
      "category": "Public Key",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "ecdsa-sig-convert",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=ECDSA_Signature_Conversion()",
      "visible": true
     },
@@ -3893,7 +4211,10 @@
      "description": "Sign a plaintext message with a PEM encoded EC key.",
      "category": "Public Key",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "ecdsa-sign",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=ECDSA_Sign()",
      "visible": true
     },
@@ -3903,7 +4224,10 @@
      "description": "Verify a message against a signature and a public PEM encoded EC key.",
      "category": "Public Key",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "ecdsa-verify",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=ECDSA_Verify()",
      "visible": true
     },
@@ -3913,7 +4237,10 @@
      "description": "Parses a SSH host key and extracts fields from it. The key type can be: ssh-rsa ssh-dss ecdsa-sha2 ssh-ed25519 The key format can be either Hex or Base64.",
      "category": "Public Key",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "parse-ssh-key",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Parse_SSH_Host_Key()",
      "visible": true
     },
@@ -3923,7 +4250,10 @@
      "description": "Parse Certificate Signing Request (CSR) for an X.509 certificate",
      "category": "Public Key",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "parse-csr",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Parse_CSR()",
      "visible": true
     },
@@ -3933,7 +4263,10 @@
      "description": "Extracts the Public Key from a Certificate.",
      "category": "Public Key",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "pubkey-from-cert",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Public_Key_from_Certificate()",
      "visible": true
     },
@@ -3943,7 +4276,10 @@
      "description": "Extracts the Public Key from a Private Key.",
      "category": "Public Key",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "pubkey-from-private",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Public_Key_from_Private_Key()",
      "visible": true
     },
@@ -3973,7 +4309,10 @@
      "description": "Calculates the union of two sets.",
      "category": "Arithmetic / Logic",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "set-union",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Set_Union()",
      "visible": true
     },
@@ -3983,7 +4322,10 @@
      "description": "Calculates the intersection of two sets.",
      "category": "Arithmetic / Logic",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "set-intersection",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Set_Intersection()",
      "visible": true
     },
@@ -3993,7 +4335,10 @@
      "description": "Calculates the difference, or relative complement, of two sets.",
      "category": "Arithmetic / Logic",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "set-difference",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Set_Difference()",
      "visible": true
     },
@@ -4003,7 +4348,10 @@
      "description": "Calculates the symmetric difference of two sets.",
      "category": "Arithmetic / Logic",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "set-symmetric",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Symmetric_Difference()",
      "visible": true
     },
@@ -4013,7 +4361,10 @@
      "description": "Calculates the cartesian product of multiple sets of data, returning all possible combinations.",
      "category": "Arithmetic / Logic",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "cartesian-product",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Cartesian_Product()",
      "visible": true
     },
@@ -4023,7 +4374,10 @@
      "description": "Calculates all the subsets of a set.",
      "category": "Arithmetic / Logic",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "power-set",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Power_Set()",
      "visible": true
     },
@@ -4033,7 +4387,10 @@
      "description": "OR the input with the given key. e.g. fe023da5",
      "category": "Arithmetic / Logic",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "bitwise-or",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=OR()",
      "visible": true
     },
@@ -4043,7 +4400,10 @@
      "description": "Returns the inverse of each byte.",
      "category": "Arithmetic / Logic",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "bitwise-not",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=NOT()",
      "visible": true
     },
@@ -4053,7 +4413,10 @@
      "description": "AND the input with the given key. e.g. fe023da5",
      "category": "Arithmetic / Logic",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "bitwise-and",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=AND()",
      "visible": true
     },
@@ -4063,7 +4426,10 @@
      "description": "ADD the input with the given key (e.g. fe023da5 ), MOD 255",
      "category": "Arithmetic / Logic",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "bitwise-add",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=ADD()",
      "visible": true
     },
@@ -4073,7 +4439,10 @@
      "description": "SUB the input with the given key (e.g. fe023da5 ), MOD 255",
      "category": "Arithmetic / Logic",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "bitwise-sub",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=SUB()",
      "visible": true
     },
@@ -4083,7 +4452,13 @@
      "description": "Adds together a list of numbers. If an item in the string is not a number it is excluded from the list. e.g. 0x0a 8 .5 becomes 18.5",
      "category": "Arithmetic / Logic",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "arith-sum",
+      "mode": "client",
+      "preset": {
+       "operation": "Sum"
+      }
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Sum()",
      "visible": true
     },
@@ -4093,7 +4468,13 @@
      "description": "Subtracts a list of numbers. If an item in the string is not a number it is excluded from the list. e.g. 0x0a 8 .5 becomes 1.5",
      "category": "Arithmetic / Logic",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "arith-sum",
+      "mode": "client",
+      "preset": {
+       "operation": "Subtract"
+      }
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Subtract()",
      "visible": true
     },
@@ -4103,7 +4484,13 @@
      "description": "Multiplies a list of numbers. If an item in the string is not a number it is excluded from the list. e.g. 0x0a 8 .5 becomes 40",
      "category": "Arithmetic / Logic",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "arith-sum",
+      "mode": "client",
+      "preset": {
+       "operation": "Multiply"
+      }
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Multiply()",
      "visible": true
     },
@@ -4113,7 +4500,13 @@
      "description": "Divides a list of numbers. If an item in the string is not a number it is excluded from the list. e.g. 0x0a 8 .5 becomes 2.5",
      "category": "Arithmetic / Logic",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "arith-sum",
+      "mode": "client",
+      "preset": {
+       "operation": "Divide"
+      }
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Divide()",
      "visible": true
     },
@@ -4123,7 +4516,13 @@
      "description": "Computes the modulo of each number in a list with a given modulus value. Numbers are extracted from the input based on the delimiter, and non-numeric values are ignored. e.g. 15 4 7 with modulus 3 becomes 0 1 1",
      "category": "Arithmetic / Logic",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "arith-sum",
+      "mode": "client",
+      "preset": {
+       "operation": "MOD"
+      }
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=MOD()",
      "visible": true
     },
@@ -4133,7 +4532,10 @@
      "description": "Computes the Extended Euclidean Algorithm for integers a and b . Finds integers x and y (Bezout coefficients) such that: a*x + b*y = gcd(a, b) This is fundamental to many number theory algorithms including modular inverse, solving linear Diophantine equations, and cryptographic operations. Input han",
      "category": "Arithmetic / Logic",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "extended-gcd",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Extended_GCD()",
      "visible": true
     },
@@ -4143,7 +4545,10 @@
      "description": "Performs modular exponentiation, as used in Diffie-Hellman and RSA. Computes Base ^ Exponent mod Modulus. Input handling: If either Base or Exponent is left blank, its value is taken from the Input field.",
      "category": "Arithmetic / Logic",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "mod-exp",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Modular_Exponentiation()",
      "visible": true
     },
@@ -4153,7 +4558,10 @@
      "description": "Computes the modular multiplicative inverse of a modulo m . Finds x such that a*x = 1 (mod m). Input handling: If either a or m is left blank, its value is taken from the Input field.",
      "category": "Arithmetic / Logic",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "mod-inverse",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Modular_Inverse()",
      "visible": true
     },
@@ -4163,7 +4571,10 @@
      "description": "Computes the mean (average) of a number list. If an item in the string is not a number it is excluded from the list. e.g. 0x0a 8 .5 .5 becomes 4.75",
      "category": "Arithmetic / Logic",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "arith-stats",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Mean()",
      "visible": true
     },
@@ -4173,7 +4584,10 @@
      "description": "Computes the median of a number list. If an item in the string is not a number it is excluded from the list. e.g. 0x0a 8 1 .5 becomes 4.5",
      "category": "Arithmetic / Logic",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "arith-stats",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Median()",
      "visible": true
     },
@@ -4183,7 +4597,10 @@
      "description": "Computes the standard deviation of a number list. If an item in the string is not a number it is excluded from the list. e.g. 0x0a 8 .5 becomes 4.089281382128433",
      "category": "Arithmetic / Logic",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "arith-stats",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Standard_Deviation()",
      "visible": true
     },
@@ -4193,7 +4610,13 @@
      "description": "Shifts the bits in each byte towards the left by the specified amount.",
      "category": "Arithmetic / Logic",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "bit-shift",
+      "mode": "client",
+      "preset": {
+       "direction": "Left"
+      }
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Bit_shift_left()",
      "visible": true
     },
@@ -4203,7 +4626,13 @@
      "description": "Shifts the bits in each byte towards the right by the specified amount. Logical shifts replace the leftmost bits with zeros. Arithmetic shifts preserve the most significant bit (MSB) of the original byte keeping the sign the same (positive or negative).",
      "category": "Arithmetic / Logic",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "bit-shift",
+      "mode": "client",
+      "preset": {
+       "direction": "Right"
+      }
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Bit_shift_right()",
      "visible": true
     },
@@ -4213,7 +4642,13 @@
      "description": "Rotates each byte to the left by the number of bits specified, optionally carrying the excess bits over to the next byte. Currently only supports 8-bit values.",
      "category": "Arithmetic / Logic",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "bit-rotate",
+      "mode": "client",
+      "preset": {
+       "direction": "Left"
+      }
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Rotate_left()",
      "visible": true
     },
@@ -4223,7 +4658,13 @@
      "description": "Rotates each byte to the right by the number of bits specified, optionally carrying the excess bits over to the next byte. Currently only supports 8-bit values.",
      "category": "Arithmetic / Logic",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "bit-rotate",
+      "mode": "client",
+      "preset": {
+       "direction": "Right"
+      }
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Rotate_right()",
      "visible": true
     },
@@ -4325,7 +4766,10 @@
      "description": "Converts IPv4 addresses to their IPv6 Transition addresses. IPv6 Transition addresses can also be converted back into their original IPv4 address. MAC addresses can also be converted into the EUI-64 format, this can them be appended to your IPv6 /64 range to obtain a full /128 address. Transition te",
      "category": "Networking",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "ipv4-to-ipv6",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=IPv6_Transition_Addresses()",
      "visible": true
     },
@@ -4438,7 +4882,10 @@
      "description": "Encodes a Vn integer as a VarInt. VarInt is an efficient way of encoding variable length integers and is commonly used with Protobuf.",
      "category": "Networking",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "varint-encode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=VarInt_Encode()",
      "visible": true
     },
@@ -4448,7 +4895,10 @@
      "description": "Decodes a VarInt encoded integer. VarInt is an efficient way of encoding variable length integers and is commonly used with Protobuf.",
      "category": "Networking",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "varint-decode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=VarInt_Decode()",
      "visible": true
     },
@@ -4518,7 +4968,10 @@
      "description": "Displays given MAC addresses in multiple different formats. Expects addresses in a list separated by newlines, spaces or commas. WARNING: There are no validity checks.",
      "category": "Networking",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "mac-format",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Format_MAC_addresses()",
      "visible": true
     },
@@ -4541,7 +4994,10 @@
      "description": "",
      "category": "Networking",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "netbios-encode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Encode_NetBIOS_Name()",
      "visible": true
     },
@@ -4551,7 +5007,10 @@
      "description": "",
      "category": "Networking",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "netbios-decode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Decode_NetBIOS_Name()",
      "visible": true
     },
@@ -4600,7 +5059,10 @@
      "description": "Adds Unicode combining characters to change formatting of plaintext.",
      "category": "Language",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "unicode-text-format",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Unicode_Text_Format()",
      "visible": true
     },
@@ -4610,7 +5072,10 @@
      "description": "Replaces accented characters with their latin character equivalent. Accented characters are made up of Unicode combining characters, so unicode text formatting such as strikethroughs and underlines will also be removed.",
      "category": "Language",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "remove-diacritics",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Remove_Diacritics()",
      "visible": true
     },
@@ -4620,7 +5085,10 @@
      "description": "Converts characters to their representation in the NATO phonetic alphabet.",
      "category": "Language",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "nato-alphabet",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Convert_to_NATO_alphabet()",
      "visible": true
     },
@@ -4630,7 +5098,10 @@
      "description": "Converts to and from Leet Speak.",
      "category": "Language",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "leet-speak",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Convert_Leet_Speak()",
      "visible": true
     },
@@ -4666,7 +5137,10 @@
      "description": "Removes all null bytes ( 0x00 ) from the input.",
      "category": "Utils",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "remove-null",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Remove_null_bytes()",
      "visible": true
     },
@@ -4676,7 +5150,10 @@
      "description": "Removes ANSI Escape Codes.",
      "category": "Utils",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "remove-ansi",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Remove_ANSI_Escape_Codes()",
      "visible": true
     },
@@ -4750,7 +5227,10 @@
      "description": "Converts a case-sensitive regex string into a case-insensitive regex string in case the i flag is unavailable to you. e.g. Mozilla/[0-9].[0-9] .* becomes [mM][oO][zZ][iI][lL][lL][aA]/[0-9].[0-9] .*",
      "category": "Utils",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "to-case-insensitive-regex",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=To_Case_Insensitive_Regex()",
      "visible": true
     },
@@ -4760,7 +5240,10 @@
      "description": "",
      "category": "Utils",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "from-case-insensitive-regex",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=From_Case_Insensitive_Regex()",
      "visible": true
     },
@@ -4796,7 +5279,10 @@
      "description": "Outputs all possible casing variations of a string.",
      "category": "Utils",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "all-casings",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Get_All_Casings()",
      "visible": true
     },
@@ -4806,7 +5292,10 @@
      "description": "Data can be split on different characters and rendered as an HTML, ASCII or Markdown table with an optional header row. Supports the CSV (Comma Separated Values) file format by default. Change the cell delimiter argument to \\\\\\\\t to support TSV (Tab Separated Values) or | for PSV (Pipe Separated Val",
      "category": "Utils",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "to-table",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=To_Table()",
      "visible": true
     },
@@ -4842,7 +5331,10 @@
      "description": "Randomly reorders input elements.",
      "category": "Utils",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "shuffle",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Shuffle()",
      "visible": true
     },
@@ -4878,7 +5370,10 @@
      "description": "Splits up the input using the specified delimiter and then filters each branch based on a regular expression.",
      "category": "Utils",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "filter",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Filter()",
      "visible": true
     },
@@ -4933,7 +5428,10 @@
      "description": "Expand an alphabet range string into a list of the characters in that range. e.g. a-z becomes abcdefghijklmnopqrstuvwxyz .",
      "category": "Utils",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "expand-range",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Expand_alphabet_range()",
      "visible": true
     },
@@ -4943,7 +5441,13 @@
      "description": "Cuts a slice of the specified number of bytes out of the data. Negative values are allowed.",
      "category": "Utils",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "take-drop-bytes",
+      "mode": "client",
+      "preset": {
+       "mode": "Drop"
+      }
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Drop_bytes()",
      "visible": true
     },
@@ -4953,7 +5457,13 @@
      "description": "Takes a slice of the specified number of bytes from the data. Negative values are allowed.",
      "category": "Utils",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "take-drop-bytes",
+      "mode": "client",
+      "preset": {
+       "mode": "Take"
+      }
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Take_bytes()",
      "visible": true
     },
@@ -4963,7 +5473,10 @@
      "description": "Add the specified number of the specified character to the beginning or end of each line",
      "category": "Utils",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "pad-lines",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Pad_lines()",
      "visible": true
     },
@@ -5019,7 +5532,10 @@
      "description": "In information theory, the Hamming distance between two strings of equal length is the number of positions at which the corresponding symbols are different. In other words, it measures the minimum number of substitutions required to change one string into the other, or the minimum number of errors t",
      "category": "Utils",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "hamming",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Hamming_Distance()",
      "visible": true
     },
@@ -5029,7 +5545,10 @@
      "description": "Levenshtein Distance (also known as Edit Distance) is a string metric to measure a difference between two strings that counts operations (insertions, deletions, and substitutions) on single character that are required to change one string to another.",
      "category": "Utils",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "levenshtein",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Levenshtein_Distance()",
      "visible": true
     },
@@ -5039,7 +5558,10 @@
      "description": "",
      "category": "Utils",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "convert-distance",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Convert_distance()",
      "visible": true
     },
@@ -5049,7 +5571,10 @@
      "description": "Converts a unit of area to another format.",
      "category": "Utils",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "convert-area",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Convert_area()",
      "visible": true
     },
@@ -5059,7 +5584,10 @@
      "description": "",
      "category": "Utils",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "convert-mass",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Convert_mass()",
      "visible": true
     },
@@ -5069,7 +5597,10 @@
      "description": "",
      "category": "Utils",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "convert-speed",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Convert_speed()",
      "visible": true
     },
@@ -5092,7 +5623,10 @@
      "description": "Converts geographical coordinates between different formats. Supported formats: Degrees Minutes Seconds (DMS) Degrees Decimal Minutes (DDM) Decimal Degrees (DD) Geohash Military Grid Reference System (MGRS) Ordnance Survey National Grid (OSNG) Universal Transverse Mercator (UTM) The operation can tr",
      "category": "Utils",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "convert-coordinates",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Convert_co-ordinate_format()",
      "visible": true
     },
@@ -5125,7 +5659,10 @@
      "description": "Parse timestamp from MongoDB/BSON ObjectID hex string.",
      "category": "Utils",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "objectid-timestamp",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Parse_ObjectID_timestamp()",
      "visible": true
     },
@@ -5184,7 +5721,10 @@
      "description": "Creates a file tree from a list of file paths (similar to the tree command in Linux)",
      "category": "Utils",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "file-tree",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=File_Tree()",
      "visible": true
     },
@@ -5194,7 +5734,10 @@
      "description": "Wraps the input text at a specified number of characters per line.",
      "category": "Utils",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "wrap",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Wrap()",
      "visible": true
     },
@@ -5204,7 +5747,13 @@
      "description": "Takes every nth byte starting with a given byte.",
      "category": "Utils",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "nth-bytes",
+      "mode": "client",
+      "preset": {
+       "mode": "Take"
+      }
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Take_nth_bytes()",
      "visible": true
     },
@@ -5214,7 +5763,13 @@
      "description": "Drops every nth byte starting with a given byte.",
      "category": "Utils",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "nth-bytes",
+      "mode": "client",
+      "preset": {
+       "mode": "Drop"
+      }
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Drop_nth_bytes()",
      "visible": true
     },
@@ -5224,7 +5779,10 @@
      "description": "Parses a DateTime string in your specified format and displays it in whichever timezone you choose with the following information: Date Time Period (AM/PM) Timezone UTC offset Daylight Saving Time Leap year Days in this month Day of year Week number Quarter Run with no input to see format string exa",
      "category": "Date / Time",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "parse-datetime",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Parse_DateTime()",
      "visible": true
     },
@@ -5234,7 +5792,10 @@
      "description": "Parses a datetime string in one format and re-writes it in another. Run with no input to see the relevant format string examples.",
      "category": "Date / Time",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "translate-datetime",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Translate_DateTime_Format()",
      "visible": true
     },
@@ -5244,7 +5805,10 @@
      "description": "Converts a UNIX timestamp to a datetime string. e.g. 978346800 becomes Mon 1 January 2001 11:00:00 UTC A UNIX timestamp is a 32-bit value representing the number of seconds since January 1, 1970 UTC (the UNIX epoch).",
      "category": "Date / Time",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "unix-timestamp",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=From_UNIX_Timestamp()",
      "visible": true
     },
@@ -5254,7 +5818,10 @@
      "description": "Parses a datetime string in UTC and returns the corresponding UNIX timestamp. e.g. Mon 1 January 2001 11:00:00 becomes 978346800 A UNIX timestamp is a 32-bit value representing the number of seconds since January 1, 1970 UTC (the UNIX epoch).",
      "category": "Date / Time",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "unix-timestamp",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=To_UNIX_Timestamp()",
      "visible": true
     },
@@ -5264,7 +5831,10 @@
      "description": "Converts a Windows Filetime value to a UNIX timestamp. A Windows Filetime is a 64-bit value representing the number of 100-nanosecond intervals since January 1, 1601 UTC. A UNIX timestamp is a 32-bit value representing the number of seconds since January 1, 1970 UTC (the UNIX epoch). This operation ",
      "category": "Date / Time",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "filetime-to-unix",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Windows_Filetime_to_UNIX_Timestamp()",
      "visible": true
     },
@@ -5274,7 +5844,10 @@
      "description": "Converts a UNIX timestamp to a Windows Filetime value. A Windows Filetime is a 64-bit value representing the number of 100-nanosecond intervals since January 1, 1601 UTC. A UNIX timestamp is a 32-bit value representing the number of seconds since January 1, 1970 UTC (the UNIX epoch). This operation ",
      "category": "Date / Time",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "unix-to-filetime",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=UNIX_Timestamp_to_Windows_Filetime()",
      "visible": true
     },
@@ -5284,7 +5857,10 @@
      "description": "Calculates a new DateTime value given an input DateTime value and a time difference (delta) from the input DateTime value.",
      "category": "Date / Time",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "datetime-delta",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=DateTime_Delta()",
      "visible": true
     },
@@ -5307,7 +5883,10 @@
      "description": "Generates a timestamp showing the amount of time since the UNIX epoch (1970-01-01 00:00:00 UTC). Uses the W3C High Resolution Time API.",
      "category": "Date / Time",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "get-time",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Get_Time()",
      "visible": true
     },
@@ -5317,7 +5896,10 @@
      "description": "Extracts all strings from the input.",
      "category": "Extractors",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "strings",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Strings()",
      "visible": true
     },
@@ -5428,7 +6010,10 @@
      "description": "Extract information from a JSON object with a JPath query.",
      "category": "Extractors",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "json-path",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=JPath_expression()",
      "visible": true
     },
@@ -5508,7 +6093,10 @@
      "description": "Render a template with Handlebars/Mustache substituting variables using JSON input. Templates will be rendered to plain-text only, to prevent XSS.",
      "category": "Extractors",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "template",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Template()",
      "visible": true
     },
@@ -5518,7 +6106,10 @@
      "description": "Compresses data using the deflate algorithm with no headers.",
      "category": "Compression",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "raw-deflate",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Raw_Deflate()",
      "visible": true
     },
@@ -5528,7 +6119,10 @@
      "description": "Decompresses data which has been compressed using the deflate algorithm with no headers.",
      "category": "Compression",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "raw-inflate",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Raw_Inflate()",
      "visible": true
     },
@@ -5538,7 +6132,10 @@
      "description": "Compresses data using the deflate algorithm adding zlib headers.",
      "category": "Compression",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "zlib-deflate",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Zlib_Deflate()",
      "visible": true
     },
@@ -5548,7 +6145,10 @@
      "description": "Decompresses data which has been compressed using the deflate algorithm with zlib headers.",
      "category": "Compression",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "zlib-inflate",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Zlib_Inflate()",
      "visible": true
     },
@@ -5558,7 +6158,10 @@
      "description": "Compresses data using the deflate algorithm with gzip headers.",
      "category": "Compression",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "gzip",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Gzip()",
      "visible": true
     },
@@ -5568,7 +6171,10 @@
      "description": "Decompresses data which has been compressed using the deflate algorithm with gzip headers.",
      "category": "Compression",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "gunzip",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Gunzip()",
      "visible": true
     },
@@ -5638,7 +6244,10 @@
      "description": "Decompresses data that was compressed with lz-string.",
      "category": "Compression",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "lzstring-decompress",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=LZString_Decompress()",
      "visible": true
     },
@@ -5648,7 +6257,10 @@
      "description": "Compress the input with lz-string.",
      "category": "Compression",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "lzstring-compress",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=LZString_Compress()",
      "visible": true
     },
@@ -5741,7 +6353,10 @@
      "description": "Generates all available checksums for the input.",
      "category": "Hashing",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "all-checksums",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Generate_all_checksums()",
      "visible": true
     },
@@ -5774,7 +6389,10 @@
      "description": "The MD4 (Message-Digest 4) algorithm is a cryptographic hash function developed by Ronald Rivest in 1990. The digest length is 128 bits. The algorithm has influenced later designs, such as the MD5, SHA-1 and RIPEMD algorithms. The security of MD4 has been severely compromised.",
      "category": "Hashing",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "md4",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=MD4()",
      "visible": true
     },
@@ -5843,7 +6461,10 @@
      "description": "The SHA-3 (Secure Hash Algorithm 3) hash functions were released by NIST on August 5, 2015. Although part of the same series of standards, SHA-3 is internally quite different from the MD5-like structure of SHA-1 and SHA-2. SHA-3 is a subset of the broader cryptographic primitive family Keccak design",
      "category": "Hashing",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "sha3",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=SHA3()",
      "visible": true
     },
@@ -5863,7 +6484,10 @@
      "description": "The Keccak hash algorithm was designed by Guido Bertoni, Joan Daemen, Michaël Peeters, and Gilles Van Assche, building upon RadioGatún. It was selected as the winner of the SHA-3 design competition. This version of the algorithm is Keccak[c=2d] and differs from the SHA-3 specification.",
      "category": "Hashing",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "keccak",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Keccak()",
      "visible": true
     },
@@ -5873,7 +6497,10 @@
      "description": "Shake is an Extendable Output Function (XOF) of the SHA-3 hash algorithm, part of the Keccak family, allowing for variable output length/size.",
      "category": "Hashing",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "shake",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Shake()",
      "visible": true
     },
@@ -5883,7 +6510,10 @@
      "description": "RIPEMD (RACE Integrity Primitives Evaluation Message Digest) is a family of cryptographic hash functions developed in Leuven, Belgium, by Hans Dobbertin, Antoon Bosselaers and Bart Preneel at the COSIC research group at the Katholieke Universiteit Leuven, and first published in 1996. RIPEMD was base",
      "category": "Hashing",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "ripemd160",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=RIPEMD()",
      "visible": true
     },
@@ -5923,7 +6553,10 @@
      "description": "Performs BLAKE2b hashing on the input. \\\\n BLAKE2b is a flavour of the BLAKE cryptographic hash function that is optimized for 64-bit platforms and produces digests of any size between 1 and 64 bytes.\\\\n Supports the use of an optional key.",
      "category": "Hashing",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "blake2b",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=BLAKE2b()",
      "visible": true
     },
@@ -5933,7 +6566,10 @@
      "description": "Performs BLAKE2s hashing on the input. \\\\n BLAKE2s is a flavour of the BLAKE cryptographic hash function that is optimized for 8- to 32-bit platforms and produces digests of any size between 1 and 32 bytes.\\\\n Supports the use of an optional key.",
      "category": "Hashing",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "blake2s",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=BLAKE2s()",
      "visible": true
     },
@@ -6046,7 +6682,10 @@
      "description": "CMAC is a block-cipher based message authentication code algorithm. RFC4493 defines AES-CMAC that uses AES encryption with a 128-bit key. NIST SP 800-38B suggests usages of AES with other key lengths and Triple DES.",
      "category": "Hashing",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "cmac",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=CMAC()",
      "visible": true
     },
@@ -6096,7 +6735,10 @@
      "description": "An NT Hash, sometimes referred to as an NTLM hash, is a method of storing passwords on Windows systems. It works by running MD4 on UTF-16LE encoded input. NTLM hashes are considered weak because they can be brute-forced very easily with modern hardware.",
      "category": "Hashing",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "nt-hash",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=NT_Hash()",
      "visible": true
     },
@@ -6116,7 +6758,10 @@
      "description": "Generates a MurmurHash v3 for a string input and an optional seed input",
      "category": "Hashing",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "murmur3",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=MurmurHash3()",
      "visible": true
     },
@@ -6126,7 +6771,13 @@
      "description": "The Fletcher checksum is an algorithm for computing a position-dependent checksum devised by John Gould Fletcher at Lawrence Livermore Labs in the late 1970s. The objective of the Fletcher checksum was to provide error-detection properties approaching those of a cyclic redundancy check but with the ",
      "category": "Hashing",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "fletcher",
+      "mode": "client",
+      "preset": {
+       "bits": "8"
+      }
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Fletcher-8_Checksum()",
      "visible": true
     },
@@ -6136,7 +6787,13 @@
      "description": "The Fletcher checksum is an algorithm for computing a position-dependent checksum devised by John Gould Fletcher at Lawrence Livermore Labs in the late 1970s. The objective of the Fletcher checksum was to provide error-detection properties approaching those of a cyclic redundancy check but with the ",
      "category": "Hashing",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "fletcher",
+      "mode": "client",
+      "preset": {
+       "bits": "16"
+      }
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Fletcher-16_Checksum()",
      "visible": true
     },
@@ -6146,7 +6803,13 @@
      "description": "The Fletcher checksum is an algorithm for computing a position-dependent checksum devised by John Gould Fletcher at Lawrence Livermore Labs in the late 1970s. The objective of the Fletcher checksum was to provide error-detection properties approaching those of a cyclic redundancy check but with the ",
      "category": "Hashing",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "fletcher",
+      "mode": "client",
+      "preset": {
+       "bits": "32"
+      }
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Fletcher-32_Checksum()",
      "visible": true
     },
@@ -6156,7 +6819,13 @@
      "description": "The Fletcher checksum is an algorithm for computing a position-dependent checksum devised by John Gould Fletcher at Lawrence Livermore Labs in the late 1970s. The objective of the Fletcher checksum was to provide error-detection properties approaching those of a cyclic redundancy check but with the ",
      "category": "Hashing",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "fletcher",
+      "mode": "client",
+      "preset": {
+       "bits": "64"
+      }
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Fletcher-64_Checksum()",
      "visible": true
     },
@@ -6192,7 +6861,10 @@
      "description": "A Cyclic Redundancy Check ( CRC ) is an error-detecting code commonly used in digital networks and storage devices to detect accidental changes to raw data.",
      "category": "Hashing",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "crc-any",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=CRC_Checksum()",
      "visible": true
     },
@@ -6202,7 +6874,10 @@
      "description": "Calculates the checksum for a TCP (Transport Control Protocol) or IP (Internet Protocol) header from an input of raw bytes.",
      "category": "Hashing",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "inet-checksum",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=TCP%2FIP_Checksum()",
      "visible": true
     },
@@ -6212,7 +6887,10 @@
      "description": "XOR Checksum splits the input into blocks of a configurable size and performs the XOR operation on these blocks.",
      "category": "Hashing",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "xor-checksum",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=XOR_Checksum()",
      "visible": true
     },
@@ -6222,7 +6900,10 @@
      "description": "",
      "category": "Hashing",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "parity-bit",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Parity_Bit()",
      "visible": true
     },
@@ -6321,7 +7002,10 @@
      "description": "Compresses eXtensible Markup Language (XML) code.",
      "category": "Code tidy",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "xml-minify",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=XML_Minify()",
      "visible": true
     },
@@ -6331,7 +7015,10 @@
      "description": "Indents and prettifies Structured Query Language (SQL) code.",
      "category": "Code tidy",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "sql-format",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=SQL_Beautify()",
      "visible": true
     },
@@ -6341,7 +7028,10 @@
      "description": "Compresses Structured Query Language (SQL) code.",
      "category": "Code tidy",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "sql-minify",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=SQL_Minify()",
      "visible": true
     },
@@ -6351,7 +7041,10 @@
      "description": "Indents and prettifies Cascading Style Sheets (CSS) code.",
      "category": "Code tidy",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "css-format",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=CSS_Beautify()",
      "visible": true
     },
@@ -6361,7 +7054,10 @@
      "description": "Compresses Cascading Style Sheets (CSS) code.",
      "category": "Code tidy",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "css-minify",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=CSS_Minify()",
      "visible": true
     },
@@ -6381,7 +7077,10 @@
      "description": "",
      "category": "Code tidy",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "php-unserialize",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=PHP_Deserialize()",
      "visible": true
     },
@@ -6391,7 +7090,10 @@
      "description": "",
      "category": "Code tidy",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "php-serialize",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=PHP_Serialize()",
      "visible": true
     },
@@ -6492,7 +7194,10 @@
      "description": "Renders input Markdown as HTML. HTML rendering is disabled to avoid XSS.",
      "category": "Code tidy",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "markdown-to-html",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Render_Markdown()",
      "visible": true
     },
@@ -6888,7 +7593,10 @@
      "description": "Index of Coincidence (IC) is the probability of two randomly selected characters being the same. This can be used to determine whether text is readable or random, with English text having an IC of around 0.066. IC can therefore be a sound method to automate frequency analysis.",
      "category": "Other",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "index-of-coincidence",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Index_of_Coincidence()",
      "visible": true
     },
@@ -6898,7 +7606,10 @@
      "description": "Calculates the Chi Square distribution of values.",
      "category": "Other",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "chi-square",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Chi_Square()",
      "visible": true
     },
@@ -6951,7 +7662,10 @@
      "description": "Generates rolling keycode combinations given a certain alphabet size and key length.",
      "category": "Other",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "de-bruijn",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Generate_De_Bruijn_Sequence()",
      "visible": true
     },
@@ -6974,7 +7688,10 @@
      "description": "Operation for extracting metadata and detecting the version of a given UUID.",
      "category": "Other",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "analyse-uuid",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Analyse_UUID()",
      "visible": true
     },
@@ -6997,7 +7714,10 @@
      "description": "The HMAC-based One-Time Password algorithm (HOTP) is an algorithm that computes a one-time password from a shared secret key and an incrementing counter. It has been adopted as Internet Engineering Task Force standard RFC 4226, is the cornerstone of Initiative For Open Authentication (OAUTH), and is",
      "category": "Other",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "hotp",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Generate_HOTP()",
      "visible": true
     },
@@ -7027,7 +7747,10 @@
      "description": "Returns the distance between two pairs of GPS latitude and longitude co-ordinates in metres. e.g. 51.487263,-0.124323, 38.9517,-77.1467",
      "category": "Other",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "haversine",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Haversine_distance()",
      "visible": true
     },
@@ -7037,7 +7760,10 @@
      "description": "Converts an HTML output from an operation to a readable string instead of being rendered in the DOM.",
      "category": "Other",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "html-strip",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=HTML_To_Text()",
      "visible": true
     },
@@ -7047,7 +7773,10 @@
      "description": "Generate varying length lorem ipsum placeholder text.",
      "category": "Other",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "lorem-ipsum",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Generate_Lorem_Ipsum()",
      "visible": true
     },
@@ -7067,7 +7796,10 @@
      "description": "RFC 1149.5 specifies 4 as the standard IEEE-vetted random number.",
      "category": "Other",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "xkcd-random",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=XKCD_Random_Number()",
      "visible": true
     },
@@ -7374,7 +8106,10 @@
      "description": "This task calculates the estimated carbon footprint of a website. It's based on the amount of data being transferred and processed, and the energy usage of the servers that host and deliver the website. The larger the website and the more complex its features, the higher its carbon footprint is likely to be.",
      "category": "Infrastructure",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "carbon",
+      "mode": "server"
+     },
      "external": "https://webcheck.sajinshivdas.online/check",
      "visible": true
     },
@@ -7589,7 +8324,10 @@
      "description": "This check shows the global rank of the requested site. This is only accurate for websites which are in the top 1 million list. We're using data from the Tranco project (see below), which collates the top sites on the web from Umbrella, Majestic, Quantcast, the Chrome User Experience Report and Cloudflare Radar.",
      "category": "Content & SEO",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "rank",
+      "mode": "server"
+     },
      "external": "https://webcheck.sajinshivdas.online/check",
      "visible": true
     },
@@ -8104,7 +8842,10 @@
       "ip spacing",
       "between ips"
      ],
-     "native": null,
+     "native": {
+      "op": "ip-distance",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/ip-address-convertor/distance",
      "visible": true
     },
@@ -8120,7 +8861,10 @@
       "ip position",
       "host enumeration"
      ],
-     "native": null,
+     "native": {
+      "op": "nth-ip",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/ip-address-convertor/nth-ip",
      "visible": true
     },
@@ -8155,7 +8899,10 @@
       "address matching",
       "regexp generator"
      ],
-     "native": null,
+     "native": {
+      "op": "ip-regex",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/ip-address-convertor/regex",
      "visible": true
     },
@@ -8266,7 +9013,10 @@
       "fe80",
       "scoped address"
      ],
-     "native": null,
+     "native": {
+      "op": "ipv6-zone-id",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/ip-address-convertor/notation/zone-id",
      "visible": true
     },
@@ -8282,7 +9032,10 @@
       "neighbor discovery",
       "ff02::1:ff"
      ],
-     "native": null,
+     "native": {
+      "op": "solicited-node",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/ip-address-convertor/ipv6/solicited-node",
      "visible": true
     },
@@ -8298,7 +9051,10 @@
       "parse teredo",
       "tunnel components"
      ],
-     "native": null,
+     "native": {
+      "op": "teredo-decode",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/ip-address-convertor/ipv6/teredo",
      "visible": true
     },
@@ -8314,7 +9070,10 @@
       "nat64 prefix",
       "ip translation"
      ],
-     "native": null,
+     "native": {
+      "op": "nat64",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/ip-address-convertor/ipv6/nat64",
      "visible": true
     },
@@ -8349,7 +9108,10 @@
       "::ffff",
       "reverse conversion"
      ],
-     "native": null,
+     "native": {
+      "op": "ipv6-to-ipv4",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/ip-address-convertor/families/ipv6-to-ipv4",
      "visible": true
     },
@@ -8459,7 +9221,10 @@
       "ptr template",
       "soa ns records"
      ],
-     "native": null,
+     "native": {
+      "op": "reverse-zone-gen",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dns/reverse/zone-generator",
      "visible": true
     },
@@ -8474,7 +9239,10 @@
       "nibble boundaries",
       "octet boundaries"
      ],
-     "native": null,
+     "native": {
+      "op": "reverse-zones",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dns/reverse/reverse-zones",
      "visible": true
     },
@@ -8489,7 +9257,10 @@
       "missing ptr",
       "naming pattern"
      ],
-     "native": null,
+     "native": {
+      "op": "ptr-sweep",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dns/reverse/ptr-sweep-planner",
      "visible": true
     },
@@ -8505,7 +9276,10 @@
       "dns ttl",
       "rrset"
      ],
-     "native": null,
+     "native": {
+      "op": "a-aaaa-bulk",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dns/generators/a-aaaa-bulk",
      "visible": true
     },
@@ -8520,7 +9294,10 @@
       "dns alias",
       "loop detection"
      ],
-     "native": null,
+     "native": {
+      "op": "cname-builder",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dns/generators/cname-builder",
      "visible": true
     },
@@ -8535,7 +9312,10 @@
       "email priority",
       "mx fallback"
      ],
-     "native": null,
+     "native": {
+      "op": "mx-planner",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dns/generators/mx-planner",
      "visible": true
     },
@@ -8550,7 +9330,10 @@
       "port priority",
       "service discovery"
      ],
-     "native": null,
+     "native": {
+      "op": "srv-builder",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dns/generators/srv-builder",
      "visible": true
     },
@@ -8565,7 +9348,10 @@
       "255 character limit",
       "txt chunks"
      ],
-     "native": null,
+     "native": {
+      "op": "txt-escape",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dns/generators/txt-escape",
      "visible": true
     },
@@ -8580,7 +9366,10 @@
       "email authentication",
       "spf mechanisms"
      ],
-     "native": null,
+     "native": {
+      "op": "spf-builder",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dns/generators/spf-builder",
      "visible": true
     },
@@ -8596,7 +9385,10 @@
       "rsa keypair",
       "dkim selector"
      ],
-     "native": null,
+     "native": {
+      "op": "dkim-keygen",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dns/generators/dkim-keygen",
      "visible": true
     },
@@ -8612,7 +9404,10 @@
       "dmarc alignment",
       "reporting"
      ],
-     "native": null,
+     "native": {
+      "op": "dmarc-builder",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dns/generators/dmarc-builder",
      "visible": true
     },
@@ -8627,7 +9422,10 @@
       "ca authorization",
       "ssl tls"
      ],
-     "native": null,
+     "native": {
+      "op": "caa-builder",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dns/generators/caa-builder",
      "visible": true
     },
@@ -8643,7 +9441,10 @@
       "tlsa hash",
       "tls authentication"
      ],
-     "native": null,
+     "native": {
+      "op": "tlsa-gen",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dns/generators/tlsa-generator",
      "visible": true
     },
@@ -8662,7 +9463,10 @@
       "algorithm",
       "security"
      ],
-     "native": null,
+     "native": {
+      "op": "sshfp-gen",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dns/generators/sshfp-generator",
      "visible": true
     },
@@ -8682,7 +9486,10 @@
       "ech",
       "parameters"
      ],
-     "native": null,
+     "native": {
+      "op": "svcb-https-builder",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dns/generators/svcb-https-builder",
      "visible": true
     },
@@ -8702,7 +9509,10 @@
       "regexp",
       "replacement"
      ],
-     "native": null,
+     "native": {
+      "op": "naptr-builder",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dns/generators/naptr-builder",
      "visible": true
     },
@@ -8721,7 +9531,10 @@
       "altitude",
       "precision"
      ],
-     "native": null,
+     "native": {
+      "op": "loc-builder",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dns/generators/loc-builder",
      "visible": true
     },
@@ -8740,7 +9553,10 @@
       "txt",
       "domain"
      ],
-     "native": null,
+     "native": {
+      "op": "rp-builder",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dns/generators/rp-builder",
      "visible": true
     },
@@ -8785,7 +9601,10 @@
       "CAA",
       "validation"
      ],
-     "native": null,
+     "native": {
+      "op": "dns-record-validate",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dns/record-validator",
      "visible": true
     },
@@ -8805,7 +9624,10 @@
       "humanize",
       "recommendations"
      ],
-     "native": null,
+     "native": {
+      "op": "ttl-calc",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dns/ttl-calculator",
      "visible": true
     },
@@ -8825,7 +9647,10 @@
       "estimator",
       "optimization"
      ],
-     "native": null,
+     "native": {
+      "op": "edns-size",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dns/edns-size-estimator",
      "visible": true
     },
@@ -8869,7 +9694,10 @@
       "checking",
       "format"
      ],
-     "native": null,
+     "native": {
+      "op": "zone-lint",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dns/zone/linter",
      "visible": true
     },
@@ -8889,7 +9717,10 @@
       "modified",
       "migration"
      ],
-     "native": null,
+     "native": {
+      "op": "zone-diff",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dns/zone/diff",
      "visible": true
     },
@@ -8908,7 +9739,10 @@
       "health",
       "metrics"
      ],
-     "native": null,
+     "native": {
+      "op": "zone-stats",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dns/zone/stats",
      "visible": true
     },
@@ -8928,7 +9762,10 @@
       "fqdn",
       "validation"
      ],
-     "native": null,
+     "native": {
+      "op": "dns-name-length",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dns/zone/name-length-checker",
      "visible": true
     },
@@ -8949,7 +9786,10 @@
       "ksk",
       "zsk"
      ],
-     "native": null,
+     "native": {
+      "op": "dnskey-tag",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dns/dnssec/dnskey-tag",
      "visible": true
     },
@@ -8970,7 +9810,10 @@
       "zone",
       "trust"
      ],
-     "native": null,
+     "native": {
+      "op": "ds-gen",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dns/dnssec/ds-generator",
      "visible": true
     },
@@ -8990,7 +9833,10 @@
       "sha1",
       "privacy"
      ],
-     "native": null,
+     "native": {
+      "op": "nsec3-hash",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dns/dnssec/nsec3-hash",
      "visible": true
     },
@@ -9011,7 +9857,10 @@
       "child",
       "delegation"
      ],
-     "native": null,
+     "native": {
+      "op": "cds-builder",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dns/dnssec/cds-cdnskey-builder",
      "visible": true
     },
@@ -9032,7 +9881,10 @@
       "overlap",
       "renewal"
      ],
-     "native": null,
+     "native": {
+      "op": "rrsig-planner",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dns/dnssec/rrsig-planner",
      "visible": true
     },
@@ -9052,7 +9904,10 @@
       "routing",
       "dhcp gateway"
      ],
-     "native": null,
+     "native": {
+      "op": "dhcp-opt3",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dhcp/v4/options/option3-default-gateway",
      "visible": true
     },
@@ -9071,7 +9926,10 @@
       "hostname resolution",
       "dhcp dns"
      ],
-     "native": null,
+     "native": {
+      "op": "dhcp-opt6-15",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dhcp/v4/options/options6-15-dns",
      "visible": true
     },
@@ -9091,7 +9949,10 @@
       "infinite lease",
       "dhcp lease duration"
      ],
-     "native": null,
+     "native": {
+      "op": "dhcp-opt51",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dhcp/v4/options/option51-lease-time",
      "visible": true
     },
@@ -9113,7 +9974,10 @@
       "capwap",
       "access point provisioning"
      ],
-     "native": null,
+     "native": {
+      "op": "dhcp-opt43",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dhcp/v4/options/option43-vendor-specific",
      "visible": true
     },
@@ -9132,7 +9996,10 @@
       "pxe boot",
       "vendor matching"
      ],
-     "native": null,
+     "native": {
+      "op": "dhcp-opt60",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dhcp/v4/options/option60-vendor-class",
      "visible": true
     },
@@ -9151,7 +10018,10 @@
       "dhcp client id",
       "rfc 2132"
      ],
-     "native": null,
+     "native": {
+      "op": "dhcp-opt61",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dhcp/v4/options/option61-clientid",
      "visible": true
     },
@@ -9171,7 +10041,10 @@
       "dhcp relay",
       "agent information"
      ],
-     "native": null,
+     "native": {
+      "op": "dhcp-opt82",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dhcp/v4/options/option82-relay-agent",
      "visible": true
     },
@@ -9190,7 +10063,10 @@
       "rfc 3397",
       "dns search domains"
      ],
-     "native": null,
+     "native": {
+      "op": "dhcp-opt119",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dhcp/v4/options/option119-domain-search",
      "visible": true
     },
@@ -9210,7 +10086,10 @@
       "bit-packed routes",
       "custom routing"
      ],
-     "native": null,
+     "native": {
+      "op": "dhcp-opt121",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dhcp/v4/options/option121-classless-routes",
      "visible": true
     },
@@ -9231,7 +10110,10 @@
       "network boot",
       "uefi boot"
      ],
-     "native": null,
+     "native": {
+      "op": "dhcp-opt150",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dhcp/v4/options/option150-tftp-server",
      "visible": true
     },
@@ -9253,7 +10135,10 @@
       "windows deployment",
       "network boot"
      ],
-     "native": null,
+     "native": {
+      "op": "dhcp-pxe",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dhcp/v4/options/pxe-boot-profile",
      "visible": true
     },
@@ -9273,7 +10158,10 @@
       "site-specific",
       "dhcp tlv"
      ],
-     "native": null,
+     "native": {
+      "op": "dhcp-tlv",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dhcp/v4/options/freeform-tlv",
      "visible": true
     },
@@ -9293,7 +10181,10 @@
       "ipv6 dns",
       "slaac"
      ],
-     "native": null,
+     "native": {
+      "op": "dhcpv6-dns",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dhcp/v6/options/option23-24-dns",
      "visible": true
     },
@@ -9313,7 +10204,10 @@
       "rfc 8415",
       "iaid"
      ],
-     "native": null,
+     "native": {
+      "op": "dhcpv6-pd",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dhcp/v6/options/option25-prefix-delegation",
      "visible": true
     },
@@ -9333,7 +10227,10 @@
       "fqdn flags",
       "dhcpv6 fqdn"
      ],
-     "native": null,
+     "native": {
+      "op": "dhcpv6-fqdn",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dhcp/v6/options/option39-fqdn",
      "visible": true
     },
@@ -9353,7 +10250,10 @@
       "rfc 8415",
       "dhcpv6 identity"
      ],
-     "native": null,
+     "native": {
+      "op": "duid-gen",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dhcp/v6/identity/duid-generator",
      "visible": true
     },
@@ -9371,7 +10271,10 @@
       "interface id",
       "rfc 8415"
      ],
-     "native": null,
+     "native": {
+      "op": "iaid-calc",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dhcp/v6/identity/iaid-calculator",
      "visible": true
     },
@@ -9390,7 +10293,10 @@
       "lease exhaustion",
       "ip churn"
      ],
-     "native": null,
+     "native": {
+      "op": "dhcp-lease-calc",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dhcp/calculators/lease-time",
      "visible": true
     },
@@ -9409,7 +10315,10 @@
       "device fingerprint",
       "client identification"
      ],
-     "native": null,
+     "native": {
+      "op": "dhcp-fingerprint",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dhcp/tools/fingerprinting",
      "visible": true
     },
@@ -9428,7 +10337,10 @@
       "static reservations",
       "dhcp json"
      ],
-     "native": null,
+     "native": {
+      "op": "dhcp-config",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/dhcp/kea-isc-snippets",
      "visible": true
     },
@@ -9697,7 +10609,10 @@
       "fastest",
       "benchmark"
      ],
-     "native": null,
+     "native": {
+      "op": "dns-performance",
+      "mode": "server"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/diagnostics/dns/query-performance",
      "visible": true
     },
@@ -9762,7 +10677,10 @@
       "delegation",
       "check"
      ],
-     "native": null,
+     "native": {
+      "op": "dns-server",
+      "mode": "server"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/diagnostics/dns/glue-check",
      "visible": true
     },
@@ -9782,7 +10700,10 @@
       "email",
       "authentication"
      ],
-     "native": null,
+     "native": {
+      "op": "spf-flatten",
+      "mode": "server"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/diagnostics/dns/spf-flatten",
      "visible": true
     },
@@ -9867,7 +10788,10 @@
       "cross-origin",
       "options"
      ],
-     "native": null,
+     "native": {
+      "op": "cors-check",
+      "mode": "server"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/diagnostics/http/cors-check",
      "visible": true
     },
@@ -9909,7 +10833,10 @@
       "reduction",
       "performance"
      ],
-     "native": null,
+     "native": {
+      "op": "compression-check",
+      "mode": "server"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/diagnostics/http/compression",
      "visible": true
     },
@@ -10019,7 +10946,10 @@
       "handshake",
       "response"
      ],
-     "native": null,
+     "native": {
+      "op": "ocsp-stapling",
+      "mode": "server"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/diagnostics/tls/ocsp-stapling",
      "visible": true
     },
@@ -10039,7 +10969,10 @@
       "suites",
       "probe"
      ],
-     "native": null,
+     "native": {
+      "op": "tls-cipher-presets",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/diagnostics/tls/cipher-presets",
      "visible": true
     },
@@ -10059,7 +10992,10 @@
       "fingerprinting",
       "reconnaissance"
      ],
-     "native": null,
+     "native": {
+      "op": "tls-connection",
+      "mode": "server"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/diagnostics/tls/banner",
      "visible": true
     },
@@ -10183,7 +11119,10 @@
       "route",
       "internet routing"
      ],
-     "native": null,
+     "native": {
+      "op": "bgp-lookup",
+      "mode": "server"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/diagnostics/network/bgp-route-lookup",
      "visible": true
     },
@@ -10203,7 +11142,10 @@
       "internet",
       "address"
      ],
-     "native": null,
+     "native": {
+      "op": "ipv6-check",
+      "mode": "server"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/diagnostics/network/ipv6-connectivity-checker",
      "visible": true
     },
@@ -10319,7 +11261,10 @@
       "security",
       "email"
      ],
-     "native": null,
+     "native": {
+      "op": "mail-tls",
+      "mode": "server"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/diagnostics/email/mail-tls-check",
      "visible": true
     },
@@ -10426,7 +11371,10 @@
       "ip classes",
       "prefix length"
      ],
-     "native": null,
+     "native": {
+      "op": "ref-cidr",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/reference/cidr",
      "visible": true
     },
@@ -10442,7 +11390,10 @@
       "network design",
       "common pitfalls"
      ],
-     "native": null,
+     "native": {
+      "op": "ref-vlsm",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/reference/vlsm",
      "visible": true
     },
@@ -10458,7 +11409,10 @@
       "bgp ospf",
       "routing optimization"
      ],
-     "native": null,
+     "native": {
+      "op": "ref-supernetting",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/reference/supernetting",
      "visible": true
     },
@@ -10475,7 +11429,10 @@
       "multicast ff00",
       "special prefixes"
      ],
-     "native": null,
+     "native": {
+      "op": "ref-ipv6-types",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/reference/ipv6-address-types",
      "visible": true
     },
@@ -10490,7 +11447,10 @@
       "subnet sizes",
       "allocation hierarchy"
      ],
-     "native": null,
+     "native": {
+      "op": "ref-ipv6-prefixes",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/reference/ipv6-prefix-lengths",
      "visible": true
     },
@@ -10507,7 +11467,10 @@
       "dual-stack",
       "::ffff"
      ],
-     "native": null,
+     "native": {
+      "op": "ref-ipv6-embedded-ipv4",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/reference/ipv6-embedded-ipv4",
      "visible": true
     },
@@ -10523,7 +11486,10 @@
       "rfc 4941",
       "interface identifiers"
      ],
-     "native": null,
+     "native": {
+      "op": "ref-ipv6-privacy",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/reference/ipv6-privacy-addresses",
      "visible": true
     },
@@ -10538,7 +11504,10 @@
       "/24 /25 /26",
       "quick reference"
      ],
-     "native": null,
+     "native": {
+      "op": "ref-common-subnets",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/reference/common-subnets",
      "visible": true
     },
@@ -10553,7 +11522,10 @@
       "legacy classful",
       "cidr equivalents"
      ],
-     "native": null,
+     "native": {
+      "op": "ref-network-classes",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/reference/network-classes",
      "visible": true
     },
@@ -10567,7 +11539,10 @@
       "special-use addresses",
       "rfc allocations"
      ],
-     "native": null,
+     "native": {
+      "op": "ref-reserved-ranges",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/reference/reserved-ranges",
      "visible": true
     },
@@ -10583,7 +11558,10 @@
       "10.0.0.0 192.168.0.0",
       "cgnat test blocks"
      ],
-     "native": null,
+     "native": {
+      "op": "ref-special-ipv4",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/reference/special-use-ipv4",
      "visible": true
     },
@@ -10598,7 +11576,10 @@
       "nat routable",
       "ip identification"
      ],
-     "native": null,
+     "native": {
+      "op": "ref-private-public",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/reference/private-vs-public-ip",
      "visible": true
     },
@@ -10614,7 +11595,10 @@
       "shared address space",
       "isp carrier nat"
      ],
-     "native": null,
+     "native": {
+      "op": "ref-cgnat",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/reference/cgnat",
      "visible": true
     },
@@ -10630,7 +11614,10 @@
       "zero-conf",
       "self-assigned"
      ],
-     "native": null,
+     "native": {
+      "op": "ref-link-local",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/reference/link-local-apipa",
      "visible": true
     },
@@ -10646,7 +11633,10 @@
       "multicast scopes",
       "group communication"
      ],
-     "native": null,
+     "native": {
+      "op": "ref-multicast",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/reference/multicast",
      "visible": true
     },
@@ -10662,7 +11652,10 @@
       "ip6.arpa",
       "hostname lookup"
      ],
-     "native": null,
+     "native": {
+      "op": "ref-reverse-dns",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/reference/reverse-dns",
      "visible": true
     },
@@ -10677,7 +11670,10 @@
       "nibble octet boundaries",
       "zone authority"
      ],
-     "native": null,
+     "native": {
+      "op": "ref-reverse-zones",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/reference/reverse-zones",
      "visible": true
     },
@@ -10693,7 +11689,10 @@
       "time exceeded",
       "troubleshooting"
      ],
-     "native": null,
+     "native": {
+      "op": "ref-icmp",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/reference/icmp",
      "visible": true
     },
@@ -10709,7 +11708,10 @@
       "layer2 protocol",
       "mac solicitation"
      ],
-     "native": null,
+     "native": {
+      "op": "ref-arp-ndp",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/reference/arp-vs-ndp",
      "visible": true
     },
@@ -10725,7 +11727,10 @@
       "iana rir allocation",
       "asn lookup"
      ],
-     "native": null,
+     "native": {
+      "op": "ref-asn",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/reference/asn",
      "visible": true
     },
@@ -10760,7 +11765,10 @@
       "cisco juniper",
       "firewall acl"
      ],
-     "native": null,
+     "native": {
+      "op": "ref-wildcard-masks",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/reference/wildcard-masks",
      "visible": true
     },
@@ -10776,7 +11784,10 @@
       "fragmentation",
       "jumbo frames"
      ],
-     "native": null,
+     "native": {
+      "op": "ref-mtu-mss",
+      "mode": "client"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/reference/mtu-mss",
      "visible": true
     }

@@ -8,8 +8,9 @@ const SERVER_ARGS = {
   "dns-propagation": [{ name: "type", label: "Record type", type: "select", options: ["A", "AAAA", "MX", "NS", "TXT", "CNAME"] }],
   "dkim-check": [{ name: "selector", label: "Selector (blank = try common ones)", type: "text" }],
   "port-check": [{ name: "port", label: "Port", type: "number", default: 443 }],
+  "cors-check": [{ name: "origin", label: "Origin to test", type: "text", default: "https://example.org" }],
 };
-const TARGET_HINT = { "reverse-dns": "IP address, e.g. 8.8.8.8", "ip-whois": "IP address or hostname", "asn-lookup": "AS number, e.g. AS13335", blocklists: "IPv4 address or hostname" };
+const TARGET_HINT = { "reverse-dns": "IP address, e.g. 8.8.8.8", "ip-whois": "IP address or hostname", "asn-lookup": "AS number, e.g. AS13335", blocklists: "IPv4 address or hostname", "bgp-lookup": "IP, prefix or hostname, e.g. 1.1.1.0/24", "mail-tls": "Mail domain or MX host, e.g. example.com", "spf-flatten": "Domain, e.g. example.com", "cors-check": "URL of the API or page to test" };
 
 let catalog = { tabs: [] };
 const view = $("#view");
@@ -124,7 +125,9 @@ function renderTool(tab, tool) {
   const args = defaults(op.args, tool.native.preset);
   const needsInput = op.input !== false;
   const input = h("textarea", { rows: 10, placeholder: op.placeholder || "Input", spellcheck: "false", "aria-label": "Input" });
-  const run = async () => { try { status.textContent = ""; const t0 = performance.now(); show(await runClient(op, input.value, args)); status.textContent = `${(performance.now() - t0).toFixed(1)} ms`; } catch (e) { show(e.message || String(e), true); } };
+  const run = async () => {
+    if (needsInput && !input.value.trim() && !op.allowEmpty) { out.classList.remove("error"); out.textContent = "Enter input on the left to see the result."; status.textContent = ""; return; }
+    try { status.textContent = ""; const t0 = performance.now(); show(await runClient(op, input.value, args)); status.textContent = `${(performance.now() - t0).toFixed(1)} ms`; } catch (e) { show(e.message || String(e), true); } };
   const auto = debounce(run, 180); input.addEventListener("input", auto);
   const argPanel = op.args?.length ? h("div", { class: "args" }, op.args.map((s) => argField(s, args[s.name], (v) => { args[s.name] = v; auto(); }))) : null;
   mount(view, ...header,

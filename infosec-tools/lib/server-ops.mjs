@@ -113,6 +113,40 @@ const RESOLVERS = { Cloudflare: "1.1.1.1", Google: "8.8.8.8", Quad9: "9.9.9.9", 
 
 async function headersOf(t) { const r = await safeFetch(urlOf(t), { maxBytes: 1024 * 1024 }); return r; }
 
+
+// ---------- Phase 2 live checks ----------
+async function spfFlatten(domain, depth = 0, seen = new Set(), stats = { lookups: 0 }) {
+  if (depth > 10 || seen.has(domain)) return { ip4: [], ip6: [], notes: [`loop or depth limit at ${domain}`] }; seen.add(domain);
+  const txt = await tryq(async () => (await dns.resolveTxt(domain)).map((x) => x.join(""))); const rec = Array.isArray(txt) ? txt.find((x) => /^v=spf1/i.test(x)) : null;
+  if (!rec) return { ip4: [], ip6: [], notes: [`no SPF at ${domain}`] }; const out = { ip4: [], ip6: [], notes: [] };
+  for (const m of rec.split(/\s+/).slice(1)) { const [, q, mech, val] = m.match(/^([+~?-]?)([a-z0-9]+)[:=]?(.*)$/i) || []; if (q === "-" || q === "~") continue;
+    if (mech === "ip4") out.ip4.push(val); else if (mech === "ip6") out.ip6.push(val);
+    else if (mech === "include" || mech === "redirect") { stats.lookups++; const r = await spfFlatten(val, depth + 1, seen, stats); out.ip4.push(...r.ip4); out.ip6.push(...r.ip6); out.notes.push(...r.notes); }
+    else if (mech === "a" || mech === "mx") { stats.lookups++; const tgt = (val || domain).split("/")[0]; const hosts = mech === "mx" ? (await tryq(() => dns.resolveMx(tgt))).map?.((x) => x.exchange) ?? [] : [tgt];
+      for (const h of hosts) { const a4 = await tryq(() => dns.resolve4(h)); const a6 = await tryq(() => dns.resolve6(h)); if (Array.isArray(a4)) out.ip4.push(...a4); if (Array.isArray(a6)) out.ip6.push(...a6); } }
+    else if (mech === "exists" || mech === "ptr") { stats.lookups++; out.notes.push(`${mech}:${val} cannot be flattened`); } }
+  return out;
+}
+function smtpStartTls(host, port = 25) {
+  return new Promise((resolve, reject) => resolvePublic(host).then((ips) => {
+    const ip = ips.find(net.isIPv4) || ips[0]; const sock = net.connect({ host: ip, port, timeout: 12000 }); let buf = ""; let stage = 0; const log = [];
+    const done = (e, v) => { sock.destroy(); e ? reject(e) : resolve(v); };
+    sock.on("timeout", () => done(new TargetError(`SMTP port ${port} timed out — it may be blocked by a firewall or the provider`)));
+    sock.on("error", (e) => done(new TargetError(`SMTP connection failed: ${e.code || e.message}`)));
+    sock.on("data", (d) => { buf += d.toString("latin1"); if (!/\r?\n$/.test(buf) || /^\d{3}-/m.test(buf.split(/\r?\n/).filter(Boolean).at(-1))) return; const resp = buf; buf = ""; log.push(resp.trim());
+      if (stage === 0) { stage = 1; sock.write("EHLO infosectools.sajinshivdas.online\r\n"); }
+      else if (stage === 1) { if (!/STARTTLS/i.test(resp)) return done(null, { banner: log[0], starttls: false, log }); stage = 2; sock.write("STARTTLS\r\n"); }
+      else if (stage === 2) { if (!/^220/.test(resp)) return done(null, { banner: log[0], starttls: false, log }); sock.removeAllListeners("data");
+        const t = tls.connect({ socket: sock, servername: host, rejectUnauthorized: false }, () => { const c = t.getPeerCertificate(); const info = { banner: log[0], starttls: true, protocol: t.getProtocol(), cipher: t.getCipher()?.name, authorized: t.authorized, authError: t.authorizationError, subject: c.subject?.CN, issuer: c.issuer?.O || c.issuer?.CN, validTo: c.valid_to, san: c.subjectaltname }; t.end(); resolve(info); });
+        t.on("error", (e) => done(new TargetError(`TLS handshake failed after STARTTLS: ${e.code || e.message}`))); } });
+  }, reject));
+}
+function ocspCheck(host) {
+  return new Promise((resolve, reject) => resolvePublic(host).then((ips) => { let stapled = null; const s = tls.connect({ host: ips.find(net.isIPv4) || ips[0], port: 443, servername: host, requestOCSP: true, rejectUnauthorized: false, timeout: 10000 });
+    s.on("OCSPResponse", (r) => { stapled = r; }); s.on("secureConnect", () => setTimeout(() => { s.end(); resolve(stapled); }, 200)); s.on("error", reject); s.on("timeout", () => { s.destroy(); reject(new TargetError("TLS connection timed out")); }); }, reject));
+}
+const ENC_TESTS = ["br", "gzip", "zstd", "deflate"];
+
 export const serverOps = {
   "dns-records": { name: "DNS Records (all types)", run: async (t) => { const h = hostOf(t); const d = await dnsAll(h);
     if (Object.values(d).every((v) => Array.isArray(v) && !v.length)) return { text: `No DNS records found for ${h} — the name may not exist.`, data: d };
@@ -202,5 +236,31 @@ export const serverOps = {
     const ptr = await tryq(() => dns.reverse(ips[0]));
     return { text: kv([["Hostname", h], ["IP addresses", ips], ["Reverse DNS", Array.isArray(ptr) ? ptr : ""], ["Server header", r?.headers?.server], ["Powered by", r?.headers?.["x-powered-by"]], ["Network", owner?.network], ["Country", owner?.country], ["Owner", owner?.org]]), data: { ips, owner } }; } },
   "hosts": { name: "Associated Hosts (shared IP)", run: async (t) => { const h = hostOf(t); const { chain } = await certChain(h); const san = (chain[0]?.subjectaltname || "").split(",").map((x) => x.trim().replace(/^DNS:/, "")).filter(Boolean); return { text: `Names on the same certificate (${san.length}):\n${san.join("\n")}`, data: san }; } },
+  "spf-flatten": { name: "SPF Flattener", run: async (t) => { const d = domainOf(hostOf(t)); const stats = { lookups: 0 }; const r = await spfFlatten(d, 0, new Set(), stats); const v4 = [...new Set(r.ip4)], v6 = [...new Set(r.ip6)];
+    return { text: `DNS-lookup mechanisms followed: ${stats.lookups}${stats.lookups > 10 ? "  ⚠ over the RFC 7208 limit of 10 — receivers will return permerror" : ""}\n\nFlattened record:\nv=spf1 ${[...v4.map((x) => `ip4:${x}`), ...v6.map((x) => `ip6:${x}`)].join(" ")} ~all\n\n${v4.length} IPv4 + ${v6.length} IPv6 entries${r.notes.length ? `\nNotes:\n${r.notes.map((n) => "  " + n).join("\n")}` : ""}\n\nFlattened records go stale when providers change IPs — re-run regularly.`, data: { ip4: v4, ip6: v6, lookups: stats.lookups } }; } },
+  "cors-check": { name: "CORS Check", args: ["origin"], run: async (t, a) => { const origin = a.origin || "https://example.org"; const pre = await safeRequest(urlOf(t), { method: "OPTIONS", headers: { Origin: origin, "Access-Control-Request-Method": "GET", "Access-Control-Request-Headers": "content-type" } }); const get = await safeRequest(urlOf(t), { headers: { Origin: origin } });
+    const h = (r, k) => r.headers[k] || "(not set)"; const acao = get.headers["access-control-allow-origin"]; const issues = []; if (acao === "*" && get.headers["access-control-allow-credentials"] === "true") issues.push("⚠ '*' with credentials=true is invalid and ignored by browsers"); if (acao === origin) issues.push(`ℹ Origin ${origin} is reflected — check that this is intentional (not reflecting any origin)`);
+    return { text: `Origin sent: ${origin}\n\nGET ${get.status}\n  Access-Control-Allow-Origin: ${h(get, "access-control-allow-origin")}\n  Access-Control-Allow-Credentials: ${h(get, "access-control-allow-credentials")}\n  Vary: ${h(get, "vary")}\n\nPreflight OPTIONS ${pre.status}\n  Access-Control-Allow-Methods: ${h(pre, "access-control-allow-methods")}\n  Access-Control-Allow-Headers: ${h(pre, "access-control-allow-headers")}\n  Access-Control-Max-Age: ${h(pre, "access-control-max-age")}\n\n${!acao ? "Cross-origin reads are NOT allowed for this origin." : issues.join("\n") || "✓ CORS allows this origin."}`, data: { acao } }; } },
+  "compression-check": { name: "HTTP Compression Check", run: async (t) => { const rows = []; for (const enc of ENC_TESTS) { const r = await safeRequest(urlOf(t), { headers: { "Accept-Encoding": enc }, maxBytes: 4 * 1024 * 1024 }).catch((e) => ({ error: e.message })); rows.push([enc, r.error ? `error: ${r.error}` : r.headers["content-encoding"] === enc ? `✓ supported (${r.body.length} bytes on the wire)` : `✗ not used (${r.headers["content-encoding"] || "identity"})`]); }
+    const plain = await safeRequest(urlOf(t), { headers: { "Accept-Encoding": "identity" }, maxBytes: 8 * 1024 * 1024 }).catch(() => null);
+    return { text: `${rows.map(([e, v]) => `${e.padEnd(8)} ${v}`).join("\n")}${plain ? `\n\nUncompressed size: ${plain.body.length} bytes\nContent-Type: ${plain.headers["content-type"] || "?"}` : ""}`, data: Object.fromEntries(rows) }; } },
+  "ocsp-stapling": { name: "OCSP Stapling Check", run: async (t) => { const h = hostOf(t); const r = await ocspCheck(h); return { text: r ? `✓ OCSP response stapled (${r.length} bytes)\nThe server sends certificate revocation status during the handshake, so browsers don't have to ask the CA.` : "✗ No OCSP response stapled\nNote: Let's Encrypt ended OCSP in 2025, so certificates from it carry no OCSP URL and cannot be stapled — this is expected for them.", data: { stapled: !!r, bytes: r?.length || 0 } }; } },
+  "bgp-lookup": { name: "BGP Route Lookup", run: async (t) => { const s = String(t).trim(); const q = net.isIP(s) || /\/\d+$/.test(s) ? s : (await resolvePublic(hostOf(s)))[0]; const j = await fetch(`https://stat.ripe.net/data/prefix-overview/data.json?resource=${encodeURIComponent(q)}`, { signal: AbortSignal.timeout(15000) }).then((r) => r.json());
+    const d = j.data || {}; const asns = (d.asns || []).map((x) => `AS${x.asn} ${x.holder}`); const rpki = await fetch(`https://stat.ripe.net/data/rpki-validation/data.json?resource=${d.asns?.[0]?.asn ?? ""}&prefix=${encodeURIComponent(d.resource || q)}`, { signal: AbortSignal.timeout(15000) }).then((r) => r.json()).catch(() => null);
+    return { text: `Query: ${q}\nAnnounced: ${d.announced ? "yes" : "no"}\nCovering prefix: ${d.resource || "—"}\nOrigin AS: ${asns.join(", ") || "—"}\nRPKI: ${rpki?.data?.status ?? "unknown"}${rpki?.data?.validating_roas?.length ? ` (${rpki.data.validating_roas.length} ROA)` : ""}\nRegistry block: ${d.block?.resource ?? "—"} ${d.block?.desc ?? ""}\n\nSource: RIPEstat`, data: { prefix: d.resource, asns, rpki: rpki?.data?.status } }; } },
+  "ipv6-check": { name: "IPv6 Connectivity Check", run: async (t) => { const h = hostOf(t); const v6 = await tryq(() => dns.resolve6(h)); if (!Array.isArray(v6) || !v6.length) return { text: `✗ ${h} has no AAAA record — not reachable over IPv6`, data: { aaaa: [] } };
+    const pub = v6.filter(isPublicIp); const probes = await Promise.all(pub.slice(0, 4).map((ip) => new Promise((resolve) => { const t0 = Date.now(); const s = net.connect({ host: ip, port: 443, family: 6, timeout: 6000 }); s.on("connect", () => { s.destroy(); resolve(`✓ ${ip} port 443 reachable (${Date.now() - t0} ms)`); }); s.on("timeout", () => { s.destroy(); resolve(`✗ ${ip} port 443 timed out`); }); s.on("error", (e) => resolve(`✗ ${ip} ${e.code}`)); })));
+    return { text: `AAAA records: ${v6.join(", ")}\n\n${probes.join("\n")}`, data: { aaaa: v6 } }; } },
+  "mail-tls": { name: "Mail Server TLS (STARTTLS)", run: async (t) => { const s = String(t).trim(); let host = hostOf(s); const mx = await tryq(() => dns.resolveMx(host)); if (Array.isArray(mx) && mx.length) host = mx.sort((a, b) => a.priority - b.priority)[0].exchange;
+    const r = await smtpStartTls(host, 25); if (!r.starttls) return { text: `MX host: ${host}\nBanner: ${r.banner}\n✗ STARTTLS not offered — mail to this server travels unencrypted`, data: r };
+    return { text: `MX host: ${host}\nBanner: ${r.banner}\n✓ STARTTLS supported\nProtocol: ${r.protocol}\nCipher: ${r.cipher}\nCertificate: ${r.subject} (issuer ${r.issuer}), valid to ${r.validTo}\nTrusted: ${r.authorized ? "yes" : `no (${r.authError})`}\nSANs: ${r.san}`, data: r }; } },
+  "dns-performance": { name: "DNS Query Performance", run: async (t) => { const h = hostOf(t); const rows = await Promise.all(Object.entries({ Cloudflare: "1.1.1.1", Google: "8.8.8.8", Quad9: "9.9.9.9", OpenDNS: "208.67.222.222", AdGuard: "94.140.14.14", "Level3/Lumen": "4.2.2.1" }).map(async ([name, ip]) => { const r = new Resolver({ timeout: 3000, tries: 1 }); r.setServers([ip]); const times = []; let err = null;
+      for (let k = 0; k < 3; k++) { const t0 = performance.now(); try { await r.resolve4(h); times.push(performance.now() - t0); } catch (e) { err = e.code; } } return [name, times.length ? `${Math.min(...times).toFixed(1)} ms best, ${(times.reduce((a, b) => a + b, 0) / times.length).toFixed(1)} ms avg` : `failed (${err})`, times.length ? Math.min(...times) : 1e9]; }));
+    return { text: `Resolving ${h} (A), 3 queries each, measured from the server:\n\n${rows.sort((a, b) => a[2] - b[2]).map(([n, v]) => `${n.padEnd(14)} ${v}`).join("\n")}\n\nThe first query may include a cache miss; later ones show cached latency.`, data: rows }; } },
+  rank: { name: "Global Ranking (Tranco)", run: async (t) => { const d = domainOf(hostOf(t)); const r = await fetch(`https://tranco-list.eu/api/ranks/domain/${encodeURIComponent(d)}`, { signal: AbortSignal.timeout(15000), headers: { "User-Agent": "InfosecTools/1.0" } }); if (!r.ok) throw new TargetError(`Tranco API returned HTTP ${r.status}`); const j = await r.json(); const ranks = j.ranks || [];
+    return { text: ranks.length ? `${d}\nLatest Tranco rank: #${ranks[0].rank.toLocaleString()} (${ranks[0].date})\nBest in period: #${Math.min(...ranks.map((x) => x.rank)).toLocaleString()}\n\nTranco combines Cloudflare Radar, Umbrella, Majestic and others into a research-grade top-1M list.` : `${d} is not in the Tranco top 1 million.`, data: ranks.slice(0, 30) }; } },
+  carbon: { name: "Carbon Footprint", run: async (t) => { const r = await safeFetch(urlOf(t), { maxBytes: 16 * 1024 * 1024 }); let bytes = r.body.length; const assets = [...new Set([...r.body.matchAll(/<(?:script|img|link)[^>]+(?:src|href)=["']([^"']+)["']/gi)].map((m) => m[1]))].slice(0, 25); let counted = 0;
+    for (const u of assets) { try { const abs = new URL(u, r.url).href; const a = await safeRequest(abs, { maxBytes: 8 * 1024 * 1024, timeout: 6000 }); bytes += a.body.length; counted++; } catch { /* skip asset */ } }
+    const gb = bytes / 1e9; const kwh = gb * 0.81; const grams = kwh * 442; return { text: `Page + ${counted} assets: ${(bytes / 1024).toFixed(0)} KB transferred\nEnergy per view: ${(kwh * 1000).toFixed(3)} Wh\nCO₂ per view: ${grams.toFixed(3)} g (global average grid)\nPer 10,000 views/month: ${(grams * 10000 * 12 / 1000).toFixed(1)} kg CO₂ per year\n\nMethod: Sustainable Web Design model v3 (0.81 kWh/GB, 442 g/kWh). Compressed sizes; caching not modelled.`, data: { bytes, grams } }; } },
 };
 export { isPublicIp };
