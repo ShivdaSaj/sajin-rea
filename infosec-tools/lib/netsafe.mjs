@@ -1,7 +1,7 @@
 // Outbound-request guard: every server-side check resolves the target itself and
 // refuses private, loopback, link-local, CGNAT, multicast and reserved addresses,
 // then connects to the vetted IP only (no DNS rebinding between check and use).
-import dns from "node:dns/promises";
+import { Resolver } from "node:dns/promises";
 import net from "node:net";
 import http from "node:http";
 import https from "node:https";
@@ -9,6 +9,11 @@ import https from "node:https";
 const V4_BLOCK = [["0.0.0.0", 8], ["10.0.0.0", 8], ["100.64.0.0", 10], ["127.0.0.0", 8], ["169.254.0.0", 16], ["172.16.0.0", 12], ["192.0.0.0", 24], ["192.0.2.0", 24], ["192.88.99.0", 24], ["192.168.0.0", 16], ["198.18.0.0", 15], ["198.51.100.0", 24], ["203.0.113.0", 24], ["224.0.0.0", 4], ["240.0.0.0", 4]];
 const v4int = (ip) => ip.split(".").reduce((a, b) => ((a << 8) | +b) >>> 0, 0);
 const BLOCKS = V4_BLOCK.map(([n, b]) => [v4int(n), b === 0 ? 0 : (0xffffffff << (32 - b)) >>> 0]);
+
+// Query public resolvers directly. The host's own resolver can answer its hostname with a
+// loopback address (systemd-resolved does this), which would give wrong recon results.
+export const publicResolver = new Resolver({ timeout: 4000, tries: 2 });
+publicResolver.setServers(["1.1.1.1", "8.8.8.8", "9.9.9.9", "2606:4700:4700::1111"]);
 
 export function isPublicIp(ip) {
   if (net.isIPv4(ip)) { const n = v4int(ip); return !BLOCKS.some(([b, m]) => ((n & m) >>> 0) === b); }
@@ -41,9 +46,8 @@ export async function resolvePublic(host) {
   let ips;
   if (net.isIP(host)) ips = [host];
   else {
-    const res = await Promise.allSettled([dns.resolve4(host), dns.resolve6(host)]);
+    const res = await Promise.allSettled([publicResolver.resolve4(host), publicResolver.resolve6(host)]);
     ips = res.flatMap((r) => (r.status === "fulfilled" ? r.value : []));
-    if (!ips.length) { try { ips = (await dns.lookup(host, { all: true })).map((x) => x.address); } catch { /* handled below */ } }
   }
   if (!ips.length) throw new TargetError(`Could not resolve ${host}`);
   const bad = ips.filter((ip) => !isPublicIp(ip));

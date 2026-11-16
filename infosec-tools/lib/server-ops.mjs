@@ -1,10 +1,9 @@
 // Server-side checks for Web Recon and network lookups. Each op takes a target string
 // and returns { text, data } (text for display, data as structured JSON).
-import dns from "node:dns/promises";
 import { Resolver } from "node:dns/promises";
 import net from "node:net";
 import tls from "node:tls";
-import { normalizeHost, resolvePublic, safeFetch, safeRequest, TargetError, isPublicIp } from "./netsafe.mjs";
+import { normalizeHost, resolvePublic, safeFetch, safeRequest, TargetError, isPublicIp, publicResolver as dns } from "./netsafe.mjs";
 
 const hostOf = (t) => normalizeHost(t).host;
 const urlOf = (t) => { const s = String(t).trim(); return /^https?:\/\//i.test(s) ? s : `https://${s}`; };
@@ -53,9 +52,35 @@ function tcpProbe(ip, port, timeout = 2500) {
     s.on("connect", () => { s.destroy(); resolve({ port, open: true, ms: Date.now() - t0 }); }); s.on("timeout", () => { s.destroy(); resolve({ port, open: false, reason: "filtered/timeout" }); }); s.on("error", (e) => resolve({ port, open: false, reason: e.code })); });
 }
 
+// RDAP via the IANA bootstrap registries (RFC 9224): find the authoritative server, then query it.
+const UA = { "User-Agent": "InfosecTools/1.0 (+https://infosectools.sajinshivdas.online)", Accept: "application/rdap+json, application/json" };
+const bootCache = new Map();
+async function bootstrap(kind) {
+  const hit = bootCache.get(kind); if (hit && hit.at > Date.now() - 864e5) return hit.data;
+  const r = await fetch(`https://data.iana.org/rdap/${kind}.json`, { headers: UA, signal: AbortSignal.timeout(12000) });
+  if (!r.ok) throw new TargetError(`IANA RDAP bootstrap unavailable (HTTP ${r.status})`);
+  const data = (await r.json()).services; bootCache.set(kind, { at: Date.now(), data }); return data;
+}
+const v4n = (ip) => ip.split(".").reduce((a, b) => a * 256 + +b, 0);
+async function rdapBase(kind, q) {
+  if (kind === "domain") { const labels = q.toLowerCase().split("."); const svc = await bootstrap("dns");
+    for (let i = 0; i < labels.length; i++) { const suffix = labels.slice(i).join("."); const m = svc.find(([tlds]) => tlds.includes(suffix)); if (m) return m[1][0]; } }
+  if (kind === "ip" && net.isIPv4(q)) { const svc = await bootstrap("ipv4"); let best = null;
+    for (const [cidrs, urls] of svc) for (const c of cidrs) { const [n, b] = c.split("/"); const bits = +b; const size = 2 ** (32 - bits); const start = v4n(n); if (v4n(q) >= start && v4n(q) < start + size && (!best || bits > best.bits)) best = { bits, url: urls[0] }; }
+    if (best) return best.url; }
+  if (kind === "ip" && net.isIPv6(q)) { const svc = await bootstrap("ipv6"); const full = q.toLowerCase(); let best = null;
+    const toBig = (a) => { const [h, t = ""] = a.split("::"); const hp = h ? h.split(":") : [], tp = t ? t.split(":") : []; const g = [...hp, ...Array(8 - hp.length - tp.length).fill("0"), ...tp]; return g.reduce((x, y) => (x << 16n) | BigInt(parseInt(y || "0", 16)), 0n); };
+    const qb = toBig(full); for (const [cidrs, urls] of svc) for (const c of cidrs) { const [n, b] = c.split("/"); const bits = BigInt(b); if ((qb >> (128n - bits)) === (toBig(n) >> (128n - bits)) && (!best || bits > best.bits)) best = { bits, url: urls[0] }; }
+    if (best) return best.url; }
+  if (kind === "autnum") { const svc = await bootstrap("asn"); const n = Number(q); const m = svc.find(([ranges]) => ranges.some((r) => { const [a, b = a] = r.split("-").map(Number); return n >= a && n <= b; })); if (m) return m[1][0]; }
+  throw new TargetError(`No RDAP server is registered for "${q}"`);
+}
 async function rdap(kind, q) {
-  const r = await fetch(`https://rdap.org/${kind}/${encodeURIComponent(q)}`, { headers: { accept: "application/rdap+json" }, redirect: "follow", signal: AbortSignal.timeout(12000) });
-  if (!r.ok) throw new TargetError(`RDAP lookup failed (HTTP ${r.status})`); return r.json();
+  const base = await rdapBase(kind, q); const url = `${base.replace(/\/?$/, "/")}${kind}/${encodeURIComponent(q)}`;
+  const r = await fetch(url, { headers: UA, redirect: "follow", signal: AbortSignal.timeout(15000) });
+  if (r.status === 404) throw new TargetError(`Not found in the registry (${new URL(base).host})`);
+  if (!r.ok) throw new TargetError(`RDAP lookup failed at ${new URL(base).host} (HTTP ${r.status})`);
+  return r.json();
 }
 const vcardName = (e) => e?.vcardArray?.[1]?.find((x) => x[0] === "fn")?.[3];
 const rdapEvents = (j) => Object.fromEntries((j.events || []).map((e) => [e.eventAction, e.eventDate]));
