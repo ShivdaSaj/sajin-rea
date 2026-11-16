@@ -45,7 +45,7 @@ git clone <this repo> && cd sajin-rea/infosec-tools
 
 ```bash
 ADMIN_PASSWORD=dev COOKIE_SECURE=false node server.mjs     # http://localhost:8080
-node --test test/                                          # known-answer tests for the native ops
+node --test test/*.test.mjs                                # known-answer tests for the native ops
 node scripts/build-catalog.mjs                             # rebuild seed/catalog.json after editing the op mapping
 ```
 
