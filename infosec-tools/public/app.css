@@ -201,3 +201,4 @@ h2 { font-size: 22px; letter-spacing: -.01em; }
 .media-out { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; margin-bottom: 10px; }
 .media-out:empty { display: none; }
 .out-img { max-width: 100%; max-height: 60vh; border-radius: 8px; border: 1px solid var(--border); background: repeating-conic-gradient(#8882 0% 25%, transparent 0% 50%) 50% / 16px 16px; image-rendering: auto; }
+.panel > .row select { width: auto; min-width: 110px; }

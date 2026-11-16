@@ -4,14 +4,14 @@ One site that combines four self-hosted toolkits as tabs. The tool catalog was b
 
 | Tab | Source site | Tools | Native now |
 |---|---|---|---|
-| **IT Utilities** | ittools.sajinshivdas.online (IT-Tools) | 86 | 69 |
-| **Cipher Lab** | cyberchef.sajinshivdas.online (CyberChef) | 504 | 314 |
-| **Web Recon** | webcheck.sajinshivdas.online (Web-Check) | 39 | 34 |
-| **Network Toolkit** | networking-toolbox.sajinshivdas.online | 160 | 157 |
-| **Total** | | **789** | **574** |
+| **IT Utilities** | ittools.sajinshivdas.online (IT-Tools) | 86 | 76 |
+| **Cipher Lab** | cyberchef.sajinshivdas.online (CyberChef) | 504 | 430 |
+| **Web Recon** | webcheck.sajinshivdas.online (Web-Check) | 39 | 35 |
+| **Network Toolkit** | networking-toolbox.sajinshivdas.online | 160 | 159 |
+| **Total** | | **789** | **700** |
 
-- **Native** tools run entirely in the browser: encoders and data formats, hashes and checksums (SHA-2/3, BLAKE2, RIPEMD, CRC family…), ciphers (AES, ChaCha20, Salsa20, RC4, TEA, classical), KDFs (PBKDF2, HKDF, scrypt), X.509/CSR/CRL and ASN.1 parsing, RSA/ECDSA signing and encryption, YAML/TOML/XML/MessagePack/CBOR conversion, compression, subnet/CIDR/IPv6 math, DNS and DNSSEC record builders, DHCP option encoders and network reference sheets. Cipher Lab also has a CyberChef-style **recipe builder** that chains operations.
-- **Live** tools run on the server: DNS, propagation, resolver timing, SPF/DMARC/DKIM and SPF flattening, DNSSEC, TLS chain/versions/OCSP stapling, mail STARTTLS, security headers, CORS, compression, HSTS, cookies, redirects, RDAP/WHOIS/ASN, BGP prefix and RPKI, DNSBL, CT-log subdomains, IPv6 reachability, open ports, Tranco rank, carbon footprint and more. Every outbound request goes through an SSRF guard (`lib/netsafe.mjs`). The guard refuses private, loopback, link-local, CGNAT, metadata and reserved addresses, and connects only to the IP it checked.
+- **Native** tools run entirely in the browser: encoders and data formats, hashes and checksums (SHA-2/3, BLAKE2, RIPEMD, CRC family…), ciphers (AES, ChaCha20, Salsa20, RC4, TEA, classical), KDFs (PBKDF2, HKDF, scrypt), X.509/CSR/CRL and ASN.1 parsing, RSA/ECDSA signing and encryption, YAML/TOML/XML/MessagePack/CBOR conversion, compression, subnet/CIDR/IPv6 math, DNS and DNSSEC record builders, DHCP option encoders and network reference sheets. Phase 3 added block ciphers (DES/3DES, Blowfish, RC6, PRESENT, Rabbit), password hashing (bcrypt, Argon2, LM) and more digests (SHA-0, SM3, Whirlpool, BLAKE3, SSDEEP), a QR encoder, canvas image tools and charts, forensics (file type, embedded files, ELF, EXIF, plist, ID3), archives (Zip, Tar, LZ4, LZNT1, XPRESS), packet parsers with JA3/JA4/HASSH fingerprints, and more formats and utilities. File and image tools accept a dropped file or pasted hex/base64 and offer the result as a download. Cipher Lab also has a CyberChef-style **recipe builder** that chains operations.
+- **Live** tools run on the server: DNS, propagation, resolver timing, SPF/DMARC/DKIM and SPF flattening, DNSSEC, TLS chain/versions/OCSP stapling, mail STARTTLS, security headers, CORS, compression, HSTS, cookies, redirects, RDAP/WHOIS/ASN, BGP prefix and RPKI, DNSBL, CT-log subdomains, IPv6 reachability, open ports, Tranco rank, carbon footprint, PageSpeed quality, DNS zone-transfer (AXFR) testing, iterative DNS trace and safe HTTP requests (GET/HEAD/OPTIONS only). Every outbound request goes through an SSRF guard (`lib/netsafe.mjs`). The guard refuses private, loopback, link-local, CGNAT, metadata and reserved addresses, and connects only to the IP it checked.
 - **Link** tools aren't rebuilt yet. They open the matching tool on your existing instance.
 
 ## Admin panel

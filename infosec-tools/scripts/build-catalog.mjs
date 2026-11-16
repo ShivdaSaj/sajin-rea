@@ -12,6 +12,9 @@ const seed = (f) => JSON.parse(fs.readFileSync(path.join(root, "seed", f), "utf8
 // source tool id -> native op ("op" or "op?arg=value&..." to preset arguments; "server:" prefix = server-side op)
 const MAP = {
   ittools: {
+    // phase 3
+    bcrypt: "bcrypt-hash", "bip39-generator": "bip39-generate", "base64-file-converter": "base64-file", "qrcode-generator": "qr-generate", "wifi-qrcode-generator": "wifi-qr",
+    "git-memo": "git-memo", "regex-memo": "regex-memo",
     // phase 2
     "yaml-to-json-converter": "yaml-to-json", "yaml-to-toml": "yaml-to-toml", "json-to-toml": "json-to-toml", "toml-to-json": "toml-to-json", "toml-to-yaml": "toml-to-yaml",
     "xml-to-json": "xml-to-json", "yaml-prettify": "yaml-prettify", "http-status-codes": "http-status", "mime-types": "mime-types", "json-diff": "json-diff", "safelink-decoder": "safelink-decode",
@@ -29,6 +32,8 @@ const MAP = {
     "lorem-ipsum-generator": "lorem-ipsum", "text-statistics": "text-stats", "string-obfuscator": "string-obfuscate", "text-diff": "text-diff", "numeronym-generator": "numeronym",
   },
   "networking-toolbox": {
+    // phase 3
+    "diagnostics--dns--axfr-tester": "server:axfr-test", "diagnostics--dns--trace": "server:dns-trace",
     // phase 2
     "ip-address-convertor--distance": "ip-distance", "ip-address-convertor--nth-ip": "nth-ip", "ip-address-convertor--regex": "ip-regex", "ip-address-convertor--notation--zone-id": "ipv6-zone-id",
     "ip-address-convertor--ipv6--solicited-node": "solicited-node", "ip-address-convertor--ipv6--teredo": "teredo-decode", "ip-address-convertor--ipv6--nat64": "nat64", "ip-address-convertor--families--ipv6-to-ipv4": "ipv6-to-ipv4",
@@ -70,6 +75,7 @@ const MAP = {
     "reference--ports": "port-reference",
   },
   webcheck: {
+    quality: "server:quality",
     rank: "server:rank", carbon: "server:carbon",
     "get-ip": "server:get-ip", ssl: "server:ssl", dns: "server:dns-records", cookies: "server:cookies", "robots-txt": "server:robots-txt", headers: "server:headers", location: "server:server-info",
     hosts: "server:hosts", redirects: "server:redirects", "txt-records": "server:txt-records", status: "server:status", ports: "server:ports", "server-info": "server:server-info",
@@ -79,6 +85,25 @@ const MAP = {
     "tls-client-compat": "server:tls-versions", subdomains: "server:subdomains",
   },
   cyberchef: {
+    // phase 3
+    "To Float": "to-float", "From Float": "from-float", "To Bech32": "bech32-encode", "From Bech32": "bech32-decode", "Show Base64 offsets": "base64-offsets", "To Base92": "base92-encode", "From Base92": "base92-decode",
+    "Encode text": "encode-text", "Decode text": "decode-text", "Text Encoding Brute Force": "text-encoding-brute", "Parse TLV": "parse-tlv", "MIME Decoding": "mime-decode",
+    "Blowfish Encrypt": "blowfish-encrypt", "Blowfish Decrypt": "blowfish-decrypt", "DES Encrypt": "des-encrypt", "DES Decrypt": "des-decrypt", "Triple DES Encrypt": "3des-encrypt", "Triple DES Decrypt": "3des-decrypt",
+    "Rabbit": "rabbit", "RC6 Encrypt": "rc6-encrypt", "RC6 Decrypt": "rc6-decrypt", "PRESENT Encrypt": "present-encrypt", "PRESENT Decrypt": "present-decrypt", "Derive EVP key": "evp-key", "Bcrypt": "bcrypt-hash", "Enigma": "enigma",
+    "HTTP request": "server:http-request", "Strip HTTP headers": "strip-http-headers", "Dechunk HTTP response": "dechunk-http", "Parse Ethernet frame": "parse-ethernet", "Parse IPv4 header": "parse-ipv4", "Strip IPv4 header": "strip-ipv4",
+    "Parse TCP": "parse-tcp", "Strip TCP header": "strip-tcp", "Parse TLS record": "parse-tls-record", "Parse UDP": "parse-udp", "Strip UDP header": "strip-udp", "Protobuf Decode": "protobuf-decode", "Protobuf Encode": "protobuf-encode",
+    "JA3 Fingerprint": "ja3", "JA3S Fingerprint": "ja3s", "JA4 Fingerprint": "ja4", "JA4Server Fingerprint": "ja4s", "HASSH Client Fingerprint": "hassh", "HASSH Server Fingerprint": "hassh-server",
+    "Fuzzy Match": "fuzzy-match", "Offset checker": "offset-checker", "Show on map": "show-on-map", "Sleep": "sleep", "XPath expression": "xpath", "CSS selector": "css-selector", "RAKE": "rake",
+    "Extract EXIF": "extract-exif", "Extract ID3": "extract-id3", "Zip": "zip", "Unzip": "unzip", "Tar": "tar", "Untar": "untar", "LZ4 Decompress": "lz4-decompress", "LZ4 Compress": "lz4-compress",
+    "LZNT1 Decompress": "lznt1-decompress", "XPRESS Decompress": "xpress-decompress", "SHA0": "sha0", "SM3": "sm3", "Whirlpool": "whirlpool", "BLAKE3": "blake3", "SSDEEP": "ssdeep", "CTPH": "ssdeep",
+    "Compare SSDEEP hashes": "ssdeep-compare", "Compare CTPH hashes": "ssdeep-compare", "Bcrypt compare": "bcrypt-compare", "Bcrypt parse": "bcrypt-parse", "Argon2": "argon2", "Argon2 compare": "argon2-compare", "LM Hash": "lm-hash",
+    "Generic Code Beautify": "code-beautify", "JavaScript Minify": "js-minify", "BSON serialise": "bson-serialise", "BSON deserialise": "bson-deserialise",
+    "Detect File Type": "detect-file-type", "Scan for Embedded Files": "scan-embedded", "Remove EXIF": "remove-exif", "Extract RGBA": "extract-rgba", "View Bit Plane": "bit-plane", "Randomize Colour Palette": "randomize-palette", "Extract LSB": "extract-lsb", "ELF Info": "elf-info",
+    "Render Image": "render-image", "Generate Image": "generate-image", "Split Colour Channels": "split-channels", "Rotate Image": "rotate-image", "Resize Image": "resize-image", "Blur Image": "blur-image", "Dither Image": "dither-image",
+    "Invert Image": "invert-image", "Flip Image": "flip-image", "Crop Image": "crop-image", "Image Brightness / Contrast": "brightness-contrast", "Image Opacity": "image-opacity", "Image Filter": "image-filter", "Contain Image": "contain-image",
+    "Cover Image": "cover-image", "Image Hue/Saturation/Lightness": "hue-saturation", "Sharpen Image": "sharpen-image", "Normalise Image": "normalise-image", "Convert Image Format": "convert-image", "Add Text To Image": "add-text-image",
+    "Hex Density chart": "hex-density", "Scatter chart": "scatter-chart", "Series chart": "series-chart", "Heatmap chart": "heatmap-chart", "P-list Viewer": "plist-viewer", "Generate QR Code": "qr-generate", "Numberwang": "numberwang",
+    "Magic": "magic", "Comment": "comment",
     // phase 2
     "To Hexdump": "to-hexdump", "From Hexdump": "from-hexdump", "To Base45": "base45-encode", "From Base45": "base45-decode", "To Base62": "base62-encode", "From Base62": "base62-decode",
     "To Base85": "base85-encode", "From Base85": "base85-decode", "To Base": "to-radix", "From Base": "from-radix", "To BCD": "to-bcd", "From BCD": "from-bcd", "Text-Integer Conversion": "text-to-integer",

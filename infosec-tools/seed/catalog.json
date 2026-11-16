@@ -1,6 +1,6 @@
 {
  "version": 1,
- "generatedAt": "2026-11-16T14:41:33.396Z",
+ "generatedAt": "2026-11-16T16:55:14.400Z",
  "title": "Infosec Tools",
  "tabs": [
   {
@@ -78,7 +78,10 @@
       "storage",
       "crypto"
      ],
-     "native": null,
+     "native": {
+      "op": "bcrypt-hash",
+      "mode": "client"
+     },
      "external": "https://ittools.sajinshivdas.online/bcrypt",
      "visible": true
     },
@@ -167,7 +170,10 @@
       "mnemonic",
       "entropy"
      ],
-     "native": null,
+     "native": {
+      "op": "bip39-generate",
+      "mode": "client"
+     },
      "external": "https://ittools.sajinshivdas.online/bip39-generator",
      "visible": true
     },
@@ -385,7 +391,10 @@
       "data",
       "format"
      ],
-     "native": null,
+     "native": {
+      "op": "base64-file",
+      "mode": "client"
+     },
      "external": "https://ittools.sajinshivdas.online/base64-file-converter",
      "visible": true
     },
@@ -1052,7 +1061,10 @@
       "high",
       "transparent"
      ],
-     "native": null,
+     "native": {
+      "op": "qr-generate",
+      "mode": "client"
+     },
      "external": "https://ittools.sajinshivdas.online/qrcode-generator",
      "visible": true
     },
@@ -1075,7 +1087,10 @@
       "transparent",
       "wifi"
      ],
-     "native": null,
+     "native": {
+      "op": "wifi-qr",
+      "mode": "client"
+     },
      "external": "https://ittools.sajinshivdas.online/wifi-qrcode-generator",
      "visible": true
     },
@@ -1131,7 +1146,10 @@
       "hard",
       "lease"
      ],
-     "native": null,
+     "native": {
+      "op": "git-memo",
+      "mode": "client"
+     },
      "external": "https://ittools.sajinshivdas.online/git-memo",
      "visible": true
     },
@@ -1391,7 +1409,10 @@
       "memo",
       "cheatsheet"
      ],
-     "native": null,
+     "native": {
+      "op": "regex-memo",
+      "mode": "client"
+     },
      "external": "https://ittools.sajinshivdas.online/regex-memo",
      "visible": true
     },
@@ -1963,7 +1984,10 @@
      "description": "Convert to IEEE754 Floating Point Numbers",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "to-float",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=To_Float()",
      "visible": true
     },
@@ -1973,7 +1997,10 @@
      "description": "Convert from IEEE754 Floating Point Numbers",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "from-float",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=From_Float()",
      "visible": true
     },
@@ -2113,7 +2140,10 @@
      "description": "",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "bech32-encode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=To_Bech32()",
      "visible": true
     },
@@ -2123,7 +2153,10 @@
      "description": "Bech32 is an encoding scheme primarily used for Bitcoin SegWit addresses (BIP-0173). It uses a 32-character alphabet that excludes easily confused characters (1, b, i, o) and includes a checksum for error detection. Bech32m (BIP-0350) is an updated version used for Bitcoin Taproot addresses. Auto-de",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "bech32-decode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=From_Bech32()",
      "visible": true
     },
@@ -2185,7 +2218,10 @@
      "description": "",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "base64-offsets",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Show_Base64_offsets()",
      "visible": true
     },
@@ -2195,7 +2231,10 @@
      "description": "Base92 is a notation for encoding arbitrary byte data using a restricted set of symbols that can be conveniently used by humans and processed by computers.",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "base92-encode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=To_Base92()",
      "visible": true
     },
@@ -2205,7 +2244,10 @@
      "description": "Base92 is a notation for encoding arbitrary byte data using a restricted set of symbols that can be conveniently used by humans and processed by computers.",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "base92-decode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=From_Base92()",
      "visible": true
     },
@@ -2560,7 +2602,10 @@
      "description": "Encodes text into the chosen character encoding.\\\\n \\\\nSupported charsets are:\\\\n \\\\n UTF-8 (65001) \\\\n UTF-7 (65000) \\\\n UTF-16LE (1200) \\\\n UTF-16BE (1201) \\\\n UTF-32LE (12000) \\\\n UTF-32BE (12001) \\\\n IBM EBCDIC International (500) \\\\n IBM EBCDIC US-Canada (37) \\\\n IBM EBCDIC Multilingual/ROECE (",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "encode-text",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Encode_text()",
      "visible": true
     },
@@ -2570,7 +2615,10 @@
      "description": "Decodes text from the chosen character encoding.\\\\n \\\\nSupported charsets are:\\\\n \\\\n UTF-8 (65001) \\\\n UTF-7 (65000) \\\\n UTF-16LE (1200) \\\\n UTF-16BE (1201) \\\\n UTF-32LE (12000) \\\\n UTF-32BE (12001) \\\\n IBM EBCDIC International (500) \\\\n IBM EBCDIC US-Canada (37) \\\\n IBM EBCDIC Multilingual/ROECE (",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "decode-text",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Decode_text()",
      "visible": true
     },
@@ -2580,7 +2628,10 @@
      "description": "Enumerates all supported text encodings for the input, allowing you to quickly spot the correct one.\\\\n \\\\nSupported charsets are:\\\\n \\\\n UTF-8 (65001) \\\\n UTF-7 (65000) \\\\n UTF-16LE (1200) \\\\n UTF-16BE (1201) \\\\n UTF-32LE (12000) \\\\n UTF-32BE (12001) \\\\n IBM EBCDIC International (500) \\\\n IBM EBCDI",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "text-encoding-brute",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Text_Encoding_Brute_Force()",
      "visible": true
     },
@@ -2655,7 +2706,10 @@
      "description": "Converts a Type-Length-Value (TLV) encoded string into a JSON object. Can optionally include a Key / Type entry. Tags: Key-Length-Value, KLV, Length-Value, LV",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "parse-tlv",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Parse_TLV()",
      "visible": true
     },
@@ -2818,7 +2872,10 @@
      "description": "Enables the decoding of MIME message header extensions for non-ASCII text",
      "category": "Data format",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "mime-decode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=MIME_Decoding()",
      "visible": true
     },
@@ -2880,7 +2937,10 @@
      "description": "Blowfish is a symmetric-key block cipher designed in 1993 by Bruce Schneier and included in a large number of cipher suites and encryption products. AES now receives more attention. IV: The Initialization Vector should be 8 bytes long. If not entered, it will default to 8 null bytes.",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "blowfish-encrypt",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Blowfish_Encrypt()",
      "visible": true
     },
@@ -2890,7 +2950,10 @@
      "description": "Blowfish is a symmetric-key block cipher designed in 1993 by Bruce Schneier and included in a large number of cipher suites and encryption products. AES now receives more attention. IV: The Initialization Vector should be 8 bytes long. If not entered, it will default to 8 null bytes.",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "blowfish-decrypt",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Blowfish_Decrypt()",
      "visible": true
     },
@@ -2900,7 +2963,10 @@
      "description": "DES is a previously dominant algorithm for encryption, and was published as an official U.S. Federal Information Processing Standard (FIPS). It is now considered to be insecure due to its small key size. Key: DES uses a key length of 8 bytes (64 bits). You can generate a password-based key using one",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "des-encrypt",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=DES_Encrypt()",
      "visible": true
     },
@@ -2910,7 +2976,10 @@
      "description": "DES is a previously dominant algorithm for encryption, and was published as an official U.S. Federal Information Processing Standard (FIPS). It is now considered to be insecure due to its small key size. Key: DES uses a key length of 8 bytes (64 bits). IV: The Initialization Vector should be 8 bytes",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "des-decrypt",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=DES_Decrypt()",
      "visible": true
     },
@@ -2920,7 +2989,10 @@
      "description": "Triple DES applies DES three times to each block to increase key size. Key: Triple DES uses a key length of 24 bytes (192 bits). You can generate a password-based key using one of the KDF operations. IV: The Initialization Vector should be 8 bytes long. If not entered, it will default to 8 null byte",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "3des-encrypt",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Triple_DES_Encrypt()",
      "visible": true
     },
@@ -2930,7 +3002,10 @@
      "description": "Triple DES applies DES three times to each block to increase key size. Key: Triple DES uses a key length of 24 bytes (192 bits). IV: The Initialization Vector should be 8 bytes long. If not entered, it will default to 8 null bytes. Padding: In CBC and ECB mode, PKCS#7 padding will be used as a defau",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "3des-decrypt",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Triple_DES_Decrypt()",
      "visible": true
     },
@@ -3071,7 +3146,10 @@
      "description": "Rabbit is a high-speed stream cipher introduced in 2003 and defined in RFC 4503. The cipher uses a 128-bit key and an optional 64-bit initialization vector (IV). big-endian: based on RFC4503 and RFC3447 little-endian: compatible with Crypto++",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "rabbit",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Rabbit()",
      "visible": true
     },
@@ -3101,7 +3179,10 @@
      "description": "RC6 is a symmetric key block cipher derived from RC5. It was designed by Ron Rivest, Matt Robshaw, Ray Sidney, and Yiqun Lisa Yin to meet the requirements of the AES competition, and was one of the five finalists. RC6 is parameterised as RC6-w/r/b where w is word size in bits (any multiple of 8 from",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "rc6-encrypt",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=RC6_Encrypt()",
      "visible": true
     },
@@ -3111,7 +3192,10 @@
      "description": "RC6 is a symmetric key block cipher derived from RC5. It was designed by Ron Rivest, Matt Robshaw, Ray Sidney, and Yiqun Lisa Yin to meet the requirements of the AES competition, and was one of the five finalists. RC6 is parameterised as RC6-w/r/b where w is word size in bits (any multiple of 8 from",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "rc6-decrypt",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=RC6_Decrypt()",
      "visible": true
     },
@@ -3141,7 +3225,10 @@
      "description": "PRESENT is an ultra-lightweight block cipher designed for constrained environments such as RFID tags and sensor networks. It operates on 64-bit blocks and supports 80-bit or 128-bit keys with 31 rounds. Standardised in ISO/IEC 29192-2:2019. When using CBC mode, the PKCS#7 padding scheme is used.",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "present-encrypt",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=PRESENT_Encrypt()",
      "visible": true
     },
@@ -3151,7 +3238,10 @@
      "description": "PRESENT is an ultra-lightweight block cipher designed for constrained environments such as RFID tags and sensor networks. It operates on 64-bit blocks and supports 80-bit or 128-bit keys with 31 rounds. Standardised in ISO/IEC 29192-2:2019. When using CBC mode, the PKCS#7 padding scheme is used.",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "present-decrypt",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=PRESENT_Decrypt()",
      "visible": true
     },
@@ -3706,7 +3796,10 @@
      "description": "",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "evp-key",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Derive_EVP_key()",
      "visible": true
     },
@@ -3729,7 +3822,10 @@
      "description": "bcrypt is a password hashing function designed by Niels Provos and David Mazières, based on the Blowfish cipher, and presented at USENIX in 1999. Besides incorporating a salt to protect against rainbow table attacks, bcrypt is an adaptive function: over time, the iteration count (rounds) can be incr",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "bcrypt-hash",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Bcrypt()",
      "visible": true
     },
@@ -3869,7 +3965,10 @@
      "description": "",
      "category": "Encryption / Encoding",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "enigma",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Enigma()",
      "visible": true
     },
@@ -4674,7 +4773,10 @@
      "description": "",
      "category": "Networking",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "http-request",
+      "mode": "server"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=HTTP_request()",
      "visible": true
     },
@@ -4697,7 +4799,10 @@
      "description": "Removes HTTP headers from a request or response by looking for the first instance of a double newline.",
      "category": "Networking",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "strip-http-headers",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Strip_HTTP_headers()",
      "visible": true
     },
@@ -4707,7 +4812,10 @@
      "description": "Parses an HTTP response transferred using Transfer-Encoding: Chunked",
      "category": "Networking",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "dechunk-http",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Dechunk_HTTP_response()",
      "visible": true
     },
@@ -4717,7 +4825,10 @@
      "description": "Parses an Ethernet frame and either shows the deduced values (Source and destination MAC, VLANs) or returns the packet data. Good for use in conjunction with the Parse IPv4, and Parse TCP/UDP recipes.",
      "category": "Networking",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "parse-ethernet",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Parse_Ethernet_frame()",
      "visible": true
     },
@@ -4779,7 +4890,10 @@
      "description": "Given an IPv4 header, this operations parses and displays each field in an easily readable format.",
      "category": "Networking",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "parse-ipv4",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Parse_IPv4_header()",
      "visible": true
     },
@@ -4789,7 +4903,10 @@
      "description": "Strips the IPv4 header from an IPv4 packet, outputting the payload.",
      "category": "Networking",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "strip-ipv4",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Strip_IPv4_header()",
      "visible": true
     },
@@ -4799,7 +4916,10 @@
      "description": "Parses a TCP header and payload (if present).",
      "category": "Networking",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "parse-tcp",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Parse_TCP()",
      "visible": true
     },
@@ -4809,7 +4929,10 @@
      "description": "Strips the TCP header from a TCP segment, outputting the payload.",
      "category": "Networking",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "strip-tcp",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Strip_TCP_header()",
      "visible": true
     },
@@ -4819,7 +4942,10 @@
      "description": "Parses one or more TLS records",
      "category": "Networking",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "parse-tls-record",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Parse_TLS_record()",
      "visible": true
     },
@@ -4829,7 +4955,10 @@
      "description": "Parses a UDP header and payload (if present).",
      "category": "Networking",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "parse-udp",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Parse_UDP()",
      "visible": true
     },
@@ -4839,7 +4968,10 @@
      "description": "Strips the UDP header from a UDP datagram, outputting the payload.",
      "category": "Networking",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "strip-udp",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Strip_UDP_header()",
      "visible": true
     },
@@ -4862,7 +4994,10 @@
      "description": "Decodes any Protobuf encoded data to a JSON representation of the data using the field number as the field key. If a .proto schema is defined, the encoded data will be decoded with reference to the schema. Only one message instance will be decoded. Show Unknown Fields When a schema is used, this opt",
      "category": "Networking",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "protobuf-decode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Protobuf_Decode()",
      "visible": true
     },
@@ -4872,7 +5007,10 @@
      "description": "Encodes a valid JSON object into a protobuf byte array using the input .proto schema.",
      "category": "Networking",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "protobuf-encode",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Protobuf_Encode()",
      "visible": true
     },
@@ -4908,7 +5046,10 @@
      "description": "Generates a JA3 fingerprint to help identify TLS clients based on hashing together values from the Client Hello. Input: A hex stream of the TLS Client Hello packet application layer.",
      "category": "Networking",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "ja3",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=JA3_Fingerprint()",
      "visible": true
     },
@@ -4918,7 +5059,10 @@
      "description": "Generates a JA3S fingerprint to help identify TLS servers based on hashing together values from the Server Hello. Input: A hex stream of the TLS Server Hello record application layer.",
      "category": "Networking",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "ja3s",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=JA3S_Fingerprint()",
      "visible": true
     },
@@ -4928,7 +5072,10 @@
      "description": "Generates a JA4 fingerprint to help identify TLS clients based on hashing together values from the Client Hello. Input: A hex stream of the TLS or QUIC Client Hello packet application layer.",
      "category": "Networking",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "ja4",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=JA4_Fingerprint()",
      "visible": true
     },
@@ -4938,7 +5085,10 @@
      "description": "Generates a JA4Server Fingerprint (JA4S) to help identify TLS servers or sessions based on hashing together values from the Server Hello. Input: A hex stream of the TLS or QUIC Server Hello packet application layer.",
      "category": "Networking",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "ja4s",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=JA4Server_Fingerprint()",
      "visible": true
     },
@@ -4948,7 +5098,10 @@
      "description": "Generates a HASSH fingerprint to help identify SSH clients based on hashing together values from the Client Key Exchange Init message. Input: A hex stream of the SSH_MSG_KEXINIT packet application layer from Client to Server.",
      "category": "Networking",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "hassh",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=HASSH_Client_Fingerprint()",
      "visible": true
     },
@@ -4958,7 +5111,10 @@
      "description": "Generates a HASSH fingerprint to help identify SSH servers based on hashing together values from the Server Key Exchange Init message. Input: A hex stream of the SSH_MSG_KEXINIT packet application layer from Server to Client.",
      "category": "Networking",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "hassh-server",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=HASSH_Server_Fingerprint()",
      "visible": true
     },
@@ -5512,7 +5668,10 @@
      "description": "",
      "category": "Utils",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "fuzzy-match",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Fuzzy_Match()",
      "visible": true
     },
@@ -5522,7 +5681,10 @@
      "description": "Compares multiple inputs (separated by the specified delimiter) and highlights matching characters which appear at the same position in all samples.",
      "category": "Utils",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "offset-checker",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Offset_checker()",
      "visible": true
     },
@@ -5636,7 +5798,10 @@
      "description": "Displays co-ordinates on a slippy map. Co-ordinates will be converted to decimal degrees before being shown on the map. Supported formats: Degrees Minutes Seconds (DMS) Degrees Decimal Minutes (DDM) Decimal Degrees (DD) Geohash Military Grid Reference System (MGRS) Ordnance Survey National Grid (OSN",
      "category": "Utils",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "show-on-map",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Show_on_map()",
      "visible": true
     },
@@ -5711,7 +5876,10 @@
      "description": "Sleep causes the recipe to wait for a specified number of milliseconds before continuing execution.",
      "category": "Utils",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "sleep",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Sleep()",
      "visible": true
     },
@@ -6000,7 +6168,10 @@
      "description": "Extract information from an XML document with an XPath query",
      "category": "Extractors",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "xpath",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=XPath_expression()",
      "visible": true
     },
@@ -6033,7 +6204,10 @@
      "description": "Extract information from an HTML document with a CSS selector",
      "category": "Extractors",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "css-selector",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=CSS_selector()",
      "visible": true
     },
@@ -6043,7 +6217,10 @@
      "description": "Extracts EXIF data from an image.\\\\n \\\\nEXIF data is metadata embedded in images (JPEG, JPG, TIFF) and audio files.\\\\n \\\\nEXIF data from photos usually contains information about the image file itself as well as the device used to create it.",
      "category": "Extractors",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "extract-exif",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Extract_EXIF()",
      "visible": true
     },
@@ -6053,7 +6230,10 @@
      "description": "This operation extracts ID3 metadata from an MP3 file. ID3 is a metadata container most often used in conjunction with the MP3 audio file format. It allows information such as the title, artist, album, track number, and other information about the file to be stored in the file itself.",
      "category": "Extractors",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "extract-id3",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Extract_ID3()",
      "visible": true
     },
@@ -6083,7 +6263,10 @@
      "description": "",
      "category": "Extractors",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "rake",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=RAKE()",
      "visible": true
     },
@@ -6184,7 +6367,10 @@
      "description": "Compresses data using the PKZIP algorithm with the given filename. No support for multiple files at this time.",
      "category": "Compression",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "zip",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Zip()",
      "visible": true
     },
@@ -6194,7 +6380,10 @@
      "description": "Decompresses data using the PKZIP algorithm and displays it per file, with support for passwords.",
      "category": "Compression",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "unzip",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Unzip()",
      "visible": true
     },
@@ -6224,7 +6413,10 @@
      "description": "Packs the input into a tarball. No support for multiple files at this time.",
      "category": "Compression",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "tar",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Tar()",
      "visible": true
     },
@@ -6234,7 +6426,10 @@
      "description": "Unpacks a tarball and displays it per file.",
      "category": "Compression",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "untar",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Untar()",
      "visible": true
     },
@@ -6290,7 +6485,10 @@
      "description": "LZ4 is a lossless data compression algorithm that is focused on compression and decompression speed. It belongs to the LZ77 family of byte-oriented compression schemes.",
      "category": "Compression",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "lz4-decompress",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=LZ4_Decompress()",
      "visible": true
     },
@@ -6300,7 +6498,10 @@
      "description": "LZ4 is a lossless data compression algorithm that is focused on compression and decompression speed. It belongs to the LZ77 family of byte-oriented compression schemes.",
      "category": "Compression",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "lz4-compress",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=LZ4_Compress()",
      "visible": true
     },
@@ -6310,7 +6511,10 @@
      "description": "Decompresses data using the LZNT1 algorithm. Similar to the Windows API RtlDecompressBuffer .",
      "category": "Compression",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "lznt1-decompress",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=LZNT1_Decompress()",
      "visible": true
     },
@@ -6320,7 +6524,10 @@
      "description": "Decompresses data using the XPRESS plain LZ77 algorithm (MS-XCA section 2.1). Similar to the Windows API RtlDecompressBuffer with COMPRESSION_FORMAT_XPRESS .",
      "category": "Compression",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "xpress-decompress",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=XPRESS_Decompress()",
      "visible": true
     },
@@ -6425,7 +6632,10 @@
      "description": "",
      "category": "Hashing",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "sha0",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=SHA0()",
      "visible": true
     },
@@ -6474,7 +6684,10 @@
      "description": "SM3 is a cryptographic hash function used in the Chinese National Standard. SM3 is mainly used in digital signatures, message authentication codes, and pseudorandom number generators. The message digest algorithm consists, by default, of 64 rounds and length of 256.",
      "category": "Hashing",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "sm3",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=SM3()",
      "visible": true
     },
@@ -6533,7 +6746,10 @@
      "description": "Whirlpool is a cryptographic hash function designed by Vincent Rijmen (co-creator of AES) and Paulo S. L. M. Barreto, who first described it in 2000. Several variants exist: Whirlpool-0 is the original version released in 2000. Whirlpool-T is the first revision, released in 2001, improving the gener",
      "category": "Hashing",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "whirlpool",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Whirlpool()",
      "visible": true
     },
@@ -6579,7 +6795,10 @@
      "description": "Hashes the input using BLAKE3 (UTF-8 encoded), with an optional key (also UTF-8), and outputs the result in hexadecimal format.",
      "category": "Hashing",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "blake3",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=BLAKE3()",
      "visible": true
     },
@@ -6629,7 +6848,10 @@
      "description": "",
      "category": "Hashing",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "ssdeep",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=SSDEEP()",
      "visible": true
     },
@@ -6639,7 +6861,10 @@
      "description": "",
      "category": "Hashing",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "ssdeep",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=CTPH()",
      "visible": true
     },
@@ -6649,7 +6874,10 @@
      "description": "Compares two SSDEEP fuzzy hashes to determine the similarity between them on a scale of 0 to 100.",
      "category": "Hashing",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "ssdeep-compare",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Compare_SSDEEP_hashes()",
      "visible": true
     },
@@ -6659,7 +6887,10 @@
      "description": "Compares two Context Triggered Piecewise Hashing (CTPH) fuzzy hashes to determine the similarity between them on a scale of 0 to 100.",
      "category": "Hashing",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "ssdeep-compare",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Compare_CTPH_hashes()",
      "visible": true
     },
@@ -6695,7 +6926,10 @@
      "description": "",
      "category": "Hashing",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "bcrypt-compare",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Bcrypt_compare()",
      "visible": true
     },
@@ -6705,7 +6939,10 @@
      "description": "Parses a bcrypt hash to determine the number of rounds used, the salt, and the password hash.",
      "category": "Hashing",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "bcrypt-parse",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Bcrypt_parse()",
      "visible": true
     },
@@ -6715,7 +6952,10 @@
      "description": "Argon2 is a key derivation function that was selected as the winner of the Password Hashing Competition in July 2015. It was designed by Alex Biryukov, Daniel Dinu, and Dmitry Khovratovich from the University of Luxembourg. Enter the password in the input to generate its hash.",
      "category": "Hashing",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "argon2",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Argon2()",
      "visible": true
     },
@@ -6725,7 +6965,10 @@
      "description": "",
      "category": "Hashing",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "argon2-compare",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Argon2_compare()",
      "visible": true
     },
@@ -6748,7 +6991,10 @@
      "description": "An LM Hash, or LAN Manager Hash, is a deprecated way of storing passwords on old Microsoft operating systems. It is particularly weak and can be cracked in seconds on modern hardware using rainbow tables.",
      "category": "Hashing",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "lm-hash",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=LM_Hash()",
      "visible": true
     },
@@ -6923,7 +7169,10 @@
      "description": "Attempts to pretty print C-style languages such as C, C++, C#, Java, PHP, JavaScript etc. This will not do a perfect job, and the resulting code may not work any more. This operation is designed purely to make obfuscated or minified code more easy to read and understand. Things which will not work p",
      "category": "Code tidy",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "code-beautify",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Generic_Code_Beautify()",
      "visible": true
     },
@@ -6953,7 +7202,10 @@
      "description": "Compresses JavaScript code.",
      "category": "Code tidy",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "js-minify",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=JavaScript_Minify()",
      "visible": true
     },
@@ -7174,7 +7426,10 @@
      "description": "",
      "category": "Code tidy",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "bson-serialise",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=BSON_serialise()",
      "visible": true
     },
@@ -7184,7 +7439,10 @@
      "description": "",
      "category": "Code tidy",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "bson-deserialise",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=BSON_deserialise()",
      "visible": true
     },
@@ -7207,7 +7465,10 @@
      "description": "",
      "category": "Forensics",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "detect-file-type",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Detect_File_Type()",
      "visible": true
     },
@@ -7217,7 +7478,10 @@
      "description": "Scans the data for potential embedded files by looking for magic bytes at all offsets. This operation is prone to false positives. WARNING: Files over about 100KB in size will take a VERY long time to process.",
      "category": "Forensics",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "scan-embedded",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Scan_for_Embedded_Files()",
      "visible": true
     },
@@ -7237,7 +7501,10 @@
      "description": "Removes EXIF data from a JPEG image.\\\\n \\\\nEXIF data embedded in photos usually contains information about the image file itself as well as the device used to create it.",
      "category": "Forensics",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "remove-exif",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Remove_EXIF()",
      "visible": true
     },
@@ -7247,7 +7514,10 @@
      "description": "",
      "category": "Forensics",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "extract-rgba",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Extract_RGBA()",
      "visible": true
     },
@@ -7257,7 +7527,10 @@
      "description": "Extracts and displays a bit plane of any given image. These show only a single bit from each pixel, and can be used to hide messages in Steganography.",
      "category": "Forensics",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "bit-plane",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=View_Bit_Plane()",
      "visible": true
     },
@@ -7267,7 +7540,10 @@
      "description": "",
      "category": "Forensics",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "randomize-palette",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Randomize_Colour_Palette()",
      "visible": true
     },
@@ -7277,7 +7553,10 @@
      "description": "Extracts the Least Significant Bit data from each pixel in an image. This is a common way to hide data in Steganography.",
      "category": "Forensics",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "extract-lsb",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Extract_LSB()",
      "visible": true
     },
@@ -7287,7 +7566,10 @@
      "description": "Implements readelf-like functionality. This operation will extract the ELF Header, Program Headers, Section Headers and Symbol Table for an ELF file.",
      "category": "Forensics",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "elf-info",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=ELF_Info()",
      "visible": true
     },
@@ -7297,7 +7579,10 @@
      "description": "Displays the input as an image. Supports the following formats: jpg/jpeg png gif webp bmp ico",
      "category": "Multimedia",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "render-image",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Render_Image()",
      "visible": true
     },
@@ -7317,7 +7602,10 @@
      "description": "Generates an image using the input as pixel values.",
      "category": "Multimedia",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "generate-image",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Generate_Image()",
      "visible": true
     },
@@ -7337,7 +7625,10 @@
      "description": "Splits the given image into its red, green and blue colour channels.",
      "category": "Multimedia",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "split-channels",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Split_Colour_Channels()",
      "visible": true
     },
@@ -7347,7 +7638,10 @@
      "description": "Rotates an image by the specified number of degrees.",
      "category": "Multimedia",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "rotate-image",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Rotate_Image()",
      "visible": true
     },
@@ -7357,7 +7651,10 @@
      "description": "Resizes an image to the specified width and height values.",
      "category": "Multimedia",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "resize-image",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Resize_Image()",
      "visible": true
     },
@@ -7367,7 +7664,10 @@
      "description": "Applies a blur effect to the image. Gaussian blur is much slower than fast blur, but produces better results.",
      "category": "Multimedia",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "blur-image",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Blur_Image()",
      "visible": true
     },
@@ -7377,7 +7677,10 @@
      "description": "Apply a dither effect to an image.",
      "category": "Multimedia",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "dither-image",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Dither_Image()",
      "visible": true
     },
@@ -7387,7 +7690,10 @@
      "description": "Invert the colours of an image.",
      "category": "Multimedia",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "invert-image",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Invert_Image()",
      "visible": true
     },
@@ -7397,7 +7703,10 @@
      "description": "Flips an image along its X or Y axis.",
      "category": "Multimedia",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "flip-image",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Flip_Image()",
      "visible": true
     },
@@ -7407,7 +7716,10 @@
      "description": "Crops an image to the specified region, or automatically crops edges. Autocrop Automatically crops same-colour borders from the image. Autocrop tolerance A percentage value for the tolerance of colour difference between pixels. Only autocrop frames Only crop real frames (all sides must have the same",
      "category": "Multimedia",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "crop-image",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Crop_Image()",
      "visible": true
     },
@@ -7417,7 +7729,10 @@
      "description": "Adjust the brightness or contrast of an image.",
      "category": "Multimedia",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "brightness-contrast",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Image_Brightness_%2F_Contrast()",
      "visible": true
     },
@@ -7427,7 +7742,10 @@
      "description": "Adjust the opacity of an image.",
      "category": "Multimedia",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "image-opacity",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Image_Opacity()",
      "visible": true
     },
@@ -7437,7 +7755,10 @@
      "description": "Applies a greyscale or sepia filter to an image.",
      "category": "Multimedia",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "image-filter",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Image_Filter()",
      "visible": true
     },
@@ -7447,7 +7768,10 @@
      "description": "Scales an image to the specified width and height, maintaining the aspect ratio. The image may be letterboxed.",
      "category": "Multimedia",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "contain-image",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Contain_Image()",
      "visible": true
     },
@@ -7457,7 +7781,10 @@
      "description": "Scales the image to the given width and height, keeping the aspect ratio. The image may be clipped.",
      "category": "Multimedia",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "cover-image",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Cover_Image()",
      "visible": true
     },
@@ -7467,7 +7794,10 @@
      "description": "Adjusts the hue / saturation / lightness (HSL) values of an image.",
      "category": "Multimedia",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "hue-saturation",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Image_Hue%2FSaturation%2FLightness()",
      "visible": true
     },
@@ -7477,7 +7807,10 @@
      "description": "Sharpens an image (Unsharp mask)",
      "category": "Multimedia",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "sharpen-image",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Sharpen_Image()",
      "visible": true
     },
@@ -7487,7 +7820,10 @@
      "description": "Normalise the image colours.",
      "category": "Multimedia",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "normalise-image",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Normalise_Image()",
      "visible": true
     },
@@ -7497,7 +7833,10 @@
      "description": "Converts an image between different formats. Supported formats: Joint Photographic Experts Group (JPEG) Portable Network Graphics (PNG) Bitmap (BMP) Tagged Image File Format (TIFF) Note: GIF files are supported for input, but cannot be outputted.",
      "category": "Multimedia",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "convert-image",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Convert_Image_Format()",
      "visible": true
     },
@@ -7507,7 +7846,10 @@
      "description": "Adds text onto an image. Text can be horizontally or vertically aligned, or the position can be manually specified. Variants of the Roboto font face are available in any size or colour.",
      "category": "Multimedia",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "add-text-image",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Add_Text_To_Image()",
      "visible": true
     },
@@ -7517,7 +7859,10 @@
      "description": "Hex density charts are used in a similar way to scatter charts, however rather than rendering tens of thousands of points, it groups the points into a few hundred hexagons to show the distribution.",
      "category": "Multimedia",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "hex-density",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Hex_Density_chart()",
      "visible": true
     },
@@ -7527,7 +7872,10 @@
      "description": "Plots two-variable data as single points on a graph.",
      "category": "Multimedia",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "scatter-chart",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Scatter_chart()",
      "visible": true
     },
@@ -7537,7 +7885,10 @@
      "description": "A time series graph is a line graph of repeated measurements taken over regular time intervals.",
      "category": "Multimedia",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "series-chart",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Series_chart()",
      "visible": true
     },
@@ -7547,7 +7898,10 @@
      "description": "A heatmap is a graphical representation of data where the individual values contained in a matrix are represented as colors.",
      "category": "Multimedia",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "heatmap-chart",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Heatmap_chart()",
      "visible": true
     },
@@ -7619,7 +7973,10 @@
      "description": "In the macOS, iOS, NeXTSTEP, and GNUstep programming frameworks, property list files are files that store serialized objects. Property list files use the filename extension .plist, and thus are often referred to as p-list files. This operation displays plist files in a human readable format.",
      "category": "Other",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "plist-viewer",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=P-list_Viewer()",
      "visible": true
     },
@@ -7727,7 +8084,10 @@
      "description": "Generates a Quick Response (QR) code from the input text. A QR code is a type of matrix barcode (or two-dimensional barcode) first designed in 1994 for the automotive industry in Japan. A barcode is a machine-readable optical label that contains information about the item to which it is attached.",
      "category": "Other",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "qr-generate",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Generate_QR_Code()",
      "visible": true
     },
@@ -7786,7 +8146,10 @@
      "description": "Based on the popular gameshow by Mitchell and Webb.",
      "category": "Other",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "numberwang",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Numberwang()",
      "visible": true
     },
@@ -7819,7 +8182,10 @@
      "description": "The Magic operation attempts to detect various properties of the input data and suggests which operations could help to make more sense of it. Options Depth: If an operation appears to match the data, it will be run and the result will be analysed further. This argument controls the maximum number o",
      "category": "Flow control",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "magic",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Magic()",
      "visible": true
     },
@@ -7909,7 +8275,10 @@
      "description": "Provides a place to write comments within the flow of the recipe. This operation has no computational effect.",
      "category": "Flow control",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "comment",
+      "mode": "client"
+     },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Comment()",
      "visible": true
     }
@@ -8008,7 +8377,10 @@
      "description": "Using Lighthouse, the Quality Metrics task measures the performance, accessibility, best practices, and SEO of the target website. This returns a simple checklist of 100 core metrics, along with a score for each category, to gauge the overall quality of a given site.",
      "category": "Content & SEO",
      "keywords": [],
-     "native": null,
+     "native": {
+      "op": "quality",
+      "mode": "server"
+     },
      "external": "https://webcheck.sajinshivdas.online/check",
      "visible": true
     },
@@ -10583,7 +10955,10 @@
       "test",
       "nameserver"
      ],
-     "native": null,
+     "native": {
+      "op": "axfr-test",
+      "mode": "server"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/diagnostics/dns/axfr-tester",
      "visible": true
     },
@@ -10656,7 +11031,10 @@
       "timing",
       "iterative"
      ],
-     "native": null,
+     "native": {
+      "op": "dns-trace",
+      "mode": "server"
+     },
      "external": "https://networking-toolbox.sajinshivdas.online/diagnostics/dns/trace",
      "visible": true
     },
