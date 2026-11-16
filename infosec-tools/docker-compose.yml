@@ -1,0 +1,36 @@
+# Infosec Tools behind an existing Traefik reverse proxy.
+# Values come from .env (deploy.sh creates it and detects your Traefik settings).
+name: infosec-tools
+services:
+  infosec-tools:
+    build: .
+    image: infosec-tools:latest
+    container_name: infosec-tools
+    restart: unless-stopped
+    environment:
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:?set ADMIN_PASSWORD in .env}
+      SESSION_HOURS: ${SESSION_HOURS:-12}
+    volumes:
+      - infosec-tools-data:/data
+    networks:
+      - proxy
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=${TRAEFIK_NETWORK}
+      - traefik.http.routers.infosec-tools.rule=Host(`${DOMAIN:-infosectools.sajinshivdas.online}`)
+      - traefik.http.routers.infosec-tools.entrypoints=${TRAEFIK_ENTRYPOINT:-websecure}
+      - traefik.http.routers.infosec-tools.tls=true
+      - traefik.http.routers.infosec-tools.tls.certresolver=${TRAEFIK_CERTRESOLVER:-letsencrypt}
+      - traefik.http.services.infosec-tools.loadbalancer.server.port=8080
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp
+    mem_limit: 512m
+volumes:
+  infosec-tools-data:
+networks:
+  proxy:
+    external: true
+    name: ${TRAEFIK_NETWORK}

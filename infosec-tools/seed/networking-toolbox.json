@@ -1,0 +1,2627 @@
+{
+ "source": "networking-toolbox",
+ "categories": [
+  {
+   "name": "Subnetting",
+   "href": "/subnetting",
+   "description": "Subnet calculators for IPv4, IPv6, VLSM, supernetting",
+   "tools": [
+    {
+     "id": "subnetting--ipv4-subnet-calculator",
+     "path": "/subnetting/ipv4-subnet-calculator",
+     "name": "IPv4 Subnet Calculator",
+     "description": "Calculate subnet masks, network addresses, broadcast addresses, and host ranges",
+     "group": null,
+     "keywords": [
+      "ipv4 subnet",
+      "subnet calculator",
+      "netmask",
+      "broadcast address",
+      "usable hosts",
+      "cidr notation"
+     ]
+    },
+    {
+     "id": "subnetting--ipv6-subnet-calculator",
+     "path": "/subnetting/ipv6-subnet-calculator",
+     "name": "IPv6 Subnet Calculator",
+     "description": "Calculate IPv6 subnets and network prefixes",
+     "group": null,
+     "keywords": [
+      "ipv6 subnet",
+      "prefix calculator",
+      "128-bit",
+      "ipv6 addressing",
+      "subnet prefix"
+     ]
+    },
+    {
+     "id": "subnetting--vlsm-calculator",
+     "path": "/subnetting/vlsm-calculator",
+     "name": "VLSM Calculator",
+     "description": "Variable Length Subnet Mask calculator for splitting networks into smaller subnets",
+     "group": null,
+     "keywords": [
+      "vlsm",
+      "variable length subnet",
+      "subnet allocation",
+      "network design",
+      "vlsm calculator"
+     ]
+    },
+    {
+     "id": "subnetting--supernet-calculator",
+     "path": "/subnetting/supernet-calculator",
+     "name": "Supernet Calculator",
+     "description": "Aggregate multiple networks into supernets for route summarization",
+     "group": null,
+     "keywords": [
+      "supernet",
+      "route summarization",
+      "aggregate networks",
+      "supernetting"
+     ]
+    },
+    {
+     "id": "subnetting--planner",
+     "path": "/subnetting/planner",
+     "name": "Subnet Planner",
+     "description": "Design VLSM networks with drag-and-drop planning",
+     "group": null,
+     "keywords": [
+      "subnet planner",
+      "network design",
+      "vlsm planning",
+      "visual allocation"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "CIDR",
+   "href": "/cidr",
+   "description": "CIDR notation tools, converters, and calculators",
+   "tools": [
+    {
+     "id": "cidr--mask-converter--cidr-to-subnet-mask",
+     "path": "/cidr/mask-converter/cidr-to-subnet-mask",
+     "name": "CIDR → Mask",
+     "description": "Convert CIDR notation (e.g. /24) to subnet mask format (255.255.255.0)",
+     "group": "CIDR Masks",
+     "keywords": [
+      "cidr notation",
+      "subnet mask",
+      "cidr to mask",
+      "/24",
+      "255.255.255.0",
+      "netmask conversion"
+     ]
+    },
+    {
+     "id": "cidr--mask-converter--subnet-mask-to-cidr",
+     "path": "/cidr/mask-converter/subnet-mask-to-cidr",
+     "name": "Mask → CIDR",
+     "description": "Convert subnet mask format (255.255.255.0) to CIDR notation (/24)",
+     "group": "CIDR Masks",
+     "keywords": [
+      "subnet mask",
+      "cidr notation",
+      "mask to cidr",
+      "/24",
+      "255.255.255.0",
+      "netmask conversion"
+     ]
+    },
+    {
+     "id": "cidr--range-to-cidr",
+     "path": "/cidr/range-to-cidr",
+     "name": "IP Range to CIDR",
+     "description": "Convert IP address ranges (start-end) into minimal CIDR blocks",
+     "group": null,
+     "keywords": [
+      "ip range",
+      "cidr blocks",
+      "range to cidr",
+      "start end",
+      "firewall rules",
+      "acl conversion"
+     ]
+    },
+    {
+     "id": "cidr--summarize",
+     "path": "/cidr/summarize",
+     "name": "CIDR Summarizer",
+     "description": "Optimize mixed IP addresses, CIDR blocks, and ranges into minimal CIDR prefixes",
+     "group": null,
+     "keywords": [
+      "cidr summarization",
+      "optimize blocks",
+      "aggregate prefixes",
+      "minimal cidr",
+      "route aggregation"
+     ]
+    },
+    {
+     "id": "cidr--split",
+     "path": "/cidr/split",
+     "name": "CIDR Split",
+     "description": "Split a network into N equal child subnets or to a target prefix length",
+     "group": null,
+     "keywords": [
+      "cidr split",
+      "subnet division",
+      "split network",
+      "child subnets",
+      "prefix length"
+     ]
+    },
+    {
+     "id": "cidr--next-available",
+     "path": "/cidr/next-available",
+     "name": "Next Available Subnet",
+     "description": "Find available subnets in pools using first-fit or best-fit algorithms",
+     "group": null,
+     "keywords": [
+      "next available",
+      "find subnet",
+      "subnet pools",
+      "first-fit",
+      "best-fit",
+      "ip allocation"
+     ]
+    },
+    {
+     "id": "cidr--gaps",
+     "path": "/cidr/gaps",
+     "name": "Free Space Finder",
+     "description": "List unallocated IP blocks in CIDR pools by prefix length",
+     "group": null,
+     "keywords": [
+      "free space",
+      "cidr gaps",
+      "unallocated blocks",
+      "ip pools",
+      "available ranges"
+     ]
+    },
+    {
+     "id": "cidr--deaggregate",
+     "path": "/cidr/deaggregate",
+     "name": "CIDR Deaggregate",
+     "description": "Break CIDR blocks into smaller uniform subnets (e.g., split into /24s)",
+     "group": null,
+     "keywords": [
+      "cidr deaggregate",
+      "break down",
+      "uniform subnets",
+      "decompose blocks",
+      "split cidr"
+     ]
+    },
+    {
+     "id": "cidr--compare",
+     "path": "/cidr/compare",
+     "name": "CIDR Compare",
+     "description": "Compare CIDR lists to show added, removed, and unchanged blocks",
+     "group": null,
+     "keywords": [
+      "cidr compare",
+      "cidr diff",
+      "compare lists",
+      "audit changes",
+      "added removed"
+     ]
+    },
+    {
+     "id": "cidr--allocator",
+     "path": "/cidr/allocator",
+     "name": "CIDR Allocator",
+     "description": "Allocate subnets into network pools using first-fit or best-fit algorithms",
+     "group": null,
+     "keywords": [
+      "cidr allocator",
+      "bin packing",
+      "first-fit",
+      "best-fit",
+      "subnet allocation"
+     ]
+    },
+    {
+     "id": "cidr--alignment",
+     "path": "/cidr/alignment",
+     "name": "CIDR Alignment",
+     "description": "Check if IP addresses align to CIDR prefix boundaries",
+     "group": null,
+     "keywords": [
+      "cidr alignment",
+      "boundary check",
+      "prefix boundaries",
+      "address alignment",
+      "subnet efficiency"
+     ]
+    },
+    {
+     "id": "cidr--wildcard-mask",
+     "path": "/cidr/wildcard-mask",
+     "name": "Wildcard Mask Converter",
+     "description": "Convert between CIDR, subnet masks, and wildcard masks with ACL rule generation",
+     "group": null,
+     "keywords": [
+      "wildcard mask",
+      "inverse mask",
+      "acl rules",
+      "cisco acl",
+      "juniper acl",
+      "access control"
+     ]
+    },
+    {
+     "id": "cidr--set-operations--diff",
+     "path": "/cidr/set-operations/diff",
+     "name": "Difference (A - B)",
+     "description": "Subtract CIDR blocks, ranges, and IPs from another set",
+     "group": "Set Operations",
+     "keywords": [
+      "set difference",
+      "subtract cidr",
+      "exclude ranges",
+      "cidr math",
+      "ip exclusion"
+     ]
+    },
+    {
+     "id": "cidr--set-operations--overlap",
+     "path": "/cidr/set-operations/overlap",
+     "name": "Overlap (A ∩ B)",
+     "description": "Find overlapping IPs and ranges between two sets",
+     "group": "Set Operations",
+     "keywords": [
+      "set intersection",
+      "cidr overlap",
+      "ip collision",
+      "conflict detection",
+      "shared ranges"
+     ]
+    },
+    {
+     "id": "cidr--set-operations--contains",
+     "path": "/cidr/set-operations/contains",
+     "name": "Contains (A ⊆ B)",
+     "description": "Check if one IP set contains another",
+     "group": "Set Operations",
+     "keywords": [
+      "set containment",
+      "subset check",
+      "superset analysis",
+      "cidr hierarchy",
+      "ip inclusion"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "IP Tools",
+   "href": "/ip-address-convertor",
+   "description": "IP address converters, validators, and generators",
+   "tools": [
+    {
+     "id": "ip-address-convertor--representations",
+     "path": "/ip-address-convertor/representations",
+     "name": "Format Representations",
+     "description": "Convert IP addresses between decimal, binary, hexadecimal, and octal number systems",
+     "group": "Number Formats",
+     "keywords": [
+      "ip formats",
+      "decimal to binary",
+      "hex conversion",
+      "octal notation",
+      "number systems"
+     ]
+    },
+    {
+     "id": "ip-address-convertor--distance",
+     "path": "/ip-address-convertor/distance",
+     "name": "IP Distance Calculator",
+     "description": "Calculate the number of addresses between two IPs with inclusive/exclusive counting",
+     "group": "Address Calculations",
+     "keywords": [
+      "ip distance",
+      "count addresses",
+      "address range",
+      "ip spacing",
+      "between ips"
+     ]
+    },
+    {
+     "id": "ip-address-convertor--nth-ip",
+     "path": "/ip-address-convertor/nth-ip",
+     "name": "Nth IP Calculator",
+     "description": "Resolve the IP address at a specific index within networks and ranges with offset support",
+     "group": "Address Calculations",
+     "keywords": [
+      "nth ip",
+      "ip at index",
+      "address offset",
+      "ip position",
+      "host enumeration"
+     ]
+    },
+    {
+     "id": "ip-address-convertor--random",
+     "path": "/ip-address-convertor/random",
+     "name": "Random IP Generator",
+     "description": "Generate random IP addresses from networks with uniqueness control and seeded randomness",
+     "group": "Address Calculations",
+     "keywords": [
+      "random ip",
+      "generate ips",
+      "random addresses",
+      "seeded random",
+      "ip generator"
+     ]
+    },
+    {
+     "id": "ip-address-convertor--regex",
+     "path": "/ip-address-convertor/regex",
+     "name": "IP Regex Generator",
+     "description": "Generate safe regular expressions for matching IPv4 and IPv6 addresses with customizable validation options",
+     "group": "Address Calculations",
+     "keywords": [
+      "ip regex",
+      "regex pattern",
+      "ip validation regex",
+      "address matching",
+      "regexp generator"
+     ]
+    },
+    {
+     "id": "ip-address-convertor--validator",
+     "path": "/ip-address-convertor/validator",
+     "name": "IP Address Validator",
+     "description": "Validate IPv4 and IPv6 addresses with detailed error analysis and format checking",
+     "group": "Address Calculations",
+     "keywords": [
+      "ip validation",
+      "validate address",
+      "check ip",
+      "verify ip",
+      "address checker"
+     ]
+    },
+    {
+     "id": "ip-address-convertor--enumerate",
+     "path": "/ip-address-convertor/enumerate",
+     "name": "IP Enumerate",
+     "description": "Safely enumerate all IP addresses in CIDR blocks and ranges with CSV/JSON export",
+     "group": "Address Calculations",
+     "keywords": [
+      "ip enumeration",
+      "list ips",
+      "generate list",
+      "export ips",
+      "csv json export"
+     ]
+    },
+    {
+     "id": "ip-address-convertor--notation--ipv6-expand",
+     "path": "/ip-address-convertor/notation/ipv6-expand",
+     "name": "IPv6 Expand",
+     "description": "Expand compressed IPv6 addresses to full 128-bit hexadecimal format",
+     "group": "IPv6 Notation",
+     "keywords": [
+      "ipv6 expand",
+      "full format",
+      "uncompress ipv6",
+      "128-bit",
+      "double colon"
+     ]
+    },
+    {
+     "id": "ip-address-convertor--notation--ipv6-compress",
+     "path": "/ip-address-convertor/notation/ipv6-compress",
+     "name": "IPv6 Compress",
+     "description": "Compress expanded IPv6 addresses using :: notation and removing leading zeros",
+     "group": "IPv6 Notation",
+     "keywords": [
+      "ipv6 compress",
+      "shorten ipv6",
+      "compact format",
+      "double colon",
+      "remove zeros"
+     ]
+    },
+    {
+     "id": "ip-address-convertor--notation--normalize",
+     "path": "/ip-address-convertor/notation/normalize",
+     "name": "IPv6 Normalizer",
+     "description": "Normalize IPv6 addresses to RFC 5952 canonical form with step-by-step transformation",
+     "group": "IPv6 Notation",
+     "keywords": [
+      "ipv6 normalize",
+      "canonical form",
+      "rfc 5952",
+      "standard format",
+      "consistent notation"
+     ]
+    },
+    {
+     "id": "ip-address-convertor--notation--zone-id",
+     "path": "/ip-address-convertor/notation/zone-id",
+     "name": "IPv6 Zone ID Handler",
+     "description": "Process IPv6 addresses with zone identifiers for link-local and multicast addresses",
+     "group": "IPv6 Notation",
+     "keywords": [
+      "ipv6 zone id",
+      "link-local",
+      "scope identifier",
+      "fe80",
+      "scoped address"
+     ]
+    },
+    {
+     "id": "ip-address-convertor--ipv6--solicited-node",
+     "path": "/ip-address-convertor/ipv6/solicited-node",
+     "name": "IPv6 Solicited-Node",
+     "description": "Compute solicited-node multicast addresses from IPv6 unicast for Neighbor Discovery Protocol",
+     "group": "IPv6 Notation",
+     "keywords": [
+      "solicited-node",
+      "multicast address",
+      "ndp",
+      "neighbor discovery",
+      "ff02::1:ff"
+     ]
+    },
+    {
+     "id": "ip-address-convertor--ipv6--teredo",
+     "path": "/ip-address-convertor/ipv6/teredo",
+     "name": "IPv6 Teredo Parser",
+     "description": "Parse Teredo IPv6 addresses to extract server IPv4, flags, mapped port, and client IPv4 components",
+     "group": "IPv6 Notation",
+     "keywords": [
+      "teredo",
+      "ipv6 tunnel",
+      "2001:0000",
+      "parse teredo",
+      "tunnel components"
+     ]
+    },
+    {
+     "id": "ip-address-convertor--ipv6--nat64",
+     "path": "/ip-address-convertor/ipv6/nat64",
+     "name": "IPv6 NAT64 Translator",
+     "description": "Translate between IPv4 and IPv6 addresses using NAT64 prefix (64:ff9b::/96 or custom)",
+     "group": "IPv6 Notation",
+     "keywords": [
+      "nat64",
+      "ipv4 ipv6 translation",
+      "64:ff9b",
+      "nat64 prefix",
+      "ip translation"
+     ]
+    },
+    {
+     "id": "ip-address-convertor--families--ipv4-to-ipv6",
+     "path": "/ip-address-convertor/families/ipv4-to-ipv6",
+     "name": "IPv4 → IPv6",
+     "description": "Convert IPv4 addresses to IPv6 format using IPv4-mapped IPv6 addressing",
+     "group": "IP Families",
+     "keywords": [
+      "ipv4 to ipv6",
+      "ipv4-mapped",
+      "dual-stack",
+      "::ffff",
+      "address embedding"
+     ]
+    },
+    {
+     "id": "ip-address-convertor--families--ipv6-to-ipv4",
+     "path": "/ip-address-convertor/families/ipv6-to-ipv4",
+     "name": "IPv6 → IPv4",
+     "description": "Extract IPv4 addresses from IPv4-mapped IPv6 addresses",
+     "group": "IP Families",
+     "keywords": [
+      "ipv6 to ipv4",
+      "extract ipv4",
+      "ipv4-mapped",
+      "::ffff",
+      "reverse conversion"
+     ]
+    },
+    {
+     "id": "ip-address-convertor--eui64",
+     "path": "/ip-address-convertor/eui64",
+     "name": "EUI-64 Converter",
+     "description": "Convert between MAC addresses and IPv6 EUI-64 interface identifiers with IPv6 generation",
+     "group": "Address Generation",
+     "keywords": [
+      "eui-64",
+      "mac to ipv6",
+      "slaac",
+      "interface identifier",
+      "auto-configuration"
+     ]
+    },
+    {
+     "id": "ip-address-convertor--ula-generator",
+     "path": "/ip-address-convertor/ula-generator",
+     "name": "ULA Generator",
+     "description": "Generate RFC 4193 Unique Local Addresses with cryptographically secure Global IDs",
+     "group": "Address Generation",
+     "keywords": [
+      "ula",
+      "unique local address",
+      "rfc 4193",
+      "fc00 fd00",
+      "private ipv6"
+     ]
+    },
+    {
+     "id": "ip-address-convertor--mac-address",
+     "path": "/ip-address-convertor/mac-address",
+     "name": "MAC Address Converter",
+     "description": "Convert MAC addresses between formats and identify manufacturer from OUI database",
+     "group": "Address Generation",
+     "keywords": [
+      "mac address",
+      "oui lookup",
+      "manufacturer",
+      "mac format",
+      "cisco notation",
+      "vendor lookup"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "DNS Tools",
+   "href": "/dns",
+   "description": "DNS record generators, validators, and DNSSEC tools",
+   "tools": [
+    {
+     "id": "dns--generators--ptr-generator",
+     "path": "/dns/generators/ptr-generator",
+     "name": "PTR Generator",
+     "description": "Generate PTR records for reverse DNS zones",
+     "group": "DNS Generators",
+     "keywords": [
+      "ptr records",
+      "reverse dns",
+      "in-addr.arpa",
+      "ip6.arpa"
+     ]
+    },
+    {
+     "id": "dns--reverse--ptr-generator",
+     "path": "/dns/reverse/ptr-generator",
+     "name": "PTR Generator",
+     "description": "Convert IPs/CIDRs to PTR names (in-addr.arpa / ip6.arpa) and example zone lines",
+     "group": "Reverse DNS",
+     "keywords": [
+      "ptr records",
+      "reverse dns",
+      "in-addr.arpa",
+      "ip6.arpa",
+      "zone file"
+     ]
+    },
+    {
+     "id": "dns--reverse--zone-generator",
+     "path": "/dns/reverse/zone-generator",
+     "name": "Reverse Zone Generator",
+     "description": "Generate full reverse zone files from CIDR + hostname template",
+     "group": "Reverse DNS",
+     "keywords": [
+      "reverse zone",
+      "zone file generator",
+      "ptr template",
+      "soa ns records"
+     ]
+    },
+    {
+     "id": "dns--reverse--reverse-zones",
+     "path": "/dns/reverse/reverse-zones",
+     "name": "Reverse Zones Calculator",
+     "description": "Minimal set of reverse zones needed to delegate a CIDR (v4 & v6 nibble math)",
+     "group": "Reverse DNS",
+     "keywords": [
+      "reverse zones",
+      "zone delegation",
+      "nibble boundaries",
+      "octet boundaries"
+     ]
+    },
+    {
+     "id": "dns--reverse--ptr-sweep-planner",
+     "path": "/dns/reverse/ptr-sweep-planner",
+     "name": "PTR Sweep Planner",
+     "description": "Plan PTR coverage for a block; list missing/extra PTRs against naming pattern",
+     "group": "Reverse DNS",
+     "keywords": [
+      "ptr sweep",
+      "coverage analysis",
+      "missing ptr",
+      "naming pattern"
+     ]
+    },
+    {
+     "id": "dns--generators--a-aaaa-bulk",
+     "path": "/dns/generators/a-aaaa-bulk",
+     "name": "A/AAAA Bulk Generator",
+     "description": "Bulk create A and AAAA record sets from IP lists with TTL and RRset controls",
+     "group": "Record Generators",
+     "keywords": [
+      "a records",
+      "aaaa records",
+      "bulk generator",
+      "dns ttl",
+      "rrset"
+     ]
+    },
+    {
+     "id": "dns--generators--cname-builder",
+     "path": "/dns/generators/cname-builder",
+     "name": "CNAME Builder",
+     "description": "Build valid CNAME records with loop detection and self-target checks",
+     "group": "Record Generators",
+     "keywords": [
+      "cname records",
+      "canonical name",
+      "dns alias",
+      "loop detection"
+     ]
+    },
+    {
+     "id": "dns--generators--mx-planner",
+     "path": "/dns/generators/mx-planner",
+     "name": "MX Record Planner",
+     "description": "Plan MX record priorities with fallback guidance and sample configurations",
+     "group": "Record Generators",
+     "keywords": [
+      "mx records",
+      "mail exchange",
+      "email priority",
+      "mx fallback"
+     ]
+    },
+    {
+     "id": "dns--generators--srv-builder",
+     "path": "/dns/generators/srv-builder",
+     "name": "SRV Record Builder",
+     "description": "Compose SRV records with service, protocol, priority, weight, port, and target validation",
+     "group": "Record Generators",
+     "keywords": [
+      "srv records",
+      "service records",
+      "port priority",
+      "service discovery"
+     ]
+    },
+    {
+     "id": "dns--generators--txt-escape",
+     "path": "/dns/generators/txt-escape",
+     "name": "TXT Record Escape Tool",
+     "description": "Safely escape and split TXT record strings into 255-character chunks with validation",
+     "group": "Record Generators",
+     "keywords": [
+      "txt records",
+      "escape strings",
+      "255 character limit",
+      "txt chunks"
+     ]
+    },
+    {
+     "id": "dns--generators--spf-builder",
+     "path": "/dns/generators/spf-builder",
+     "name": "SPF Policy Builder",
+     "description": "Craft SPF policies with mechanism validation, qualifier control, and DNS lookup counting",
+     "group": "Record Generators",
+     "keywords": [
+      "spf records",
+      "sender policy framework",
+      "email authentication",
+      "spf mechanisms"
+     ]
+    },
+    {
+     "id": "dns--generators--dkim-keygen",
+     "path": "/dns/generators/dkim-keygen",
+     "name": "DKIM Key Generator",
+     "description": "Generate DKIM RSA keypairs (1024/2048-bit) with selectors and DNS TXT records",
+     "group": "Record Generators",
+     "keywords": [
+      "dkim",
+      "domain keys",
+      "email signing",
+      "rsa keypair",
+      "dkim selector"
+     ]
+    },
+    {
+     "id": "dns--generators--dmarc-builder",
+     "path": "/dns/generators/dmarc-builder",
+     "name": "DMARC Policy Builder",
+     "description": "Create DMARC policies with alignment options, reporting addresses, and failure handling",
+     "group": "Record Generators",
+     "keywords": [
+      "dmarc",
+      "email policy",
+      "quarantine reject",
+      "dmarc alignment",
+      "reporting"
+     ]
+    },
+    {
+     "id": "dns--generators--caa-builder",
+     "path": "/dns/generators/caa-builder",
+     "name": "CAA Record Builder",
+     "description": "Build CAA records for certificate authority authorization with misconfiguration warnings",
+     "group": "Record Generators",
+     "keywords": [
+      "caa records",
+      "certificate authority",
+      "ca authorization",
+      "ssl tls"
+     ]
+    },
+    {
+     "id": "dns--generators--tlsa-generator",
+     "path": "/dns/generators/tlsa-generator",
+     "name": "TLSA Generator",
+     "description": "Create TLSA (DANE) records from certificates or hashes with usage, selector, and matching type options",
+     "group": "Record Generators",
+     "keywords": [
+      "tlsa records",
+      "dane",
+      "certificate pinning",
+      "tlsa hash",
+      "tls authentication"
+     ]
+    },
+    {
+     "id": "dns--generators--sshfp-generator",
+     "path": "/dns/generators/sshfp-generator",
+     "name": "SSHFP Generator",
+     "description": "Generate SSHFP records from SSH public keys or fingerprints with algorithm and fingerprint type selection",
+     "group": "Record Generators",
+     "keywords": [
+      "dns",
+      "sshfp",
+      "ssh",
+      "public",
+      "key",
+      "fingerprint",
+      "algorithm",
+      "security"
+     ]
+    },
+    {
+     "id": "dns--generators--svcb-https-builder",
+     "path": "/dns/generators/svcb-https-builder",
+     "name": "SVCB/HTTPS Builder",
+     "description": "Build SVCB and HTTPS resource records with service parameters like ALPN, port, and ECH configuration",
+     "group": "Record Generators",
+     "keywords": [
+      "dns",
+      "svcb",
+      "https",
+      "service",
+      "binding",
+      "alpn",
+      "port",
+      "ech",
+      "parameters"
+     ]
+    },
+    {
+     "id": "dns--generators--naptr-builder",
+     "path": "/dns/generators/naptr-builder",
+     "name": "NAPTR Builder",
+     "description": "Construct NAPTR records for service discovery with order, preference, flags, service, regexp, and replacement fields",
+     "group": "Record Generators",
+     "keywords": [
+      "dns",
+      "naptr",
+      "service",
+      "discovery",
+      "order",
+      "preference",
+      "flags",
+      "regexp",
+      "replacement"
+     ]
+    },
+    {
+     "id": "dns--generators--loc-builder",
+     "path": "/dns/generators/loc-builder",
+     "name": "LOC Builder",
+     "description": "Create LOC records from coordinates and convert between latitude/longitude and DNS LOC format",
+     "group": "Record Generators",
+     "keywords": [
+      "dns",
+      "loc",
+      "location",
+      "coordinates",
+      "latitude",
+      "longitude",
+      "altitude",
+      "precision"
+     ]
+    },
+    {
+     "id": "dns--generators--rp-builder",
+     "path": "/dns/generators/rp-builder",
+     "name": "RP Builder",
+     "description": "Generate RP (Responsible Person) records with mailbox and TXT domain name references",
+     "group": "Record Generators",
+     "keywords": [
+      "dns",
+      "rp",
+      "responsible",
+      "person",
+      "mailbox",
+      "contact",
+      "txt",
+      "domain"
+     ]
+    },
+    {
+     "id": "dns--generators--idn-punycode",
+     "path": "/dns/generators/idn-punycode",
+     "name": "IDN Punycode Converter",
+     "description": "Convert Unicode domain names to Punycode and back with IDNA2008 normalization support",
+     "group": "Record Generators",
+     "keywords": [
+      "dns",
+      "idn",
+      "punycode",
+      "unicode",
+      "domain",
+      "international",
+      "idna2008",
+      "normalization"
+     ]
+    },
+    {
+     "id": "dns--record-validator",
+     "path": "/dns/record-validator",
+     "name": "DNS Record Validator",
+     "description": "Validate individual DNS resource record syntax (A/AAAA/CNAME/MX/TXT/SRV/CAA) with error detection",
+     "group": "DNS Utilities",
+     "keywords": [
+      "dns",
+      "record",
+      "validator",
+      "syntax",
+      "A record",
+      "AAAA",
+      "CNAME",
+      "MX",
+      "TXT",
+      "SRV",
+      "CAA",
+      "validation"
+     ]
+    },
+    {
+     "id": "dns--ttl-calculator",
+     "path": "/dns/ttl-calculator",
+     "name": "TTL Calculator",
+     "description": "Humanize DNS TTL values and compute cache expiry times with recommendations",
+     "group": "DNS Utilities",
+     "keywords": [
+      "dns",
+      "ttl",
+      "time",
+      "live",
+      "cache",
+      "expiry",
+      "calculator",
+      "humanize",
+      "recommendations"
+     ]
+    },
+    {
+     "id": "dns--edns-size-estimator",
+     "path": "/dns/edns-size-estimator",
+     "name": "EDNS Size Estimator",
+     "description": "Estimate DNS message size and UDP fragmentation risk with EDNS buffer recommendations",
+     "group": "DNS Utilities",
+     "keywords": [
+      "dns",
+      "edns",
+      "message",
+      "size",
+      "udp",
+      "fragmentation",
+      "buffer",
+      "estimator",
+      "optimization"
+     ]
+    },
+    {
+     "id": "dns--label-normalizer",
+     "path": "/dns/label-normalizer",
+     "name": "DNS Label Normalizer",
+     "description": "Normalize domain labels with homograph attack detection and script mixing warnings",
+     "group": "DNS Utilities",
+     "keywords": [
+      "dns",
+      "label",
+      "normalize",
+      "domain",
+      "homograph",
+      "attack",
+      "script",
+      "mixing",
+      "security",
+      "idn"
+     ]
+    },
+    {
+     "id": "dns--zone--linter",
+     "path": "/dns/zone/linter",
+     "name": "Zone Linter",
+     "description": "Normalize and canonicalize BIND zone files with error checking and formatting",
+     "group": "Zone File Tools",
+     "keywords": [
+      "dns",
+      "zone",
+      "linter",
+      "normalize",
+      "canonicalize",
+      "bind",
+      "error",
+      "checking",
+      "format"
+     ]
+    },
+    {
+     "id": "dns--zone--diff",
+     "path": "/dns/zone/diff",
+     "name": "Zone Diff",
+     "description": "Compare two zone files and identify added, removed, and changed DNS records",
+     "group": "Zone File Tools",
+     "keywords": [
+      "dns",
+      "zone",
+      "diff",
+      "compare",
+      "changes",
+      "added",
+      "removed",
+      "modified",
+      "migration"
+     ]
+    },
+    {
+     "id": "dns--zone--stats",
+     "path": "/dns/zone/stats",
+     "name": "Zone Statistics",
+     "description": "Analyze zone file structure, record distribution, and configuration health",
+     "group": "Zone File Tools",
+     "keywords": [
+      "dns",
+      "zone",
+      "statistics",
+      "analysis",
+      "records",
+      "distribution",
+      "health",
+      "metrics"
+     ]
+    },
+    {
+     "id": "dns--zone--name-length-checker",
+     "path": "/dns/zone/name-length-checker",
+     "name": "Name Length Checker",
+     "description": "Validate DNS names against RFC length limits: 63 bytes per label, 255 bytes per FQDN",
+     "group": "Zone File Tools",
+     "keywords": [
+      "dns",
+      "name",
+      "length",
+      "validator",
+      "rfc",
+      "limits",
+      "label",
+      "fqdn",
+      "validation"
+     ]
+    },
+    {
+     "id": "dns--dnssec--dnskey-tag",
+     "path": "/dns/dnssec/dnskey-tag",
+     "name": "DNSKEY Key Tag Calculator",
+     "description": "Compute the DNSKEY key tag from a DNSKEY RR (RFC 4034 algorithm) and display it alongside key meta",
+     "group": "DNSSEC Tools",
+     "keywords": [
+      "dnssec",
+      "dnskey",
+      "key",
+      "tag",
+      "calculator",
+      "rfc",
+      "4034",
+      "algorithm",
+      "ksk",
+      "zsk"
+     ]
+    },
+    {
+     "id": "dns--dnssec--ds-generator",
+     "path": "/dns/dnssec/ds-generator",
+     "name": "DS Record Generator",
+     "description": "Generate DS records (SHA-1/256/384) from a DNSKEY or public key, with copyable output for parent submission",
+     "group": "DNSSEC Tools",
+     "keywords": [
+      "dnssec",
+      "ds",
+      "delegation",
+      "signer",
+      "sha1",
+      "sha256",
+      "sha384",
+      "parent",
+      "zone",
+      "trust"
+     ]
+    },
+    {
+     "id": "dns--dnssec--nsec3-hash",
+     "path": "/dns/dnssec/nsec3-hash",
+     "name": "NSEC3 Hash Calculator",
+     "description": "Calculate NSEC3 owner hashes for a name given salt, iterations, and algorithm, showing the hashed owner FQDN",
+     "group": "DNSSEC Tools",
+     "keywords": [
+      "dnssec",
+      "nsec3",
+      "hash",
+      "calculator",
+      "salt",
+      "iterations",
+      "algorithm",
+      "sha1",
+      "privacy"
+     ]
+    },
+    {
+     "id": "dns--dnssec--cds-cdnskey-builder",
+     "path": "/dns/dnssec/cds-cdnskey-builder",
+     "name": "CDS/CDNSKEY Builder",
+     "description": "Build CDS/CDNSKEY RRs from child DNSKEYs to enable automated DS updates at the parent",
+     "group": "DNSSEC Tools",
+     "keywords": [
+      "dnssec",
+      "cds",
+      "cdnskey",
+      "builder",
+      "automated",
+      "ds",
+      "updates",
+      "parent",
+      "child",
+      "delegation"
+     ]
+    },
+    {
+     "id": "dns--dnssec--rrsig-planner",
+     "path": "/dns/dnssec/rrsig-planner",
+     "name": "RRSIG Planner",
+     "description": "Suggest RRSIG validity windows (inception/expiration) based on TTLs and desired overlap, with renewal lead-time guidance",
+     "group": "DNSSEC Tools",
+     "keywords": [
+      "dnssec",
+      "rrsig",
+      "planner",
+      "validity",
+      "windows",
+      "inception",
+      "expiration",
+      "ttl",
+      "overlap",
+      "renewal"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "DHCP",
+   "href": "/dhcp",
+   "description": "DHCP option generators for wireless controllers and network configuration",
+   "tools": [
+    {
+     "id": "dhcp--v4--options--option3-default-gateway",
+     "path": "/dhcp/v4/options/option3-default-gateway",
+     "name": "Option 3 - Default Gateway",
+     "description": "Build and decode DHCP default gateway configuration with support for multiple gateways and subnet validation",
+     "group": "DHCPv4 Options",
+     "keywords": [
+      "option 3",
+      "default gateway",
+      "router",
+      "gateway configuration",
+      "multiple gateways",
+      "gateway redundancy",
+      "failover",
+      "routing",
+      "dhcp gateway"
+     ]
+    },
+    {
+     "id": "dhcp--v4--options--options6-15-dns",
+     "path": "/dhcp/v4/options/options6-15-dns",
+     "name": "Options 6/15 - DNS & Domain",
+     "description": "Build and decode DNS server and domain name options for complete DNS configuration",
+     "group": "DHCPv4 Options",
+     "keywords": [
+      "option 6",
+      "option 15",
+      "dns servers",
+      "domain name",
+      "nameservers",
+      "dns configuration",
+      "hostname resolution",
+      "dhcp dns"
+     ]
+    },
+    {
+     "id": "dhcp--v4--options--option51-lease-time",
+     "path": "/dhcp/v4/options/option51-lease-time",
+     "name": "Option 51 - Lease Time",
+     "description": "Build and decode lease time option with automatic T1/T2 renewal timer calculations",
+     "group": "DHCPv4 Options",
+     "keywords": [
+      "option 51",
+      "lease time",
+      "ip lease",
+      "t1 timer",
+      "t2 timer",
+      "renewal",
+      "rebinding",
+      "infinite lease",
+      "dhcp lease duration"
+     ]
+    },
+    {
+     "id": "dhcp--v4--options--option43-vendor-specific",
+     "path": "/dhcp/v4/options/option43-vendor-specific",
+     "name": "Option 43 - Vendor Specific",
+     "description": "Generate DHCP Option 43 for wireless controller discovery (Cisco, Aruba, Ruckus, UniFi)",
+     "group": "DHCPv4 Options",
+     "keywords": [
+      "option 43",
+      "vendor specific",
+      "wireless controller",
+      "wlc discovery",
+      "cisco wlc",
+      "aruba controller",
+      "ruckus controller",
+      "unifi controller",
+      "ap discovery",
+      "capwap",
+      "access point provisioning"
+     ]
+    },
+    {
+     "id": "dhcp--v4--options--option60-vendor-class",
+     "path": "/dhcp/v4/options/option60-vendor-class",
+     "name": "Option 60 - Vendor Class",
+     "description": "Build vendor class identifiers for DHCP class-based policies (ISC, Kea, Windows, dnsmasq, MikroTik)",
+     "group": "DHCPv4 Options",
+     "keywords": [
+      "option 60",
+      "vendor class",
+      "vendor identifier",
+      "vci",
+      "class-based policy",
+      "dhcp classes",
+      "pxe boot",
+      "vendor matching"
+     ]
+    },
+    {
+     "id": "dhcp--v4--options--option61-clientid",
+     "path": "/dhcp/v4/options/option61-clientid",
+     "name": "Option 61 - Client ID",
+     "description": "Build and decode DHCPv4 Client Identifier: hardware type + MAC address or arbitrary opaque data per RFC 2132",
+     "group": "DHCPv4 Options",
+     "keywords": [
+      "option 61",
+      "client identifier",
+      "client id",
+      "hardware type",
+      "mac address",
+      "opaque data",
+      "dhcp client id",
+      "rfc 2132"
+     ]
+    },
+    {
+     "id": "dhcp--v4--options--option82-relay-agent",
+     "path": "/dhcp/v4/options/option82-relay-agent",
+     "name": "Option 82 - Relay Agent",
+     "description": "Construct and parse DHCP Relay Agent Information with Circuit-ID, Remote-ID, and VLAN formats",
+     "group": "DHCPv4 Options",
+     "keywords": [
+      "option 82",
+      "relay agent",
+      "relay information",
+      "circuit id",
+      "remote id",
+      "vlan tagging",
+      "suboption",
+      "dhcp relay",
+      "agent information"
+     ]
+    },
+    {
+     "id": "dhcp--v4--options--option119-domain-search",
+     "path": "/dhcp/v4/options/option119-domain-search",
+     "name": "Option 119 - Domain Search",
+     "description": "Encode and decode Domain Search List (RFC 3397/6731) to/from RFC 1035 wire format with domain compression",
+     "group": "DHCPv4 Options",
+     "keywords": [
+      "option 119",
+      "domain search",
+      "search list",
+      "dns suffix",
+      "domain compression",
+      "wire format",
+      "rfc 3397",
+      "dns search domains"
+     ]
+    },
+    {
+     "id": "dhcp--v4--options--option121-classless-routes",
+     "path": "/dhcp/v4/options/option121-classless-routes",
+     "name": "Option 121/249 - Classless Routes",
+     "description": "Encode and decode Classless Static Routes (RFC 3442 / MSFT 249) with bit-packed network prefixes for routing configuration",
+     "group": "DHCPv4 Options",
+     "keywords": [
+      "option 121",
+      "option 249",
+      "classless routes",
+      "static routes",
+      "route configuration",
+      "rfc 3442",
+      "microsoft routes",
+      "bit-packed routes",
+      "custom routing"
+     ]
+    },
+    {
+     "id": "dhcp--v4--options--option150-tftp-server",
+     "path": "/dhcp/v4/options/option150-tftp-server",
+     "name": "Options 150/66/67 - TFTP Server",
+     "description": "Configure TFTP servers for PXE boot and Cisco IP phones with Option 150 (TFTP list), Option 66 (server name), and Option 67 (bootfile)",
+     "group": "DHCPv4 Options",
+     "keywords": [
+      "option 150",
+      "option 66",
+      "option 67",
+      "tftp server",
+      "pxe boot",
+      "cisco phones",
+      "bootfile",
+      "next-server",
+      "network boot",
+      "uefi boot"
+     ]
+    },
+    {
+     "id": "dhcp--v4--options--pxe-boot-profile",
+     "path": "/dhcp/v4/options/pxe-boot-profile",
+     "name": "PXE Boot Profile",
+     "description": "Generate PXE boot profiles with automatic UEFI/BIOS detection using Options 93/94 for architecture-aware bootfile selection",
+     "group": "DHCPv4 Options",
+     "keywords": [
+      "pxe boot",
+      "boot profile",
+      "uefi",
+      "bios",
+      "architecture detection",
+      "option 93",
+      "option 94",
+      "bootfile selection",
+      "ipxe",
+      "windows deployment",
+      "network boot"
+     ]
+    },
+    {
+     "id": "dhcp--v4--options--freeform-tlv",
+     "path": "/dhcp/v4/options/freeform-tlv",
+     "name": "Freeform TLV Composer",
+     "description": "Build custom DHCP options using Type-Length-Value encoding with support for IPv4, IPv6, FQDN, strings, hex data, and numeric types",
+     "group": "DHCPv4 Options",
+     "keywords": [
+      "tlv",
+      "type length value",
+      "custom option",
+      "freeform option",
+      "option builder",
+      "hex encoding",
+      "vendor option",
+      "site-specific",
+      "dhcp tlv"
+     ]
+    },
+    {
+     "id": "dhcp--v6--options--option23-24-dns",
+     "path": "/dhcp/v6/options/option23-24-dns",
+     "name": "Options 23/24 - DNS Servers & Search",
+     "description": "Configure DNS servers (Option 23) and search domains (Option 24) for DHCPv6 clients per RFC 3646",
+     "group": "DHCPv6 Options",
+     "keywords": [
+      "option 23",
+      "option 24",
+      "dhcpv6 dns",
+      "recursive dns",
+      "dns servers",
+      "search domains",
+      "rfc 3646",
+      "ipv6 dns",
+      "slaac"
+     ]
+    },
+    {
+     "id": "dhcp--v6--options--option25-prefix-delegation",
+     "path": "/dhcp/v6/options/option25-prefix-delegation",
+     "name": "Options 25/26 - Prefix Delegation",
+     "description": "Build DHCPv6 IA_PD options for delegating IPv6 prefixes to requesting routers with IA Prefix options per RFC 8415",
+     "group": "DHCPv6 Options",
+     "keywords": [
+      "option 25",
+      "option 26",
+      "prefix delegation",
+      "ia_pd",
+      "ipv6 pd",
+      "delegated prefix",
+      "isp delegation",
+      "rfc 8415",
+      "iaid"
+     ]
+    },
+    {
+     "id": "dhcp--v6--options--option39-fqdn",
+     "path": "/dhcp/v6/options/option39-fqdn",
+     "name": "Option 39 - Client FQDN",
+     "description": "Configure Client FQDN Option for DHCPv6 dynamic DNS updates with S, O, and N flags per RFC 4704",
+     "group": "DHCPv6 Options",
+     "keywords": [
+      "option 39",
+      "client fqdn",
+      "fully qualified domain",
+      "hostname",
+      "ddns",
+      "dynamic dns",
+      "rfc 4704",
+      "fqdn flags",
+      "dhcpv6 fqdn"
+     ]
+    },
+    {
+     "id": "dhcp--v6--identity--duid-generator",
+     "path": "/dhcp/v6/identity/duid-generator",
+     "name": "DUID Generator",
+     "description": "Generate DHCP Unique Identifiers (DUID) for DHCPv6 clients: DUID-LLT, DUID-EN, DUID-LL, and DUID-UUID per RFC 8415",
+     "group": "DHCPv6 Identity",
+     "keywords": [
+      "duid",
+      "dhcp unique identifier",
+      "duid-llt",
+      "duid-en",
+      "duid-ll",
+      "duid-uuid",
+      "client identifier",
+      "rfc 8415",
+      "dhcpv6 identity"
+     ]
+    },
+    {
+     "id": "dhcp--v6--identity--iaid-calculator",
+     "path": "/dhcp/v6/identity/iaid-calculator",
+     "name": "IAID Calculator",
+     "description": "Calculate Identity Association Identifier (IAID) for DHCPv6 interfaces from index, name, or MAC address with OS-specific conventions",
+     "group": "DHCPv6 Identity",
+     "keywords": [
+      "iaid",
+      "identity association",
+      "interface identifier",
+      "dhcpv6 iaid",
+      "iaid calculator",
+      "interface id",
+      "rfc 8415"
+     ]
+    },
+    {
+     "id": "dhcp--calculators--lease-time",
+     "path": "/dhcp/calculators/lease-time",
+     "name": "Lease Time Calculator",
+     "description": "Calculate optimal DHCP lease times based on pool size, client count, and turnover rate with T1/T2 renewal timers",
+     "group": "Calculators & Planning",
+     "keywords": [
+      "lease calculator",
+      "lease time planning",
+      "t1 renewal",
+      "t2 rebinding",
+      "pool optimization",
+      "dhcp pool",
+      "lease exhaustion",
+      "ip churn"
+     ]
+    },
+    {
+     "id": "dhcp--tools--fingerprinting",
+     "path": "/dhcp/tools/fingerprinting",
+     "name": "Fingerprinting Database",
+     "description": "Identify devices by their DHCP fingerprints using Parameter Request List (Option 55) and Vendor Class patterns",
+     "group": "Calculators & Planning",
+     "keywords": [
+      "dhcp fingerprinting",
+      "device identification",
+      "option 55",
+      "parameter request list",
+      "vendor detection",
+      "os detection",
+      "device fingerprint",
+      "client identification"
+     ]
+    },
+    {
+     "id": "dhcp--kea-isc-snippets",
+     "path": "/dhcp/kea-isc-snippets",
+     "name": "Kea/ISC Config Snippets",
+     "description": "Generate complete subnet configurations for ISC dhcpd and Kea DHCP servers with pools, options, and reservations",
+     "group": "Configuration Generators",
+     "keywords": [
+      "isc dhcpd",
+      "kea dhcp",
+      "config generator",
+      "subnet configuration",
+      "dhcpd.conf",
+      "dhcp pools",
+      "static reservations",
+      "dhcp json"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Lookups",
+   "href": "/diagnostics",
+   "description": "Network diagnostics and connectivity testing",
+   "tools": [
+    {
+     "id": "diagnostics--dns--lookup",
+     "path": "/diagnostics/dns/lookup",
+     "name": "DNS Lookup",
+     "description": "Resolve DNS records (A, AAAA, CNAME, MX, TXT, NS, SOA, CAA) using various public resolvers or custom DNS servers",
+     "group": "DNS Diagnostics",
+     "keywords": [
+      "dns lookup",
+      "query records",
+      "resolve domain",
+      "dns query",
+      "public resolvers"
+     ]
+    },
+    {
+     "id": "diagnostics--dns--reverse-lookup",
+     "path": "/diagnostics/dns/reverse-lookup",
+     "name": "Reverse DNS Lookup",
+     "description": "Perform reverse DNS lookups (PTR records) for IPv4 and IPv6 addresses with automatic zone formatting",
+     "group": "DNS Diagnostics",
+     "keywords": [
+      "reverse lookup",
+      "ptr query",
+      "ip to hostname",
+      "in-addr.arpa",
+      "ip6.arpa"
+     ]
+    },
+    {
+     "id": "diagnostics--dns--propagation",
+     "path": "/diagnostics/dns/propagation",
+     "name": "DNS Propagation Checker",
+     "description": "Check DNS record propagation across multiple public resolvers (Cloudflare, Google, Quad9, OpenDNS)",
+     "group": "DNS Diagnostics",
+     "keywords": [
+      "dns propagation",
+      "global check",
+      "resolver consistency",
+      "dns sync"
+     ]
+    },
+    {
+     "id": "diagnostics--dns--spf-evaluator",
+     "path": "/diagnostics/dns/spf-evaluator",
+     "name": "SPF Record Evaluator",
+     "description": "Analyze SPF records with recursive expansion of includes/redirects and DNS lookup limit tracking",
+     "group": "DNS Diagnostics",
+     "keywords": [
+      "spf",
+      "evaluator",
+      "recursive",
+      "includes",
+      "redirects",
+      "dns",
+      "lookups",
+      "sender",
+      "policy"
+     ]
+    },
+    {
+     "id": "diagnostics--dns--dmarc-check",
+     "path": "/diagnostics/dns/dmarc-check",
+     "name": "DMARC Policy Checker",
+     "description": "Analyze DMARC policies, check alignment settings, and identify configuration issues",
+     "group": "DNS Diagnostics",
+     "keywords": [
+      "dmarc",
+      "policy",
+      "check",
+      "alignment",
+      "quarantine",
+      "reject",
+      "rua",
+      "ruf",
+      "analysis"
+     ]
+    },
+    {
+     "id": "diagnostics--dns--caa-effective",
+     "path": "/diagnostics/dns/caa-effective",
+     "name": "CAA Effective Policy",
+     "description": "Walk domain label chain to find effective CAA policies for certificate authority authorization",
+     "group": "DNS Diagnostics",
+     "keywords": [
+      "caa",
+      "effective",
+      "policy",
+      "certificate",
+      "authority",
+      "authorization",
+      "chain",
+      "domain",
+      "ssl"
+     ]
+    },
+    {
+     "id": "diagnostics--dns--ns-soa-check",
+     "path": "/diagnostics/dns/ns-soa-check",
+     "name": "NS/SOA Consistency Check",
+     "description": "Verify nameserver resolution and analyze SOA record parameters for DNS configuration health",
+     "group": "DNS Diagnostics",
+     "keywords": [
+      "ns",
+      "soa",
+      "nameserver",
+      "consistency",
+      "check",
+      "resolution",
+      "parameters",
+      "health",
+      "serial"
+     ]
+    },
+    {
+     "id": "diagnostics--dns--dnssec-adflag",
+     "path": "/diagnostics/dns/dnssec-adflag",
+     "name": "DNSSEC AD Flag Checker",
+     "description": "Query DNS records via DoH and report if the AD (Authenticated Data) bit is set for DNSSEC validation",
+     "group": "DNS Diagnostics",
+     "keywords": [
+      "dnssec",
+      "ad",
+      "flag",
+      "authenticated",
+      "data",
+      "doh",
+      "validation",
+      "security",
+      "dns"
+     ]
+    },
+    {
+     "id": "diagnostics--dns--dnssec-validation-chain",
+     "path": "/diagnostics/dns/dnssec-validation-chain",
+     "name": "DNSSEC Validation Chain",
+     "description": "Validate full DNSSEC chain from root to domain with DS/DNSKEY matching and RRSIG verification",
+     "group": "DNS Diagnostics",
+     "keywords": [
+      "dnssec",
+      "validation",
+      "chain",
+      "ds",
+      "dnskey",
+      "rrsig",
+      "trust",
+      "security",
+      "dns",
+      "root",
+      "authenticated"
+     ]
+    },
+    {
+     "id": "diagnostics--dns--blacklist-checker",
+     "path": "/diagnostics/dns/blacklist-checker",
+     "name": "DNS Blacklist Checker",
+     "description": "Check if IP or domain is listed on spam blacklists for email deliverability troubleshooting",
+     "group": "DNS Diagnostics",
+     "keywords": [
+      "dnsbl",
+      "rbl",
+      "blacklist",
+      "spam",
+      "spamhaus",
+      "sorbs",
+      "email",
+      "deliverability",
+      "reputation",
+      "blocklist",
+      "listing",
+      "delisting"
+     ]
+    },
+    {
+     "id": "diagnostics--dns--axfr-tester",
+     "path": "/diagnostics/dns/axfr-tester",
+     "name": "AXFR Security Tester",
+     "description": "Test if DNS zone transfers are improperly exposed - detect critical security vulnerabilities",
+     "group": "DNS Diagnostics",
+     "keywords": [
+      "axfr",
+      "zone",
+      "transfer",
+      "security",
+      "vulnerability",
+      "dns",
+      "leak",
+      "audit",
+      "test",
+      "nameserver"
+     ]
+    },
+    {
+     "id": "diagnostics--dns--query-performance",
+     "path": "/diagnostics/dns/query-performance",
+     "name": "DNS Query Performance",
+     "description": "Compare DNS resolver speeds across multiple providers to find the fastest for your location",
+     "group": "DNS Diagnostics",
+     "keywords": [
+      "dns",
+      "performance",
+      "speed",
+      "test",
+      "resolver",
+      "comparison",
+      "latency",
+      "cloudflare",
+      "google",
+      "quad9",
+      "opendns",
+      "response",
+      "time",
+      "fastest",
+      "benchmark"
+     ]
+    },
+    {
+     "id": "diagnostics--dns--soa-serial",
+     "path": "/diagnostics/dns/soa-serial",
+     "name": "SOA Serial Analyzer",
+     "description": "Analyze Start of Authority records to interpret serial number formats and examine DNS zone timing parameters",
+     "group": "DNS Diagnostics",
+     "keywords": [
+      "soa",
+      "serial",
+      "analyzer",
+      "zone",
+      "timing",
+      "parameters",
+      "yyyymmddnn",
+      "unix",
+      "timestamp",
+      "dns"
+     ]
+    },
+    {
+     "id": "diagnostics--dns--trace",
+     "path": "/diagnostics/dns/trace",
+     "name": "DNS Trace",
+     "description": "Iterative trace from root to authoritative nameservers via DNS over HTTPS with path and timing details",
+     "group": "DNS Diagnostics",
+     "keywords": [
+      "dns",
+      "trace",
+      "root",
+      "authoritative",
+      "nameservers",
+      "doh",
+      "path",
+      "timing",
+      "iterative"
+     ]
+    },
+    {
+     "id": "diagnostics--dns--glue-check",
+     "path": "/diagnostics/dns/glue-check",
+     "name": "Glue Check",
+     "description": "Check which NS names require glue records and whether A/AAAA glue records exist for the zone",
+     "group": "DNS Diagnostics",
+     "keywords": [
+      "dns",
+      "glue",
+      "records",
+      "nameservers",
+      "ns",
+      "a-records",
+      "aaaa",
+      "zone",
+      "delegation",
+      "check"
+     ]
+    },
+    {
+     "id": "diagnostics--dns--spf-flatten",
+     "path": "/diagnostics/dns/spf-flatten",
+     "name": "SPF Flatten",
+     "description": "Resolve include:/redirect= mechanisms and output a flattened SPF record with DNS lookup counts",
+     "group": "DNS Diagnostics",
+     "keywords": [
+      "spf",
+      "flatten",
+      "include",
+      "redirect",
+      "dns",
+      "lookups",
+      "optimization",
+      "email",
+      "authentication"
+     ]
+    },
+    {
+     "id": "diagnostics--http--headers",
+     "path": "/diagnostics/http/headers",
+     "name": "HTTP Headers Analyzer",
+     "description": "Analyze HTTP headers and response metadata with custom method and header support",
+     "group": "HTTP Diagnostics",
+     "keywords": [
+      "http",
+      "headers",
+      "analyzer",
+      "response",
+      "metadata",
+      "custom",
+      "method",
+      "request"
+     ]
+    },
+    {
+     "id": "diagnostics--http--redirect-trace",
+     "path": "/diagnostics/http/redirect-trace",
+     "name": "Redirect Trace",
+     "description": "Follow HTTP redirects and trace the full chain with security upgrade detection",
+     "group": "HTTP Diagnostics",
+     "keywords": [
+      "http",
+      "redirect",
+      "trace",
+      "chain",
+      "hsts",
+      "security",
+      "upgrade",
+      "follow"
+     ]
+    },
+    {
+     "id": "diagnostics--http--security",
+     "path": "/diagnostics/http/security",
+     "name": "Security Headers Analyzer",
+     "description": "Analyze security headers (HSTS, CSP, X-Frame-Options) with grading and recommendations",
+     "group": "HTTP Diagnostics",
+     "keywords": [
+      "http",
+      "security",
+      "headers",
+      "hsts",
+      "csp",
+      "x-frame-options",
+      "analyzer",
+      "grade"
+     ]
+    },
+    {
+     "id": "diagnostics--http--cors-check",
+     "path": "/diagnostics/http/cors-check",
+     "name": "CORS Policy Checker",
+     "description": "Test CORS policies with preflight requests and origin validation",
+     "group": "HTTP Diagnostics",
+     "keywords": [
+      "cors",
+      "policy",
+      "check",
+      "preflight",
+      "origin",
+      "validation",
+      "cross-origin",
+      "options"
+     ]
+    },
+    {
+     "id": "diagnostics--http--perf",
+     "path": "/diagnostics/http/perf",
+     "name": "HTTP Performance Analyzer",
+     "description": "Measure HTTP performance timing including DNS, TCP, TLS, and TTFB metrics",
+     "group": "HTTP Diagnostics",
+     "keywords": [
+      "http",
+      "performance",
+      "timing",
+      "dns",
+      "tcp",
+      "tls",
+      "ttfb",
+      "metrics",
+      "analyzer"
+     ]
+    },
+    {
+     "id": "diagnostics--http--compression",
+     "path": "/diagnostics/http/compression",
+     "name": "HTTP Compression Check",
+     "description": "Test gzip, brotli, and deflate compression support and measure size differences",
+     "group": "HTTP Diagnostics",
+     "keywords": [
+      "http",
+      "compression",
+      "gzip",
+      "brotli",
+      "deflate",
+      "size",
+      "reduction",
+      "performance"
+     ]
+    },
+    {
+     "id": "diagnostics--http--cookie-security",
+     "path": "/diagnostics/http/cookie-security",
+     "name": "Cookie Security Inspector",
+     "description": "Inspect Set-Cookie headers for Secure, HttpOnly, SameSite, and other security attributes",
+     "group": "HTTP Diagnostics",
+     "keywords": [
+      "http",
+      "cookie",
+      "security",
+      "secure",
+      "httponly",
+      "samesite",
+      "csrf",
+      "xss",
+      "attributes"
+     ]
+    },
+    {
+     "id": "diagnostics--tls--certificate",
+     "path": "/diagnostics/tls/certificate",
+     "name": "TLS Certificate Analyzer",
+     "description": "Analyze TLS certificates, view certificate chains, check expiration dates, and examine Subject Alternative Names",
+     "group": "TLS Diagnostics",
+     "keywords": [
+      "tls",
+      "certificate",
+      "analyzer",
+      "chain",
+      "expiry",
+      "san",
+      "ssl",
+      "x509",
+      "fingerprint"
+     ]
+    },
+    {
+     "id": "diagnostics--tls--versions",
+     "path": "/diagnostics/tls/versions",
+     "name": "TLS Versions Probe",
+     "description": "Test which TLS protocol versions a server supports and assess overall security posture",
+     "group": "TLS Diagnostics",
+     "keywords": [
+      "tls",
+      "versions",
+      "probe",
+      "security",
+      "protocol",
+      "support",
+      "deprecated",
+      "assessment"
+     ]
+    },
+    {
+     "id": "diagnostics--tls--alpn",
+     "path": "/diagnostics/tls/alpn",
+     "name": "TLS ALPN Negotiation",
+     "description": "Test Application-Layer Protocol Negotiation to see which protocol a server selects (HTTP/2, HTTP/3)",
+     "group": "TLS Diagnostics",
+     "keywords": [
+      "tls",
+      "alpn",
+      "negotiation",
+      "http2",
+      "http3",
+      "protocol",
+      "handshake",
+      "application"
+     ]
+    },
+    {
+     "id": "diagnostics--tls--ocsp-stapling",
+     "path": "/diagnostics/tls/ocsp-stapling",
+     "name": "OCSP Stapling",
+     "description": "Report if server staples OCSP responses and display basic certificate status information",
+     "group": "TLS Diagnostics",
+     "keywords": [
+      "tls",
+      "ocsp",
+      "stapling",
+      "certificate",
+      "status",
+      "revocation",
+      "ssl",
+      "handshake",
+      "response"
+     ]
+    },
+    {
+     "id": "diagnostics--tls--cipher-presets",
+     "path": "/diagnostics/tls/cipher-presets",
+     "name": "Cipher Presets",
+     "description": "Probe connectivity with preset cipher lists (modern/intermediate/legacy) and assess security level",
+     "group": "TLS Diagnostics",
+     "keywords": [
+      "tls",
+      "cipher",
+      "presets",
+      "modern",
+      "intermediate",
+      "legacy",
+      "security",
+      "suites",
+      "probe"
+     ]
+    },
+    {
+     "id": "diagnostics--tls--banner",
+     "path": "/diagnostics/tls/banner",
+     "name": "Service Banner Grabber",
+     "description": "Retrieve service banners from SSH, SMTP, HTTP, FTP, and other network services",
+     "group": "TLS Diagnostics",
+     "keywords": [
+      "banner",
+      "service",
+      "ssh",
+      "smtp",
+      "ftp",
+      "http",
+      "telnet",
+      "fingerprinting",
+      "reconnaissance"
+     ]
+    },
+    {
+     "id": "diagnostics--tls--handshake-analyzer",
+     "path": "/diagnostics/tls/handshake-analyzer",
+     "name": "TLS Handshake Analyzer",
+     "description": "Analyze TLS/SSL handshake timing breakdown with detailed phase information and certificate exchange",
+     "group": "TLS Diagnostics",
+     "keywords": [
+      "tls",
+      "handshake",
+      "analyzer",
+      "timing",
+      "performance",
+      "latency",
+      "ssl",
+      "certificate",
+      "cipher",
+      "negotiation"
+     ]
+    },
+    {
+     "id": "diagnostics--tls--ct-log-search",
+     "path": "/diagnostics/tls/ct-log-search",
+     "name": "CT Log Search",
+     "description": "Search Certificate Transparency logs to discover all certificates issued for a domain",
+     "group": "TLS Diagnostics",
+     "keywords": [
+      "ct",
+      "certificate",
+      "transparency",
+      "log",
+      "search",
+      "crt.sh",
+      "ssl",
+      "tls",
+      "san",
+      "subdomains",
+      "discovery",
+      "issuer",
+      "validity",
+      "wildcard",
+      "monitoring"
+     ]
+    },
+    {
+     "id": "diagnostics--network--tcp-port-check",
+     "path": "/diagnostics/network/tcp-port-check",
+     "name": "TCP Port Checker",
+     "description": "Test TCP connectivity to host:port combinations and measure connection latency",
+     "group": "Network Diagnostics",
+     "keywords": [
+      "tcp",
+      "port",
+      "check",
+      "connectivity",
+      "latency",
+      "open",
+      "closed",
+      "firewall",
+      "scan"
+     ]
+    },
+    {
+     "id": "diagnostics--network--http-ping",
+     "path": "/diagnostics/network/http-ping",
+     "name": "HTTP Ping",
+     "description": "Measure HTTP/HTTPS response latency with statistical analysis (median, p95) without raw ICMP",
+     "group": "Network Diagnostics",
+     "keywords": [
+      "http",
+      "ping",
+      "latency",
+      "response",
+      "time",
+      "statistics",
+      "median",
+      "p95",
+      "web",
+      "api"
+     ]
+    },
+    {
+     "id": "diagnostics--network--bgp-route-lookup",
+     "path": "/diagnostics/network/bgp-route-lookup",
+     "name": "BGP Route Lookup",
+     "description": "Look up BGP routing information for IP addresses and prefixes, view AS paths, origin AS, and peering data",
+     "group": "Network Diagnostics",
+     "keywords": [
+      "bgp",
+      "routing",
+      "as",
+      "asn",
+      "autonomous system",
+      "prefix",
+      "peer",
+      "origin",
+      "path",
+      "ripe",
+      "ris",
+      "route",
+      "internet routing"
+     ]
+    },
+    {
+     "id": "diagnostics--network--ipv6-connectivity-checker",
+     "path": "/diagnostics/network/ipv6-connectivity-checker",
+     "name": "IPv6 Connectivity Checker",
+     "description": "Test IPv6 and IPv4 connectivity to determine dual-stack capability and protocol preference",
+     "group": "Network Diagnostics",
+     "keywords": [
+      "ipv6",
+      "ipv4",
+      "connectivity",
+      "dual-stack",
+      "protocol",
+      "test",
+      "network",
+      "internet",
+      "address"
+     ]
+    },
+    {
+     "id": "diagnostics--network--asn-geo-lookup",
+     "path": "/diagnostics/network/asn-geo-lookup",
+     "name": "ASN & Geolocation Lookup",
+     "description": "Look up IP address geolocation, ISP, and autonomous system information",
+     "group": "Network Diagnostics",
+     "keywords": [
+      "asn",
+      "geolocation",
+      "ip",
+      "lookup",
+      "location",
+      "isp",
+      "organization",
+      "country",
+      "city",
+      "coordinates",
+      "autonomous system",
+      "network",
+      "provider"
+     ]
+    },
+    {
+     "id": "diagnostics--email--mx-health",
+     "path": "/diagnostics/email/mx-health",
+     "name": "MX Health Checker",
+     "description": "Check mail server (MX) health including DNS resolution and SMTP port connectivity testing",
+     "group": "Email Diagnostics",
+     "keywords": [
+      "mx",
+      "health",
+      "check",
+      "mail",
+      "server",
+      "smtp",
+      "port",
+      "connectivity",
+      "dns",
+      "email"
+     ]
+    },
+    {
+     "id": "diagnostics--email--spf-check",
+     "path": "/diagnostics/email/spf-check",
+     "name": "SPF Policy Checker",
+     "description": "Analyze SPF records with email deliverability focus and authentication policy evaluation",
+     "group": "Email Diagnostics",
+     "keywords": [
+      "spf",
+      "policy",
+      "check",
+      "email",
+      "deliverability",
+      "authentication",
+      "sender",
+      "authorization"
+     ]
+    },
+    {
+     "id": "diagnostics--email--dmarc-check",
+     "path": "/diagnostics/email/dmarc-check",
+     "name": "DMARC Policy Checker",
+     "description": "Check DMARC policies with email deliverability impact analysis and configuration recommendations",
+     "group": "Email Diagnostics",
+     "keywords": [
+      "dmarc",
+      "policy",
+      "check",
+      "email",
+      "deliverability",
+      "authentication",
+      "reporting",
+      "alignment"
+     ]
+    },
+    {
+     "id": "diagnostics--email--mail-tls-check",
+     "path": "/diagnostics/email/mail-tls-check",
+     "name": "SMTP TLS Checker",
+     "description": "Check if mail server supports TLS/STARTTLS encryption and validate certificate security",
+     "group": "Email Diagnostics",
+     "keywords": [
+      "smtp",
+      "tls",
+      "starttls",
+      "ssl",
+      "encryption",
+      "certificate",
+      "mail",
+      "server",
+      "security",
+      "email"
+     ]
+    },
+    {
+     "id": "diagnostics--email--greylist-tester",
+     "path": "/diagnostics/email/greylist-tester",
+     "name": "Greylisting Tester",
+     "description": "Test if mail server implements greylisting by analyzing multiple connection attempts",
+     "group": "Email Diagnostics",
+     "keywords": [
+      "greylist",
+      "greylisting",
+      "smtp",
+      "mail",
+      "server",
+      "spam",
+      "filter",
+      "anti-spam",
+      "email",
+      "delay"
+     ]
+    },
+    {
+     "id": "diagnostics--rdap--domain",
+     "path": "/diagnostics/rdap/domain",
+     "name": "Domain RDAP Lookup",
+     "description": "Query domain registration data using RDAP through IANA bootstrap registry with structured JSON responses",
+     "group": "RDAP Diagnostics",
+     "keywords": [
+      "rdap",
+      "domain",
+      "registration",
+      "whois",
+      "iana",
+      "bootstrap",
+      "registry",
+      "json",
+      "lookup"
+     ]
+    },
+    {
+     "id": "diagnostics--rdap--ip",
+     "path": "/diagnostics/rdap/ip",
+     "name": "IP Address RDAP Lookup",
+     "description": "Look up IP address allocation and registration data using RDAP through Regional Internet Registries",
+     "group": "RDAP Diagnostics",
+     "keywords": [
+      "rdap",
+      "ip",
+      "allocation",
+      "registration",
+      "rir",
+      "arin",
+      "ripe",
+      "apnic",
+      "lacnic",
+      "afrinic"
+     ]
+    },
+    {
+     "id": "diagnostics--rdap--asn",
+     "path": "/diagnostics/rdap/asn",
+     "name": "ASN RDAP Lookup",
+     "description": "Query Autonomous System Number allocation and registration data using RDAP through RIR services",
+     "group": "RDAP Diagnostics",
+     "keywords": [
+      "rdap",
+      "asn",
+      "autonomous",
+      "system",
+      "number",
+      "allocation",
+      "registry",
+      "bgp",
+      "routing"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Ref",
+   "href": "/reference",
+   "description": "Networking reference guides and lookup tables",
+   "tools": [
+    {
+     "id": "reference--cidr",
+     "path": "/reference/cidr",
+     "name": "CIDR Notation Explained",
+     "description": "What CIDR is, why it replaced IP classes, and how to read network prefixes",
+     "group": "Fundamentals",
+     "keywords": [
+      "cidr explained",
+      "classless routing",
+      "slash notation",
+      "ip classes",
+      "prefix length"
+     ]
+    },
+    {
+     "id": "reference--vlsm",
+     "path": "/reference/vlsm",
+     "name": "VLSM in Plain English",
+     "description": "Variable Length Subnet Masking - when to use it and common pitfalls",
+     "group": "Fundamentals",
+     "keywords": [
+      "vlsm explained",
+      "variable length subnet",
+      "subnet planning",
+      "network design",
+      "common pitfalls"
+     ]
+    },
+    {
+     "id": "reference--supernetting",
+     "path": "/reference/supernetting",
+     "name": "Route Summarization / Supernetting",
+     "description": "Combine multiple networks into single routes for efficient routing",
+     "group": "Fundamentals",
+     "keywords": [
+      "route summarization",
+      "supernetting",
+      "prefix aggregation",
+      "bgp ospf",
+      "routing optimization"
+     ]
+    },
+    {
+     "id": "reference--ipv6-address-types",
+     "path": "/reference/ipv6-address-types",
+     "name": "IPv6 Address Types & Key Prefixes",
+     "description": "Global unicast, ULA, link-local, multicast, and special IPv6 addresses",
+     "group": "IPv6 Addressing",
+     "keywords": [
+      "ipv6 address types",
+      "global unicast",
+      "ula fd00",
+      "link-local fe80",
+      "multicast ff00",
+      "special prefixes"
+     ]
+    },
+    {
+     "id": "reference--ipv6-prefix-lengths",
+     "path": "/reference/ipv6-prefix-lengths",
+     "name": "Common IPv6 Prefix Lengths",
+     "description": "Quick reference for /128, /127, /64, /60, /56, /48, /32 with typical uses",
+     "group": "IPv6 Addressing",
+     "keywords": [
+      "ipv6 prefix lengths",
+      "/128 /64 /48",
+      "subnet sizes",
+      "allocation hierarchy"
+     ]
+    },
+    {
+     "id": "reference--ipv6-embedded-ipv4",
+     "path": "/reference/ipv6-embedded-ipv4",
+     "name": "IPv4 in IPv6",
+     "description": "IPv4-mapped addresses, 6to4, Teredo, and transition mechanisms",
+     "group": "IPv6 Addressing",
+     "keywords": [
+      "ipv4-mapped ipv6",
+      "6to4",
+      "teredo",
+      "transition mechanisms",
+      "dual-stack",
+      "::ffff"
+     ]
+    },
+    {
+     "id": "reference--ipv6-privacy-addresses",
+     "path": "/reference/ipv6-privacy-addresses",
+     "name": "IPv6 Privacy Addresses",
+     "description": "SLAAC privacy extensions: temporary vs stable interface identifiers",
+     "group": "IPv6 Addressing",
+     "keywords": [
+      "ipv6 privacy",
+      "slaac extensions",
+      "temporary addresses",
+      "rfc 4941",
+      "interface identifiers"
+     ]
+    },
+    {
+     "id": "reference--common-subnets",
+     "path": "/reference/common-subnets",
+     "name": "Common Subnet Sizes",
+     "description": "Quick reference for common subnet sizes and host counts",
+     "group": "Special Addresses",
+     "keywords": [
+      "subnet sizes",
+      "host counts",
+      "/24 /25 /26",
+      "quick reference"
+     ]
+    },
+    {
+     "id": "reference--network-classes",
+     "path": "/reference/network-classes",
+     "name": "Network Classes (A/B/C)",
+     "description": "Legacy network classes and their modern CIDR equivalents",
+     "group": "Special Addresses",
+     "keywords": [
+      "network classes",
+      "class a b c",
+      "legacy classful",
+      "cidr equivalents"
+     ]
+    },
+    {
+     "id": "reference--reserved-ranges",
+     "path": "/reference/reserved-ranges",
+     "name": "Reserved IP Ranges",
+     "description": "Comprehensive list of reserved and special-use IP address ranges",
+     "group": "Special Addresses",
+     "keywords": [
+      "reserved ip ranges",
+      "special-use addresses",
+      "rfc allocations"
+     ]
+    },
+    {
+     "id": "reference--special-use-ipv4",
+     "path": "/reference/special-use-ipv4",
+     "name": "Special-Use IPv4 Blocks (RFC 6890)",
+     "description": "Reserved IPv4 ranges including private networks, CGNAT, and test blocks",
+     "group": "Special Addresses",
+     "keywords": [
+      "rfc 6890",
+      "special-use ipv4",
+      "private networks",
+      "10.0.0.0 192.168.0.0",
+      "cgnat test blocks"
+     ]
+    },
+    {
+     "id": "reference--private-vs-public-ip",
+     "path": "/reference/private-vs-public-ip",
+     "name": "Private vs Public IP Addresses",
+     "description": "Understanding private/public IPs, NAT implications, and identification",
+     "group": "Special Addresses",
+     "keywords": [
+      "private vs public ip",
+      "rfc 1918",
+      "nat routable",
+      "ip identification"
+     ]
+    },
+    {
+     "id": "reference--cgnat",
+     "path": "/reference/cgnat",
+     "name": "Carrier-Grade NAT Explained",
+     "description": "CGNAT (100.64.0.0/10), how to identify it, and service impacts",
+     "group": "Special Addresses",
+     "keywords": [
+      "cgnat explained",
+      "100.64.0.0/10",
+      "rfc 6598",
+      "shared address space",
+      "isp carrier nat"
+     ]
+    },
+    {
+     "id": "reference--link-local-apipa",
+     "path": "/reference/link-local-apipa",
+     "name": "Link-Local & APIPA Addresses",
+     "description": "IPv4 APIPA (169.254/16) and IPv6 link-local (fe80::/10) at a glance",
+     "group": "Special Addresses",
+     "keywords": [
+      "link-local",
+      "apipa 169.254",
+      "fe80::",
+      "zero-conf",
+      "self-assigned"
+     ]
+    },
+    {
+     "id": "reference--multicast",
+     "path": "/reference/multicast",
+     "name": "IPv4 & IPv6 Multicast Basics",
+     "description": "Multicast scopes, well-known groups, and local subnet limitations",
+     "group": "Special Addresses",
+     "keywords": [
+      "multicast basics",
+      "224.0.0.0 ff00::",
+      "igmp mld",
+      "multicast scopes",
+      "group communication"
+     ]
+    },
+    {
+     "id": "reference--reverse-dns",
+     "path": "/reference/reverse-dns",
+     "name": "Reverse DNS (PTR Records)",
+     "description": "How in-addr.arpa and ip6.arpa work with examples for IPv4 and IPv6",
+     "group": "DNS & Protocols",
+     "keywords": [
+      "reverse dns explained",
+      "ptr records",
+      "in-addr.arpa",
+      "ip6.arpa",
+      "hostname lookup"
+     ]
+    },
+    {
+     "id": "reference--reverse-zones",
+     "path": "/reference/reverse-zones",
+     "name": "Reverse Zones for CIDR Delegation",
+     "description": "Minimal reverse DNS zones needed to delegate IPv4 and IPv6 CIDR blocks",
+     "group": "DNS & Protocols",
+     "keywords": [
+      "reverse zones",
+      "cidr delegation",
+      "nibble octet boundaries",
+      "zone authority"
+     ]
+    },
+    {
+     "id": "reference--icmp",
+     "path": "/reference/icmp",
+     "name": "ICMP & ICMPv6: Common Types",
+     "description": "Practical guide to ICMP message types for network troubleshooting",
+     "group": "DNS & Protocols",
+     "keywords": [
+      "icmp message types",
+      "ping traceroute",
+      "destination unreachable",
+      "time exceeded",
+      "troubleshooting"
+     ]
+    },
+    {
+     "id": "reference--arp-vs-ndp",
+     "path": "/reference/arp-vs-ndp",
+     "name": "ARP vs NDP",
+     "description": "Side-by-side comparison of IPv4 ARP and IPv6 Neighbor Discovery",
+     "group": "DNS & Protocols",
+     "keywords": [
+      "arp vs ndp",
+      "neighbor discovery",
+      "address resolution",
+      "layer2 protocol",
+      "mac solicitation"
+     ]
+    },
+    {
+     "id": "reference--asn",
+     "path": "/reference/asn",
+     "name": "What is an ASN?",
+     "description": "Autonomous Systems, BGP basics, and how IP addresses map to ASNs",
+     "group": "Network Operations",
+     "keywords": [
+      "asn explained",
+      "autonomous system",
+      "bgp routing",
+      "iana rir allocation",
+      "asn lookup"
+     ]
+    },
+    {
+     "id": "reference--ports",
+     "path": "/reference/ports",
+     "name": "Common TCP/UDP Ports",
+     "description": "Quick reference for frequently used port numbers and services",
+     "group": "Network Operations",
+     "keywords": [
+      "tcp udp ports",
+      "well-known ports",
+      "port numbers",
+      "services reference",
+      "firewall rules"
+     ]
+    },
+    {
+     "id": "reference--wildcard-masks",
+     "path": "/reference/wildcard-masks",
+     "name": "ACL Wildcard Masks",
+     "description": "Wildcard masks vs netmasks, quick conversions and ACL examples",
+     "group": "Network Operations",
+     "keywords": [
+      "wildcard masks",
+      "acl rules",
+      "inverse mask",
+      "cisco juniper",
+      "firewall acl"
+     ]
+    },
+    {
+     "id": "reference--mtu-mss",
+     "path": "/reference/mtu-mss",
+     "name": "Common MTU/MSS Values",
+     "description": "MTU and MSS values for Ethernet, PPPoE, VPN, and overhead calculations",
+     "group": "Network Operations",
+     "keywords": [
+      "mtu mss values",
+      "ethernet pppoe",
+      "vpn overhead",
+      "fragmentation",
+      "jumbo frames"
+     ]
+    }
+   ]
+  }
+ ]
+}

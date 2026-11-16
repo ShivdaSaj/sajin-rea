@@ -1,0 +1,244 @@
+{
+ "source": "webcheck",
+ "categories": [
+  {
+   "name": "Website checks",
+   "tools": [
+    {
+     "id": "get-ip",
+     "name": "IP Info",
+     "description": "An IP address (Internet Protocol address) is a numerical label assigned to each device connected to a network / the internet. The IP associated with a given domain can be found by querying the Domain Name System (DNS) for the domain's A (address) record.",
+     "use": "Finding the IP of a given server is the first step to conducting further investigations, as it allows us to probe the server for additional info. Including creating a detailed map of a target's network infrastructure, pinpointing the physical location of a server, identifying the hosting service, and even discovering other domains that are hosted on the same IP address."
+    },
+    {
+     "id": "ssl",
+     "name": "SSL Chain",
+     "description": "SSL certificates are digital certificates that authenticate the identity of a website or server, enable secure encrypted communication (HTTPS), and establish trust between clients and servers. A valid SSL certificate is required for a website to be able to use the HTTPS protocol, and encrypt user + site data in transit. SSL certificates are issued by Certificate Authorities (CAs), which are trusted third parties that verify the identity and legitimacy of the certificate holder.",
+     "use": "SSL certificates not only provide the assurance that data transmission to and from the website is secure, but they also provide valuable OSINT data. Information from an SSL certificate can include the issuing authority, the domain name, its validity period, and sometimes even organization details. This can be useful for verifying the authenticity of a website, understanding its security setup, or even for discovering associated subdomains or other services."
+    },
+    {
+     "id": "dns",
+     "name": "DNS Records",
+     "description": "This task involves looking up the DNS records associated with a specific domain. DNS is a system that translates human-readable domain names into IP addresses that computers use to communicate. Various types of DNS records exist, including A (address), MX (mail exchange), NS (name server), CNAME (canonical name), and TXT (text), among others.",
+     "use": "Extracting DNS records can provide a wealth of information in an OSINT investigation. For example, A and AAAA records can disclose IP addresses associated with a domain, potentially revealing the location of servers. MX records can give clues about a domain's email provider. TXT records are often used for various administrative purposes and can sometimes inadvertently leak internal information. Understanding a domain's DNS setup can also be useful in understanding how its online infrastructure is built and managed."
+    },
+    {
+     "id": "cookies",
+     "name": "Cookies",
+     "description": "The Cookies task involves examining the HTTP cookies set by the target website. Cookies are small pieces of data stored on the user's computer by the web browser while browsing a website. They hold a modest amount of data specific to a particular client and website, such as site preferences, the state of the user's session, or tracking information.",
+     "use": "Cookies can disclose information about how the website tracks and interacts with its users. For instance, session cookies can reveal how user sessions are managed, and tracking cookies can hint at what kind of tracking or analytics frameworks are being used. Additionally, examining cookie policies and practices can offer insights into the site's security settings and compliance with privacy regulations."
+    },
+    {
+     "id": "robots-txt",
+     "name": "Crawl Rules",
+     "description": "Robots.txt is a file found (usually) at the root of a domain, and is used to implement the Robots Exclusion Protocol (REP) to indicate which pages should be ignored by which crawlers and bots. It's good practice to avoid search engine crawlers from over-loading your site, but should not be used to keep pages out of search results (use the noindex meta tag or header instead).",
+     "use": "It's often useful to check the robots.txt file during an investigation, as it can sometimes disclose the directories and pages that the site owner doesn't want to be indexed, potentially because they contain sensitive information, or reveal the existence of otherwise hidden or unlinked directories. Additionally, understanding crawl rules may offer insights into a website's SEO strategies."
+    },
+    {
+     "id": "headers",
+     "name": "Headers",
+     "description": "The Headers task involves extracting and interpreting the HTTP headers sent by the target website during the request-response cycle. HTTP headers are key-value pairs sent at the start of an HTTP response, or before the actual data. Headers contain important directives for how to handle the data being transferred, including cache policies, content types, encoding, server information, security policies, and more.",
+     "use": "Analyzing HTTP headers can provide significant insights in an OSINT investigation. Headers can reveal specific server configurations, chosen technologies, caching directives, and various security settings. This information can help to determine a website's underlying technology stack, server-side security measures, potential vulnerabilities, and general operational practices."
+    },
+    {
+     "id": "quality",
+     "name": "Quality Metrics",
+     "description": "Using Lighthouse, the Quality Metrics task measures the performance, accessibility, best practices, and SEO of the target website. This returns a simple checklist of 100 core metrics, along with a score for each category, to gauge the overall quality of a given site.",
+     "use": "Useful for assessing a site's technical health, SEO issues, identify vulnerabilities, and ensure compliance with standards."
+    },
+    {
+     "id": "location",
+     "name": "Server Location",
+     "description": "The Server Location task determines the physical location of the server hosting a given website based on its IP address. This is done by looking up the IP in a location database, which maps the IP to a lat + long of known data centers and ISPs. From the latitude and longitude, it's then possible to show additional contextual info, like a pin on the map, along with address, flag, time zone, currency, etc.",
+     "use": "Knowing the server location is a good first step in better understanding a website. For site owners this aids in optimizing content delivery, ensuring compliance with data residency requirements, and identifying potential latency issues that may impact user experience in specific geographical regions. And for security researcher, assess the risk posed by specific regions or jurisdictions regarding cyber threats and regulations."
+    },
+    {
+     "id": "hosts",
+     "name": "Associated Hosts",
+     "description": "This task involves identifying and listing all domains and subdomains (hostnames) that are associated with the website's primary domain. This process often involves DNS enumeration to discover any linked domains and hostnames, as well as looking at known DNS records.",
+     "use": "During an investigation, understanding the full scope of a target's web presence is critical. Associated domains could lead to uncovering related projects, backup sites, development/test sites, or services linked to the main site. These can sometimes provide additional information or potential security vulnerabilities. A comprehensive list of associated domains and hostnames can also give an overview of the organization's structure and online footprint."
+    },
+    {
+     "id": "redirects",
+     "name": "Redirect Chain",
+     "description": "This task traces the sequence of HTTP redirects that occur from the original URL to the final destination URL. An HTTP redirect is a response with a status code that advises the client to go to another URL. Redirects can occur for several reasons, such as URL normalization (directing to the www version of the site), enforcing HTTPS, URL shorteners, or forwarding users to a new site location.",
+     "use": "Understanding the redirect chain can be useful for several reasons. From a security perspective, long or complicated redirect chains can be a sign of potential security risks, such as unencrypted redirects in the chain. Additionally, redirects can impact website performance and SEO, as each redirect introduces additional round-trip-time (RTT). For OSINT, understanding the redirect chain can help identify relationships between different domains or reveal the use of certain technologies or hosting providers."
+    },
+    {
+     "id": "txt-records",
+     "name": "TXT Records",
+     "description": "TXT records are a type of DNS record that provides text information to sources outside your domain. They can be used for a variety of purposes, such as verifying domain ownership, ensuring email security, and even preventing unauthorized changes to your website.",
+     "use": "The TXT records often reveal which external services and technologies are being used with a given domain. They may reveal details about the domain's email configuration, the use of specific services like Google Workspace or Microsoft 365, or security measures in place such as SPF and DKIM. Understanding these details can give an insight into the technologies used by the organization, their email security practices, and potential vulnerabilities."
+    },
+    {
+     "id": "status",
+     "name": "Server Status",
+     "description": "Checks if a server is online and responding to requests.",
+     "use": ""
+    },
+    {
+     "id": "ports",
+     "name": "Open Ports",
+     "description": "Open ports on a server are endpoints of communication which are available for establishing connections with clients. Each port corresponds to a specific service or protocol, such as HTTP (port 80), HTTPS (port 443), FTP (port 21), etc. The open ports on a server can be determined using techniques such as port scanning.",
+     "use": "Knowing which ports are open on a server can provide information about the services running on that server, useful for understanding the potential vulnerabilities of the system, or for understanding the nature of the services the server is providing."
+    },
+    {
+     "id": "trace-route",
+     "name": "Traceroute",
+     "description": "Traceroute is a network diagnostic tool used to track in real-time the pathway taken by a packet of information from one system to another. It records each hop along the route, providing details about the IPs of routers and the delay at each point.",
+     "use": "In OSINT investigations, traceroute can provide insights about the routing paths and geography of the network infrastructure supporting a website or service. This can help to identify network bottlenecks, potential censorship or manipulation of network traffic, and give an overall sense of the network's structure and efficiency. Additionally, the IP addresses collected during the traceroute may provide additional points of inquiry for further OSINT investigation."
+    },
+    {
+     "id": "carbon",
+     "name": "Carbon Footprint",
+     "description": "This task calculates the estimated carbon footprint of a website. It's based on the amount of data being transferred and processed, and the energy usage of the servers that host and deliver the website. The larger the website and the more complex its features, the higher its carbon footprint is likely to be.",
+     "use": "From an OSINT perspective, understanding a website's carbon footprint doesn't directly provide insights into its internal workings or the organization behind it. However, it can still be valuable data in broader analyses, especially in contexts where environmental impact is a consideration. For example, it can be useful for activists, researchers, or ethical hackers who are interested in the sustainability of digital infrastructure, and who want to hold organizations accountable for their environmental impact."
+    },
+    {
+     "id": "server-info",
+     "name": "Server Info",
+     "description": "This task retrieves various pieces of information about the server hosting the target website. This can include the server type (e.g., Apache, Nginx), the hosting provider, the Autonomous System Number (ASN), and more. The information is usually obtained through a combination of IP address lookups and analysis of HTTP response headers.",
+     "use": "In an OSINT context, server information can provide valuable clues about the organization behind a website. For instance, the choice of hosting provider could suggest the geographical region in which the organization operates, while the server type could hint at the technologies used by the organization. The ASN could also be used to find other domains hosted by the same organization."
+    },
+    {
+     "id": "vulnerabilities",
+     "name": "Vulnerabilities",
+     "description": "This task lists the known CVEs (Common Vulnerabilities and Exposures) that Shodan associates with the services running on the target host, based on their detected product and version. Each entry links to its NVD record. If Shodan has scanned the host and found none, it reports that no known vulnerabilities are on file.",
+     "use": "Known CVEs highlight where a host may be exploitable, and are a starting point for assessing its security posture. Bear in mind these are inferred from banner versions, so may include false positives (a patched service still reporting an old version) or miss issues Shodan hasn't catalogued."
+    },
+    {
+     "id": "domain",
+     "name": "Whois Lookup",
+     "description": "This task retrieves Whois records for the target domain. Whois records are a rich source of information, including the name and contact information of the domain registrant, the domain's creation and expiration dates, the domain's nameservers, and more. The information is usually obtained through a query to a Whois database server.",
+     "use": "In an OSINT context, Whois records can provide valuable clues about the entity behind a website. They can show when the domain was first registered and when it's set to expire, which could provide insights into the operational timeline of the entity. The contact information, though often redacted or anonymized, can sometimes lead to additional avenues of investigation. The nameservers could also be used to link together multiple domains owned by the same entity."
+    },
+    {
+     "id": "whois",
+     "name": "Domain Info",
+     "description": "This task retrieves Whois records for the target domain. Whois records are a rich source of information, including the name and contact information of the domain registrant, the domain's creation and expiration dates, the domain's nameservers, and more. The information is usually obtained through a query to a Whois database server.",
+     "use": "In an OSINT context, Whois records can provide valuable clues about the entity behind a website. They can show when the domain was first registered and when it's set to expire, which could provide insights into the operational timeline of the entity. The contact information, though often redacted or anonymized, can sometimes lead to additional avenues of investigation. The nameservers could also be used to link together multiple domains owned by the same entity."
+    },
+    {
+     "id": "dnssec",
+     "name": "DNS Security Extensions",
+     "description": "Without DNSSEC, it's possible for MITM attackers to spoof records and lead users to phishing sites. This is because the DNS system includes no built-in methods to verify that the response to the request was not forged, or that any other part of the process wasn’t interrupted by an attacker. The DNS Security Extensions (DNSSEC) secures DNS lookups by signing your DNS records using public keys, so browsers can detect if the response has been tampered with. Another solution to this issue is DoH (DNS over HTTPS) and DoT (DNS over TLD).",
+     "use": "DNSSEC information provides insight into an organization's level of cybersecurity maturity and potential vulnerabilities, particularly around DNS spoofing and cache poisoning. If no DNS secururity (DNSSEC, DoH, DoT, etc) is implemented, this may provide an entry point for an attacker."
+    },
+    {
+     "id": "hsts",
+     "name": "HTTP Strict Transport Security",
+     "description": "HTTP Strict Transport Security (HSTS) is a web security policy mechanism that helps protect websites against protocol downgrade attacks and cookie hijacking. A website can be included in the HSTS preload list by conforming to a set of requirements and then submitting itself to the list.",
+     "use": "There are several reasons why it's important for a site to be HSTS enabled: 1. User bookmarks or manually types http://example.com and is subject to a man-in-the-middle attacker HSTS automatically redirects HTTP requests to HTTPS for the target domain 2. Web application that is intended to be purely HTTPS inadvertently contains HTTP links or serves content over HTTP HSTS automatically redirects HTTP requests to HTTPS for the target domain 3. A man-in-the-middle attacker attempts to intercept traffic from a victim user using an invalid certificate and hopes the user will accept the bad certificate HSTS does not allow a user to override the invalid certificate message"
+    },
+    {
+     "id": "dns-server",
+     "name": "DNS Server",
+     "description": "This check determines the DNS server(s) that the requested URL / IP resolves to. Also fires off a rudimentary check to see if the DNS server supports DoH, and weather it's vulnerable to DNS cache poisoning.",
+     "use": ""
+    },
+    {
+     "id": "tech-stack",
+     "name": "Tech Stack",
+     "description": "Checks what technologies a site is built with. This is done by fetching and parsing the site, then comparing it against a bit list of RegEx maintained by Wappalyzer to identify the unique fingerprints that different technologies leave.",
+     "use": "Identifying a website's tech stack aids in evaluating its security by exposing potential vulnerabilities, informs competitive analyses and development decisions, and can guide tailored marketing strategies. Ethical application of this knowledge is crucial to avoid harmful activities like data theft or unauthorized intrusion."
+    },
+    {
+     "id": "sitemap",
+     "name": "Listed Pages",
+     "description": "This job finds and parses a site's listed sitemap. This file lists public sub-pages on the site, which the author wishes to be crawled by search engines. Sitemaps help with SEO, but are also useful for seeing all a sites public content at a glance.",
+     "use": "Understand the structure of a site's public-facing content, and for site-owners, check that you're site's sitemap is accessible, parsable and contains everything you wish it to."
+    },
+    {
+     "id": "security-txt",
+     "name": "Security.txt",
+     "description": "The security.txt file tells researchers how they can responsibly disclose any security issues found on your site. The standard was proposed in RFC 9116, and specifies that this file should include a point of contact (email address), as well as optionally other info, like a link to the security disclosure policy, PGP key, proffered language, policy expiry and more. The file should be located at the root of your domain, either at /security.txt or /.well-known/security.txt.",
+     "use": "This is important, as without a defined point of contact a security researcher may be unable to report a critical security issue, or may use insecure or possibly public channels to do so. From an OSINT perspective, you may also glean info about a site including their posture on security, their CSAF provider, and meta data from the PGP public key."
+    },
+    {
+     "id": "linked-pages",
+     "name": "Linked Pages",
+     "description": "Displays all internal and external links found on a site, identified by the href attributes attached to anchor elements.",
+     "use": "For site owners, this is useful for diagnosing SEO issues, improving the site structure, understanding how content is inter-connected. External links can show partnerships, dependencies, and potential reputation risks. From a security standpoint, the outbound links can help identify any potential malicious or compromised sites the website is unknowingly linking to. Analyzing internal links can aid in understanding the site's structure and potentially uncover hidden or vulnerable pages which are not intended to be public. And for an OSINT investigator, it can aid in building a comprehensive understanding of the target, uncovering related entities, resources, or even potential hidden parts of the site."
+    },
+    {
+     "id": "social-tags",
+     "name": "Social Tags",
+     "description": "Websites can include certain meta tags, that tell search engines and social media platforms what info to display. This usually includes a title, description, thumbnail, keywords, author, social accounts, etc.",
+     "use": "Adding this data to your site will boost SEO, and as an OSINT researcher it can be useful to understand how a given web app describes itself"
+    },
+    {
+     "id": "mail-config",
+     "name": "Email Configuration",
+     "description": "DMARC (Domain-based Message Authentication, Reporting & Conformance): DMARC is an email authentication protocol that works with SPF and DKIM to prevent email spoofing and phishing. It allows domain owners to specify how to handle unauthenticated mail via a published policy in DNS, and provides a way for receiving mail servers to send feedback about emails' compliance to the sender. BIMI (Brand Indicators for Message Identification): BIMI is an emerging email standard that enables organizations to display a logo in their customers' email clients automatically. BIMI ties the logo to the domain's DMARC record, providing another level of visual assurance to recipients that the email is legitimate. DKIM (DomainKeys Identified Mail): DKIM is an email security standard designed to make sure that messages were not altered in transit between the sending and recipient servers. It uses digital signatures linked to the domain of the sender to verify the sender and ensure message integrity. SPF (Sender Policy Framework): SPF is an email authentication method designed to prevent email spoofing. It specifies which mail servers are authorized to send email on behalf of a domain by creating a DNS record. This helps protect against spam by providing a way for receiving mail servers to check that incoming mail from a domain comes from a host authorized by that domain's administrators.",
+     "use": "This information is helpful for researchers as it helps assess a domain's email security posture, uncover potential vulnerabilities, and verify the legitimacy of emails for phishing detection. These details can also provide insight into the hosting environment, potential service providers, and the configuration patterns of a target organization, assisting in investigative efforts."
+    },
+    {
+     "id": "firewall",
+     "name": "Firewall Detection",
+     "description": "A WAF or web application firewall helps protect web applications by filtering and monitoring HTTP traffic between a web application and the Internet. It typically protects web applications from attacks such as cross-site forgery, cross-site-scripting (XSS), file inclusion, and SQL injection, among others.",
+     "use": "It's useful to understand if a site is using a WAF, and which firewall software / service it is using, as this provides an insight into the sites protection against several attack vectors, but also may reveal vulnerabilities in the firewall itself."
+    },
+    {
+     "id": "http-security",
+     "name": "HTTP Security Features",
+     "description": "Correctly configured security HTTP headers adds a layer of protection against common attacks to your site. The main headers to be aware of are: HTTP Strict Transport Security (HSTS): Enforces the use of HTTPS, mitigating man-in-the-middle attacks and protocol downgrade attempts. Content Security Policy (CSP): Constrains web page resources to prevent cross-site scripting and data injection attacks. X-Content-Type-Options: Prevents browsers from MIME-sniffing a response away from the declared content type, curbing MIME-type confusion attacks. X-Frame-Options: Protects users from clickjacking attacks by controlling whether a browser should render the page in a <frame>, <iframe>, <embed>, or <object>.",
+     "use": "Reviewing security headers is important, as it offers insights into a site's defensive posture and potential vulnerabilities, enabling proactive mitigation and ensuring compliance with security best practices."
+    },
+    {
+     "id": "archives",
+     "name": "Archive History",
+     "description": "Fetches full history of archives from the Wayback machine",
+     "use": "This is useful for understanding the history of a site, and how it has changed over time. It can also be useful for finding old versions of a site, or for finding content that has been removed."
+    },
+    {
+     "id": "rank",
+     "name": "Global Ranking",
+     "description": "This check shows the global rank of the requested site. This is only accurate for websites which are in the top 1 million list. We're using data from the Tranco project (see below), which collates the top sites on the web from Umbrella, Majestic, Quantcast, the Chrome User Experience Report and Cloudflare Radar.",
+     "use": "Knowing a websites overall global rank can be useful for understanding the scale of the site, and for comparing it to other sites. It can also be useful for understanding the relative popularity of a site, and for identifying potential trends."
+    },
+    {
+     "id": "block-lists",
+     "name": "Block Detection",
+     "description": "Checks access to the URL using 10+ of the most popular privacy, malware and parental control blocking DNS servers.",
+     "use": ""
+    },
+    {
+     "id": "threats",
+     "name": "Malware & Phishing Detection",
+     "description": "Checks if a site appears in several common malware and phishing lists, to determine it's threat level.",
+     "use": "Knowing if a site is listed as a threat by any of these services can be useful for understanding the reputation of a site, and for identifying potential trends."
+    },
+    {
+     "id": "tls-connection",
+     "name": "TLS Connection",
+     "description": "This shows what was actually negotiated during a live TLS handshake from this server to the target. It includes the protocol version, the cipher suite chosen, ALPN, and whether the certificate is trusted. It is the ground-truth view of what a real client would see right now.",
+     "use": "Useful for quick verification of how a target server actually presents itself. The negotiated cipher and protocol tell you whether modern, forward-secret crypto is in use."
+    },
+    {
+     "id": "tls-security-audit",
+     "name": "TLS Security Audit",
+     "description": "A summary of the target's overall TLS configuration, sourced from a cached SSL Labs scan. Includes the overall grade, supported protocols, forward secrecy, HSTS, and a vulnerability checklist (Heartbleed, POODLE, ROBOT, FREAK, LOGJAM, DROWN and more).",
+     "use": "Spot weak configurations and known historical vulnerabilities at a glance. The grade summarises everything the SSL Labs auditors think about the deployment."
+    },
+    {
+     "id": "tls-client-compat",
+     "name": "TLS Client Compatibility",
+     "description": "Simulates the TLS handshake against a panel of real-world clients (Chrome, Firefox, Safari, Edge, OpenSSL, Java, iOS, Android and more). For each, shows which protocol and cipher would be negotiated, or whether the client cannot connect at all.",
+     "use": "Useful for confirming that older or restricted clients can still reach your site, and for spotting clients that would be locked out by a too-strict TLS config."
+    },
+    {
+     "id": "screenshot",
+     "name": "Screenshot",
+     "description": "This check takes a screenshot of webpage that the requested URL / IP resolves to, and displays it.",
+     "use": "This may be useful to see what a given website looks like, free of the constraints of your browser, IP, or location."
+    },
+    {
+     "id": "subdomains",
+     "name": "Subdomains",
+     "description": "Discovers subdomains belonging to a target domain by querying public Certificate Transparency logs (via crt.sh). Every TLS certificate issued for a hostname is logged publicly, so the CT logs effectively reveal any subdomain the operator has ever requested a cert for. The check resolves the registrable domain (eTLD+1), then collects, deduplicates and filters the SAN values from every cert ever issued under that zone.",
+     "use": "Subdomains are a classic part of an attack surface map. They often expose dev, staging, admin or legacy services that the main site's owners forgot about, and which may not be hardened to the same standard as production. From a defensive standpoint, this lets you audit what is publicly discoverable about your own infrastructure. For OSINT investigators, the list of subdomains can hint at a target's internal services, vendors, regions, and historical projects."
+    }
+   ]
+  }
+ ]
+}

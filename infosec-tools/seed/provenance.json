@@ -1,0 +1,66 @@
+{
+ "generated": "2026-11-16",
+ "method": "Sites mirrored over HTTPS; REA 6.9.0 (commit 4ea24b6) analyze-javascript-application run statically on each mirror (no target code executed). Tool registries were then read from the same bundles.",
+ "sites": {
+  "ittools": {
+   "url": "https://ittools.sajinshivdas.online/",
+   "registry": "assets/index-f8ba620c.js (defineTool registry + categories)",
+   "tools": 86,
+   "rea": {
+    "status": "partial",
+    "code": "provider_timeout",
+    "message": "JavaScript source analysis reached its 300000ms per-source server/provider deadline (analysis_timeout_ms), not the MCP client deadline."
+   },
+   "label": "IT-Tools",
+   "mirroredFiles": 487,
+   "mirroredBytes": 13229057,
+   "categories": 10
+  },
+  "cyberchef": {
+   "url": "https://cyberchef.sajinshivdas.online/",
+   "registry": "assets/main.js (Categories + OperationConfig)",
+   "tools": 504,
+   "rea": {
+    "status": "complete",
+    "route_view_evidence_id": "ev_a14c2e2d1fd52c01262028c2f09b7fe164a3eb192aa7f63c89fae8cd09152118",
+    "application_evidence_id": "ev_e6ac2700b00b7a1a6835dd0337a8e2a3a3270cb61846b28f87d5acdab4cada95",
+    "static_routes": 0
+   },
+   "label": "CyberChef",
+   "mirroredFiles": 3,
+   "mirroredBytes": 13289376,
+   "categories": 16
+  },
+  "webcheck": {
+   "url": "https://webcheck.sajinshivdas.online/check",
+   "registry": "_astro/main.BGjM7HXK.js (job documentation registry)",
+   "tools": 39,
+   "rea": {
+    "status": "complete",
+    "route_view_evidence_id": "ev_456bf59321ecdf2c106b3f84f5eac7ffd01f67f04e71419342e06ec61087e1c5",
+    "application_evidence_id": "ev_32aa53fd2fbad839ee1ec8d3b2db486eda23336a6df4d220604ba21cdc3be09e",
+    "static_routes": 2
+   },
+   "label": "Web-Check",
+   "mirroredFiles": 9,
+   "mirroredBytes": 1113847,
+   "categories": 1
+  },
+  "networking-toolbox": {
+   "url": "https://networking-toolbox.sajinshivdas.online/",
+   "registry": "_app/immutable/chunks/CylRy6JJ.js (navigation registry)",
+   "tools": 160,
+   "rea": {
+    "status": "complete",
+    "route_view_evidence_id": "ev_be13b0e5999d4f4bbf8839bf1bce805f8844c013948ccce8c11428c3b37f5d23",
+    "application_evidence_id": "ev_e780591226d714ac47ac8ad6bf0a7cc00d632160234491853410d61fbca233e8",
+    "static_routes": 6
+   },
+   "label": "Networking Toolbox",
+   "mirroredFiles": 488,
+   "mirroredBytes": 5285209,
+   "categories": 7
+  }
+ },
+ "reaVersion": "6.9.0"
+}
