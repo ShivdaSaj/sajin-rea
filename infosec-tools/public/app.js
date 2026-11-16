@@ -9,8 +9,10 @@ const SERVER_ARGS = {
   "dkim-check": [{ name: "selector", label: "Selector (blank = try common ones)", type: "text" }],
   "port-check": [{ name: "port", label: "Port", type: "number", default: 443 }],
   "cors-check": [{ name: "origin", label: "Origin to test", type: "text", default: "https://example.org" }],
+  "http-request": [{ name: "method", label: "Method", type: "select", options: ["GET", "HEAD", "OPTIONS"] }, { name: "headers", label: "Request headers (one per line)", type: "textarea", default: "Accept: */*" }],
+  "dns-trace": [{ name: "type", label: "Record type", type: "select", options: ["A", "AAAA", "MX", "NS", "TXT", "CNAME", "SOA"] }],
 };
-const TARGET_HINT = { "reverse-dns": "IP address, e.g. 8.8.8.8", "ip-whois": "IP address or hostname", "asn-lookup": "AS number, e.g. AS13335", blocklists: "IPv4 address or hostname", "bgp-lookup": "IP, prefix or hostname, e.g. 1.1.1.0/24", "mail-tls": "Mail domain or MX host, e.g. example.com", "spf-flatten": "Domain, e.g. example.com", "cors-check": "URL of the API or page to test" };
+const TARGET_HINT = { "reverse-dns": "IP address, e.g. 8.8.8.8", "ip-whois": "IP address or hostname", "asn-lookup": "AS number, e.g. AS13335", blocklists: "IPv4 address or hostname", "bgp-lookup": "IP, prefix or hostname, e.g. 1.1.1.0/24", "mail-tls": "Mail domain or MX host, e.g. example.com", "spf-flatten": "Domain, e.g. example.com", "cors-check": "URL of the API or page to test", "http-request": "https://example.com/path", "axfr-test": "Domain, e.g. zonetransfer.me" };
 
 let catalog = { tabs: [] };
 const view = $("#view");
@@ -123,26 +125,52 @@ function renderTool(tab, tool) {
   const op = registry[tool.native.op];
   if (!op) { mount(view, ...header, h("div", { class: "notice" }, `Native op "${tool.native.op}" is missing from this build.`, extLink)); return; }
   const args = defaults(op.args, tool.native.preset);
+  const fileMode = op.input === "file" || op.input === "image";
   const needsInput = op.input !== false;
-  const input = h("textarea", { rows: 10, placeholder: op.placeholder || "Input", spellcheck: "false", "aria-label": "Input" });
+  const input = h("textarea", { rows: fileMode ? 4 : 10, placeholder: fileMode ? "…or paste data here" : op.placeholder || "Input", spellcheck: "false", "aria-label": "Input" });
+  const media = h("div", { class: "media-out" });
+  let file = null; // { bytes, name, type }
+  const pasteEnc = h("select", { "aria-label": "Pasted data format", onchange: () => auto() }, ["Text", "Hex", "Base64"].map((o) => h("option", { value: o }, o)));
+  const fileInfo = h("span", { class: "small muted" }, "No file chosen");
+  const picker = h("input", { type: "file", accept: op.input === "image" ? "image/*" : op.accept || "", style: "display:none", onchange: (e) => e.target.files[0] && loadFile(e.target.files[0]) });
+  async function loadFile(f) { file = { bytes: new Uint8Array(await f.arrayBuffer()), name: f.name, type: f.type }; fileInfo.textContent = `${f.name} · ${f.size.toLocaleString()} bytes`; input.value = ""; run(); }
+  function pastedBytes() { const v = input.value.trim(); if (pasteEnc.value === "Hex") return Uint8Array.from((v.replace(/[^0-9a-f]/gi, "").match(/../g) || []).map((x) => parseInt(x, 16))); if (pasteEnc.value === "Base64") return Uint8Array.from(atob(v.replace(/\s/g, "")), (c) => c.charCodeAt(0)); return new TextEncoder().encode(input.value); }
+  async function fileInput() { if (input.value.trim()) return { bytes: pastedBytes(), name: "pasted.bin", type: "" }; return file; }
+  function showRich(r) {
+    media.replaceChildren(); if (typeof r === "string" || r === undefined || r === null) { show(String(r ?? "")); return; }
+    show(r.text ?? ""); if (!r.text) out.textContent = r.image ? "" : "(no text output)";
+    if (r.image) { const src = typeof r.image === "string" ? r.image : URL.createObjectURL(r.image); media.append(h("img", { src, alt: "Output image", class: "out-img" })); }
+    if (r.download) { const blob = r.download.data instanceof Blob ? r.download.data : new Blob([r.download.data], { type: r.download.mime || "application/octet-stream" }); const url = URL.createObjectURL(blob);
+      media.append(h("a", { class: "btn primary", href: url, download: r.download.name || "output.bin" }, `Download ${r.download.name || "file"} (${blob.size.toLocaleString()} bytes)`)); }
+  }
   const run = async () => {
-    if (needsInput && !input.value.trim() && !op.allowEmpty) { out.classList.remove("error"); out.textContent = "Enter input on the left to see the result."; status.textContent = ""; return; }
-    try { status.textContent = ""; const t0 = performance.now(); show(await runClient(op, input.value, args)); status.textContent = `${(performance.now() - t0).toFixed(1)} ms`; } catch (e) { show(e.message || String(e), true); } };
+    try {
+      let value = input.value;
+      if (fileMode) { value = await fileInput(); if (!value) { out.classList.remove("error"); out.textContent = op.input === "image" ? "Choose or drop an image to see the result." : "Choose or drop a file, or paste data, to see the result."; media.replaceChildren(); status.textContent = ""; return; } }
+      else if (needsInput && !input.value.trim() && !op.allowEmpty) { out.classList.remove("error"); out.textContent = "Enter input on the left to see the result."; media.replaceChildren(); status.textContent = ""; return; }
+      status.textContent = ""; const t0 = performance.now(); showRich(await op.run(value, args)); status.textContent = `${(performance.now() - t0).toFixed(1)} ms`;
+    } catch (e) { media.replaceChildren(); show(e.message || String(e), true); } };
   const auto = debounce(run, 180); input.addEventListener("input", auto);
   const argPanel = op.args?.length ? h("div", { class: "args" }, op.args.map((s) => argField(s, args[s.name], (v) => { args[s.name] = v; auto(); }))) : null;
+  const drop = fileMode ? h("div", { class: "dropzone", tabindex: "0", role: "button", "aria-label": "Choose a file",
+    onclick: () => picker.click(), onkeydown: (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); picker.click(); } },
+    ondragover: (e) => { e.preventDefault(); e.currentTarget.classList.add("over"); }, ondragleave: (e) => e.currentTarget.classList.remove("over"),
+    ondrop: (e) => { e.preventDefault(); e.currentTarget.classList.remove("over"); const f = e.dataTransfer.files[0]; if (f) loadFile(f); } },
+    h("strong", {}, op.input === "image" ? "Drop an image here or click to choose" : "Drop a file here or click to choose"), fileInfo, picker) : null;
+  const inputPanel = needsInput ? h("div", { class: "panel" }, h("div", { class: "row", style: "margin-bottom:8px" }, h("label", { style: "margin:0" }, "Input"), h("span", { class: "spacer" }), fileMode ? pasteEnc : null,
+    h("button", { class: "btn", type: "button", onclick: () => { input.value = ""; file = null; fileInfo.textContent = "No file chosen"; run(); } }, "Clear")), drop, input) : null;
   mount(view, ...header,
     argPanel ? h("div", { class: "panel" }, h("label", {}, "Options"), argPanel) : null,
-    h("div", { class: needsInput ? "tool-layout" : "" },
-      needsInput ? h("div", { class: "panel" }, h("div", { class: "row", style: "margin-bottom:8px" }, h("label", { style: "margin:0" }, "Input"), h("span", { class: "spacer" }), h("button", { class: "btn", type: "button", onclick: () => { input.value = ""; run(); } }, "Clear")), input) : null,
+    h("div", { class: needsInput ? "tool-layout" : "" }, inputPanel,
       h("div", { class: "panel", style: needsInput ? "" : "margin-top:16px" }, h("div", { class: "row", style: "margin-bottom:8px" }, h("label", { style: "margin:0" }, "Output"), status, h("span", { class: "spacer" }),
-        h("button", { class: "btn" + (needsInput ? "" : " primary"), type: "button", onclick: run }, needsInput ? "Run" : "Generate"), copyBtn, extLink), out)));
+        h("button", { class: "btn" + (needsInput ? "" : " primary"), type: "button", onclick: run }, needsInput ? "Run" : "Generate"), copyBtn, extLink), media, out)));
   run();
 }
 
 // CyberChef-style recipe: chain native client ops, output of one feeds the next.
 function renderRecipe(tab) {
   renderTabs(tab.id);
-  const ops = tab.tools.filter((t) => t.native?.mode === "client" && registry[t.native.op]?.input !== false);
+  const ops = tab.tools.filter((t) => t.native?.mode === "client" && registry[t.native.op] && registry[t.native.op].input === undefined);
   let steps = store.get("recipe", []).filter((s) => registry[s.op]);
   const input = h("textarea", { rows: 10, placeholder: "Input", spellcheck: "false" }); input.value = store.get("recipeInput", "");
   const out = h("pre", { class: "output" }); const list = h("div");
