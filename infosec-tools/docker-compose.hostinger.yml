@@ -1,0 +1,27 @@
+# Compose for Hostinger Docker Manager: runs the prebuilt GHCR image behind the
+# VPS's existing Traefik (entrypoint websecure, resolver letsencrypt).
+# ADMIN_PASSWORD is supplied as a project environment variable.
+services:
+  infosec-tools:
+    image: ghcr.io/shivdasaj/infosec-tools:latest
+    restart: unless-stopped
+    environment:
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD:?ADMIN_PASSWORD must be set}
+    volumes:
+      - infosec-tools-data:/data
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 512m
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.infosectools.rule=Host(`infosectools.sajinshivdas.online`)
+      - traefik.http.routers.infosectools.entrypoints=websecure
+      - traefik.http.routers.infosectools.tls=true
+      - traefik.http.routers.infosectools.tls.certresolver=letsencrypt
+      - traefik.http.services.infosectools.loadbalancer.server.port=8080
+
+volumes:
+  infosec-tools-data:

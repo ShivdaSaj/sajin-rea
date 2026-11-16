@@ -28,7 +28,11 @@ Every save takes a backup first (the latest 50 are kept). You can restore any ba
 
 Security: the session cookie is HttpOnly, Secure and SameSite=Strict. Writes need a CSRF header. Logins are rate-limited (5 failures locks that IP out for 15 minutes). Pages are served with a strict CSP and security headers.
 
-## Deploy (VPS with Docker + Traefik)
+## Deploy with Hostinger Docker Manager (current production)
+
+GitHub Actions (`.github/workflows/infosec-tools-image.yml`) runs the tests and builds `ghcr.io/shivdasaj/infosec-tools` (`latest` plus a short-SHA tag) on every push that touches `infosec-tools/`. The VPS project `infosec-tools` runs `docker-compose.hostinger.yml`, which uses that image behind the existing Traefik (`websecure` entrypoint, `letsencrypt` resolver). `ADMIN_PASSWORD` is a project environment variable in hPanel → VPS → Docker Manager. To update after a push, use **Update** on the project in Docker Manager, which pulls the new image.
+
+## Deploy manually (any Docker + Traefik host)
 
 ```bash
 git clone <this repo> && cd sajin-rea/infosec-tools
