@@ -1,7 +1,8 @@
 # Compose for Hostinger Docker Manager (same pattern as the other projects: pull an image,
 # Traefik on entrypoint websecure + resolver letsencrypt). Uses the stock node:24-alpine
 # image; at start-up Node fetches this app from the public repo, pinned to one commit,
-# over verified HTTPS. To deploy a new version, change APP_REF and redeploy.
+# over verified HTTPS. To deploy a new version, set the APP_REF project environment
+# variable (or the default below) to the commit and redeploy.
 # ADMIN_PASSWORD is supplied as a project environment variable.
 services:
   infosec-tools:
@@ -11,7 +12,7 @@ services:
     working_dir: /app
     environment:
       - ADMIN_PASSWORD=${ADMIN_PASSWORD:?ADMIN_PASSWORD must be set}
-      - APP_REF=fc415ccfa09bef4a80e64adcb126382f87bfebe4
+      - APP_REF=${APP_REF:-fc415ccfa09bef4a80e64adcb126382f87bfebe4}
       - DATA_DIR=/home/node/data
       - NODE_ENV=production
       - PORT=8080
