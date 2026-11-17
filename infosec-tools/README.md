@@ -32,7 +32,7 @@ Security: the session cookie is HttpOnly, Secure and SameSite=Strict. Writes nee
 
 ## Deploy with Hostinger Docker Manager (current production)
 
-The VPS project `infosec-tools` runs `docker-compose.hostinger.yml`. It pulls the stock `node:24-alpine` image, and at start-up fetches this app from the public repository at the commit pinned in `APP_REF`, then runs it behind the existing Traefik (`websecure` entrypoint, `letsencrypt` resolver). `ADMIN_PASSWORD` is a project environment variable in hPanel → VPS → Docker Manager. To deploy new code, set `APP_REF` to the new commit and redeploy the project from Docker Manager. GitHub Actions also runs the tests and publishes `ghcr.io/shivdasaj/infosec-tools` on every push.
+The VPS project `infosec-tools` runs `docker-compose.hostinger.yml`. It pulls the stock `node:24-alpine` image, and at start-up fetches this app from the public repository at the commit pinned in `APP_REF`, then runs it behind the existing Traefik (`websecure` entrypoint, `letsencrypt` resolver). `ADMIN_PASSWORD` is a project environment variable in hPanel → VPS → Docker Manager. To deploy new code, set the `APP_REF` project environment variable to the new commit (it overrides the default in the compose file) and redeploy the project from Docker Manager. GitHub Actions also runs the tests and publishes `ghcr.io/shivdasaj/infosec-tools` on every push.
 
 ## Deploy manually (any Docker + Traefik host)
 
