@@ -173,13 +173,86 @@ const WEBCHECK_GROUPS = {
   "Threat Intelligence": ["vulnerabilities", "block-lists", "threats"],
 };
 const webcheckGroup = (id) => Object.entries(WEBCHECK_GROUPS).find(([, ids]) => ids.includes(id))?.[0] || "Other checks";
-const ICON = { ittools: "wrench", cyberchef: "flask", webcheck: "radar", "networking-toolbox": "network" };
+// The four toolkits. Only tools with a native implementation are published (link-only tools are excluded).
 const TABS = [
-  { id: "it-utilities", source: "ittools", name: "IT Utilities", description: "Everyday developer & sysadmin utilities: generators, converters, formatters and calculators.", sourceUrl: "https://ittools.sajinshivdas.online", link: (t) => `https://ittools.sajinshivdas.online${t.path}` },
-  { id: "cipher-lab", source: "cyberchef", name: "Cipher Lab", description: "Encode, decode, encrypt, hash and analyse data — the cyber Swiss-army knife, with chainable recipes.", sourceUrl: "https://cyberchef.sajinshivdas.online", link: (t) => `https://cyberchef.sajinshivdas.online/#recipe=${encodeURIComponent(t.name.replace(/ /g, "_"))}()` },
-  { id: "web-recon", source: "webcheck", name: "Web Recon", description: "Website intelligence and OSINT: DNS, TLS, headers, mail security, technology and exposure checks.", sourceUrl: "https://webcheck.sajinshivdas.online", link: () => "https://webcheck.sajinshivdas.online/check" },
-  { id: "network-toolkit", source: "networking-toolbox", name: "Network Toolkit", description: "Subnetting, CIDR, IPv6, DNS, DHCP and live network diagnostics for network engineers.", sourceUrl: "https://networking-toolbox.sajinshivdas.online", link: (t) => `https://networking-toolbox.sajinshivdas.online${t.path}` },
+  { id: "it-toolkit", source: "ittools", name: "IT Toolkit", icon: "toolbox", accent: "#22d3ee",
+    tagline: "Generators, converters and formatters for everyday dev and sysadmin work.",
+    description: "Everyday developer and sysadmin utilities: token and UUID generators, encoders, converters, formatters, JWT and JSON tools, and quick calculators.",
+    sourceUrl: "https://ittools.sajinshivdas.online", link: (t) => `https://ittools.sajinshivdas.online${t.path}` },
+  { id: "cyberchef-toolkit", source: "cyberchef", name: "CyberChef Toolkit", icon: "flask", accent: "#a78bfa",
+    tagline: "Encode, decode, encrypt, hash and analyse data, and chain it all into recipes.",
+    description: "The cyber Swiss-army knife: encodings, ciphers, hashes, public-key crypto, data formats, compression, forensics and packet parsing, with a recipe builder that chains operations.",
+    sourceUrl: "https://cyberchef.sajinshivdas.online", link: (t) => `https://cyberchef.sajinshivdas.online/#recipe=${encodeURIComponent(t.name.replace(/ /g, "_"))}()` },
+  { id: "web-toolkit", source: "webcheck", name: "Web Toolkit", icon: "radar", accent: "#34d399",
+    tagline: "Live intelligence on any website: DNS, TLS, headers, mail and exposure.",
+    description: "Website intelligence and OSINT that runs live from the server: infrastructure, TLS and certificates, DNS, HTTP security headers, content, mail security and threat checks.",
+    sourceUrl: "https://webcheck.sajinshivdas.online", link: () => "https://webcheck.sajinshivdas.online/check" },
+  { id: "network-toolkit", source: "networking-toolbox", name: "Network Toolkit", icon: "network", accent: "#f472b6",
+    tagline: "Subnetting, CIDR, IPv6, DNS, DHCP and live network diagnostics.",
+    description: "Network engineering in one place: subnet and CIDR maths, IP conversions, DNS record and DNSSEC builders, DHCP option encoders, live lookups and quick-reference sheets.",
+    sourceUrl: "https://networking-toolbox.sajinshivdas.online", link: (t) => `https://networking-toolbox.sajinshivdas.online${t.path}` },
 ];
+
+// Category cards: a one-line description and an icon for each category (Network Toolkit uses "Group · Sub" names;
+// the card is per group). Admins can edit all of this later.
+const CAT_META = {
+  ittools: {
+    "Crypto": ["key", "Tokens, hashes, UUIDs, HMACs, bcrypt, BIP39 phrases and password checks."],
+    "Converter": ["shuffle", "Convert between bases, encodings, colours, dates, cases and data formats."],
+    "Web": ["globe", "URL, HTML and JWT helpers, user-agent parsing, HTTP status codes and more."],
+    "Images and videos": ["image", "Generate QR codes and SVG placeholders, and convert images."],
+    "Development": ["code", "Formatters, crontab and regex helpers, chmod, Docker and Git cheats."],
+    "Network": ["network", "IPv4 subnets, ranges and MAC addresses, IPv6 ULAs and conversions."],
+    "Math": ["calculator", "Evaluate expressions, ETA and percentage calculators."],
+    "Measurement": ["gauge", "Benchmarks, chronometers and temperature conversions."],
+    "Text": ["type", "Lorem ipsum, diffs, statistics, obfuscation and Unicode conversions."],
+    "Data": ["database", "Phone numbers, IBANs and other structured data validators."],
+  },
+  cyberchef: {
+    "Data format": ["binary", "Base64, hex, binary, URL, HTML entities, JSON, CSV, YAML, CBOR and more."],
+    "Encryption / Encoding": ["lock", "Symmetric ciphers, classical ciphers and text encodings."],
+    "Public Key": ["key", "Parse certificates, CSRs and keys; RSA and ECDSA sign, verify and encrypt."],
+    "Arithmetic / Logic": ["calculator", "XOR, bit shifts, sums, means, medians and boolean operations."],
+    "Networking": ["network", "Parse IPs, URLs, user agents, packets and TLS handshakes; JA3/JA4 fingerprints."],
+    "Language": ["type", "Character encodings, Unicode normalisation and text analysis."],
+    "Utils": ["wrench", "Split, join, sort, filter, pad, diff and transform text."],
+    "Date / Time": ["clock", "Parse, convert and format timestamps across epochs and time zones."],
+    "Extractors": ["filter", "Pull IPs, emails, URLs, domains, hashes and file paths out of text."],
+    "Compression": ["archive", "Gzip, Zlib, Deflate, Zip, Tar, LZ4, LZString and more."],
+    "Hashing": ["hash", "MD, SHA-1/2/3, BLAKE, CRCs, HMAC, bcrypt, Argon2 and fuzzy hashes."],
+    "Code tidy": ["code", "Beautify and minify JSON, XML, SQL, CSS and JavaScript."],
+    "Forensics": ["search", "Detect file types, extract embedded files, parse EXIF, ELF and plists."],
+    "Multimedia": ["image", "Image edits, QR codes, charts and colour tools that run in the browser."],
+    "Other": ["sparkle", "Entropy, Magic auto-detection, BIP39, Enigma and more."],
+    "Flow control": ["layers", "Comments and jumps for building recipes."],
+  },
+  webcheck: {
+    "Infrastructure": ["server", "IP, location, server info, open ports and carbon footprint."],
+    "TLS & Certificates": ["shield", "Certificate chain, TLS versions, cipher suites and OCSP stapling."],
+    "DNS & Domain": ["globe", "DNS records, DNSSEC, WHOIS, subdomains, zone transfers and DNS trace."],
+    "HTTP & Security": ["lock", "Security headers, HSTS, cookies, redirects, CORS and HTTP requests."],
+    "Content & SEO": ["search", "robots.txt, sitemaps, social tags, linked pages, rank and page quality."],
+    "Email": ["mail", "MX, SPF, DKIM, DMARC and mail server TLS."],
+    "Threat Intelligence": ["target", "DNS blocklist checks across major reputation lists."],
+  },
+  "networking-toolbox": {
+    "Subnetting": ["grid", "IPv4 and IPv6 subnet calculators, VLSM, supernets and subnet planning."],
+    "CIDR": ["layers", "CIDR masks, ranges, summarisation, splitting, gaps and set operations."],
+    "IP Tools": ["binary", "Convert, validate, enumerate and generate IPv4 and IPv6 addresses."],
+    "DNS Tools": ["globe", "Build DNS records, reverse zones, zone files and DNSSEC material."],
+    "DHCP": ["plug", "Encode DHCPv4 and DHCPv6 options, plan scopes and generate configs."],
+    "Lookups": ["radar", "Live DNS, HTTP, TLS, network, email and RDAP diagnostics."],
+    "Reference": ["book", "Quick-reference sheets for CIDR, IPv6, special addresses and protocols."],
+  },
+};
+
+// Recommended starting points shown on the landing page (admins can change these).
+const FEATURED = {
+  "it-toolkit": ["token-generator", "hash-text", "jwt-parser", "ipv4-subnet-calculator"],
+  "cyberchef-toolkit": ["magic", "aes-encrypt", "parse-x-509-certificate", "ja3-fingerprint"],
+  "web-toolkit": ["ssl", "headers", "mail-config", "dns"],
+  "network-toolkit": ["subnetting--ipv4-subnet-calculator", "cidr--summarize", "diagnostics--dns--lookup"],
+};
 
 const missing = [];
 function nativeOf(spec) {
@@ -189,20 +262,38 @@ function nativeOf(spec) {
   return { op, mode: server ? "server" : "client", preset: q ? Object.fromEntries(new URLSearchParams(q)) : undefined };
 }
 
-const catalog = { version: 1, generatedAt: new Date().toISOString(), title: "Infosec Tools", tabs: [] };
+const SITE_DEFAULTS = {
+  title: "Infosec Tools", brandPrefix: "Infosec", brandSuffix: "Tools",
+  eyebrow: "Rebuilt natively with REA",
+  heading: "The workbench for", highlight: "everyday security", headingEnd: "tooling.",
+  lead: "{tools} tools across {toolkits} toolkits that run in your browser or live from the server: IT utilities, CyberChef operations, website recon and network engineering, all in one place.",
+  footer: "Infosec Tools combines four self-hosted toolkits, rebuilt natively after static analysis with REA. Browser tools never send your input anywhere; live checks run on this server.",
+  theme: "dark",
+};
+
+const topCat = (c) => c.split(" · ")[0];
+const catalog = { version: 2, generatedAt: new Date().toISOString(), title: SITE_DEFAULTS.title, site: SITE_DEFAULTS, tabs: [] };
+let excluded = 0;
 for (const tab of TABS) {
   const src = seed(`${tab.source}.json`); const seen = new Set(); const tools = [];
   const cats = [...src.categories, ...(src.uncategorized?.length ? [{ name: "Other", tools: src.uncategorized }] : [])];
   for (const cat of cats) for (const t of cat.tools) {
     if (seen.has(t.id)) continue; seen.add(t.id);
     const native = nativeOf(MAP[tab.source][tab.source === "cyberchef" ? t.name : t.id]);
-    tools.push({ id: t.id, name: t.name, description: t.description || t.use || "", category: tab.source === "webcheck" ? webcheckGroup(t.id) : tab.source === "networking-toolbox" && t.group ? `${cat.name} · ${t.group}` : cat.name,
-      keywords: t.keywords || [], native, external: tab.link(t), visible: true });
+    if (!native) { excluded++; continue; } // link-only tools are not published
+    let category = tab.source === "webcheck" ? webcheckGroup(t.id) : tab.source === "networking-toolbox" && t.group ? `${cat.name} · ${t.group}` : cat.name;
+    category = category.replace(/^Ref( · |$)/, "Reference$1");
+    tools.push({ id: t.id, name: t.name, description: t.description || t.use || "", category, keywords: t.keywords || [], native, external: tab.link(t), visible: true,
+      featured: FEATURED[tab.id].includes(t.id) || undefined });
   }
-  catalog.tabs.push({ id: tab.id, name: tab.name, description: tab.description, icon: ICON[tab.source], source: tab.source, sourceUrl: tab.sourceUrl, visible: true, tools });
+  const present = [...new Set(tools.map((x) => topCat(x.category)))];
+  const meta = CAT_META[tab.source];
+  for (const c of present) if (!meta[c]) { console.error(`No CAT_META for ${tab.source} / ${c}`); process.exit(1); }
+  for (const id of FEATURED[tab.id]) if (!tools.some((x) => x.id === id)) { console.error(`Featured tool ${tab.id}/${id} not found`); process.exit(1); }
+  catalog.tabs.push({ id: tab.id, name: tab.name, tagline: tab.tagline, description: tab.description, icon: tab.icon, accent: tab.accent, source: tab.source, sourceUrl: tab.sourceUrl, visible: true,
+    categories: present.map((c) => ({ name: c, icon: meta[c][0], description: meta[c][1] })), tools });
 }
-fs.writeFileSync(path.join(root, "seed", "catalog.json"), JSON.stringify(catalog, null, 1));
-for (const t of catalog.tabs) console.log(`${t.name.padEnd(16)} ${t.tools.length} tools, ${t.tools.filter((x) => x.native).length} native`);
-const total = catalog.tabs.reduce((n, t) => n + t.tools.length, 0), nat = catalog.tabs.reduce((n, t) => n + t.tools.filter((x) => x.native).length, 0);
-console.log(`Total ${total} tools, ${nat} native (${((nat / total) * 100).toFixed(1)}%)`);
 if (missing.length) { console.error("Unknown ops in MAP:", missing.join(", ")); process.exit(1); }
+fs.writeFileSync(path.join(root, "seed", "catalog.json"), JSON.stringify(catalog, null, 1));
+for (const t of catalog.tabs) console.log(`${t.name.padEnd(18)} ${String(t.tools.length).padStart(3)} tools in ${t.categories.length} categories`);
+console.log(`Total ${catalog.tabs.reduce((n, t) => n + t.tools.length, 0)} tools published; ${excluded} link-only tools excluded`);

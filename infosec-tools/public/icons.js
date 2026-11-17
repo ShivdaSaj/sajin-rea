@@ -1,0 +1,70 @@
+// Stroke icons (24x24), shared by the portal and the admin panel. Built as SVG elements, never via innerHTML.
+export const ICONS = {
+  toolbox: "M3 9h18v10H3zM8 9V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v3M3 13h18M10 13v2h4v-2",
+  flask: "M9 3h6M10 3v6L4 19a1 1 0 0 0 1 2h14a1 1 0 0 0 1-2l-6-10V3M7 15h10",
+  radar: "M12 21a9 9 0 1 1 9-9M12 16a4 4 0 1 1 4-4M12 12l6-6",
+  network: "M12 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM5 22a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM19 22a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12 8v4M12 12l-5 4.5M12 12l5 4.5",
+  key: "M15 9a3 3 0 1 0 0-.01M13 11 4 20M7 17l2 2M5 19l2 2",
+  shuffle: "M4 7h11l-3-3M15 7l-3 3M20 17H9l3 3M9 17l3-3",
+  globe: "M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18ZM3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18",
+  image: "M3 4h18v16H3zM8.5 10a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM21 15l-5-5L5 20",
+  code: "m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16",
+  calculator: "M5 3h14v18H5zM8 7h8M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01",
+  gauge: "M12 21a9 9 0 1 1 9-9M12 12l4-4M7 16h10",
+  type: "M5 6V4h14v2M12 4v16M9 20h6",
+  database: "M12 8c4.4 0 8-1.3 8-3s-3.6-3-8-3-8 1.3-8 3 3.6 3 8 3ZM4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3",
+  binary: "M6 4h3v7H6zM15 4v7M13 4h2M6 13v7M4 13h2M15 13h3v7h-3z",
+  lock: "M5 11h14v10H5zM8 11V7a4 4 0 0 1 8 0v4",
+  wrench: "M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z",
+  clock: "M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18ZM12 7v5l3 2",
+  filter: "M3 5h18l-7 8v6l-4 2v-8z",
+  archive: "M3 4h18v4H3zM5 8v12h14V8M10 12h4",
+  hash: "M4 9h16M4 15h16M10 3 8 21M16 3l-2 18",
+  search: "M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14ZM20 20l-3.5-3.5",
+  sparkle: "M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6",
+  layers: "m12 3 9 5-9 5-9-5 9-5ZM3 13l9 5 9-5M3 17l9 5 9-5",
+  server: "M4 4h16v6H4zM4 14h16v6H4zM8 7h.01M8 17h.01",
+  shield: "M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z",
+  mail: "M3 5h18v14H3zM3 6l9 7 9-7",
+  target: "M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18ZM12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM12 12h.01",
+  grid: "M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z",
+  list: "M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01",
+  plug: "M9 2v6M15 2v6M6 8h12v4a6 6 0 0 1-12 0zM12 18v4",
+  book: "M4 4h6a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H4zM20 4h-6a2 2 0 0 0-2 2v14a2 2 0 0 1 2-2h6z",
+  play: "M7 4l13 8-13 8z",
+  bolt: "M13 2 4 14h7l-1 8 9-12h-7z",
+  link: "M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1",
+  star: "M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z",
+  bookmark: "M6 3h12v18l-6-4-6 4z",
+  external: "M14 4h6v6M20 4l-9 9M18 14v6H4V6h6",
+  copy: "M9 9h11v11H9zM5 15H4V4h11v1",
+  close: "M6 6l12 12M18 6 6 18",
+  check: "M5 12l5 5 9-10",
+  arrow: "M5 12h14M13 6l6 6-6 6",
+  arrowUp: "M12 19V5M6 11l6-6 6 6",
+  arrowDown: "M12 5v14M6 13l6 6 6-6",
+  upload: "M12 15V3m0 0-4 4m4-4 4 4M4 17v3h16v-3",
+  download: "M12 3v12m0 0-4-4m4 4 4-4M4 17v3h16v-3",
+  plus: "M12 5v14M5 12h14",
+  pen: "M4 20h4L19 9l-4-4L4 16zM13.5 6.5l4 4",
+  trash: "M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3",
+  eye: "M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12ZM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z",
+  eyeOff: "M3 3l18 18M10.6 5.1A10 10 0 0 1 12 5c6 0 10 7 10 7a17 17 0 0 1-3.1 3.8M6.6 6.6C3.8 8.4 2 12 2 12s4 7 10 7a9.6 9.6 0 0 0 4.4-1.1M9.9 9.9a3 3 0 0 0 4.2 4.2",
+  settings: "M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z",
+  logout: "M15 4h4v16h-4M10 17l5-5-5-5M15 12H3",
+  home: "M3 11l9-8 9 8M5 9.5V21h14V9.5",
+  history: "M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5M12 7v5l3 2",
+  chain: "M9 7H6a5 5 0 0 0 0 10h3M15 7h3a5 5 0 0 1 0 10h-3M8 12h8",
+  cpu: "M7 7h10v10H7zM10 10h4v4h-4zM9 3v4M15 3v4M9 17v4M15 17v4M3 9h4M3 15h4M17 9h4M17 15h4",
+  file: "M6 2h8l4 4v16H6zM14 2v4h4",
+};
+export const ICON_NAMES = Object.keys(ICONS);
+const NS = "http://www.w3.org/2000/svg";
+export function icon(name, size = 20) {
+  const svg = document.createElementNS(NS, "svg");
+  svg.setAttribute("viewBox", "0 0 24 24"); svg.setAttribute("width", size); svg.setAttribute("height", size); svg.setAttribute("aria-hidden", "true");
+  const p = document.createElementNS(NS, "path");
+  p.setAttribute("d", ICONS[name] || ICONS.sparkle); p.setAttribute("fill", "none"); p.setAttribute("stroke", "currentColor");
+  p.setAttribute("stroke-width", "1.8"); p.setAttribute("stroke-linecap", "round"); p.setAttribute("stroke-linejoin", "round");
+  svg.append(p); return svg;
+}

@@ -1,16 +1,82 @@
 {
- "version": 1,
- "generatedAt": "2026-11-16T16:55:14.400Z",
+ "version": 2,
+ "generatedAt": "2026-11-17T08:56:01.912Z",
  "title": "Infosec Tools",
+ "site": {
+  "title": "Infosec Tools",
+  "brandPrefix": "Infosec",
+  "brandSuffix": "Tools",
+  "eyebrow": "Rebuilt natively with REA",
+  "heading": "The workbench for",
+  "highlight": "everyday security",
+  "headingEnd": "tooling.",
+  "lead": "{tools} tools across {toolkits} toolkits that run in your browser or live from the server: IT utilities, CyberChef operations, website recon and network engineering, all in one place.",
+  "footer": "Infosec Tools combines four self-hosted toolkits, rebuilt natively after static analysis with REA. Browser tools never send your input anywhere; live checks run on this server.",
+  "theme": "dark"
+ },
  "tabs": [
   {
-   "id": "it-utilities",
-   "name": "IT Utilities",
-   "description": "Everyday developer & sysadmin utilities: generators, converters, formatters and calculators.",
-   "icon": "wrench",
+   "id": "it-toolkit",
+   "name": "IT Toolkit",
+   "tagline": "Generators, converters and formatters for everyday dev and sysadmin work.",
+   "description": "Everyday developer and sysadmin utilities: token and UUID generators, encoders, converters, formatters, JWT and JSON tools, and quick calculators.",
+   "icon": "toolbox",
+   "accent": "#22d3ee",
    "source": "ittools",
    "sourceUrl": "https://ittools.sajinshivdas.online",
    "visible": true,
+   "categories": [
+    {
+     "name": "Crypto",
+     "icon": "key",
+     "description": "Tokens, hashes, UUIDs, HMACs, bcrypt, BIP39 phrases and password checks."
+    },
+    {
+     "name": "Converter",
+     "icon": "shuffle",
+     "description": "Convert between bases, encodings, colours, dates, cases and data formats."
+    },
+    {
+     "name": "Web",
+     "icon": "globe",
+     "description": "URL, HTML and JWT helpers, user-agent parsing, HTTP status codes and more."
+    },
+    {
+     "name": "Images and videos",
+     "icon": "image",
+     "description": "Generate QR codes and SVG placeholders, and convert images."
+    },
+    {
+     "name": "Development",
+     "icon": "code",
+     "description": "Formatters, crontab and regex helpers, chmod, Docker and Git cheats."
+    },
+    {
+     "name": "Network",
+     "icon": "network",
+     "description": "IPv4 subnets, ranges and MAC addresses, IPv6 ULAs and conversions."
+    },
+    {
+     "name": "Math",
+     "icon": "calculator",
+     "description": "Evaluate expressions, ETA and percentage calculators."
+    },
+    {
+     "name": "Measurement",
+     "icon": "gauge",
+     "description": "Benchmarks, chronometers and temperature conversions."
+    },
+    {
+     "name": "Text",
+     "icon": "type",
+     "description": "Lorem ipsum, diffs, statistics, obfuscation and Unicode conversions."
+    },
+    {
+     "name": "Data",
+     "icon": "database",
+     "description": "Phone numbers, IBANs and other structured data validators."
+    }
+   ],
    "tools": [
     {
      "id": "token-generator",
@@ -34,7 +100,8 @@
       "mode": "client"
      },
      "external": "https://ittools.sajinshivdas.online/token-generator",
-     "visible": true
+     "visible": true,
+     "featured": true
     },
     {
      "id": "hash-text",
@@ -61,7 +128,8 @@
       "mode": "client"
      },
      "external": "https://ittools.sajinshivdas.online/hash-text",
-     "visible": true
+     "visible": true,
+     "featured": true
     },
     {
      "id": "bcrypt",
@@ -262,23 +330,6 @@
       "mode": "client"
      },
      "external": "https://ittools.sajinshivdas.online/password-strength-analyser",
-     "visible": true
-    },
-    {
-     "id": "pdf-signature-checker",
-     "name": "PDF signature checker",
-     "description": "Verify the signatures of a PDF file. A signed PDF file contains one or more signatures that may be used to determine whether the contents of the file have been altered since the file was signed.",
-     "category": "Crypto",
-     "keywords": [
-      "pdf",
-      "signature",
-      "checker",
-      "verify",
-      "validate",
-      "sign"
-     ],
-     "native": null,
-     "external": "https://ittools.sajinshivdas.online/pdf-signature-checker",
      "visible": true
     },
     {
@@ -897,32 +948,8 @@
       "mode": "client"
      },
      "external": "https://ittools.sajinshivdas.online/jwt-parser",
-     "visible": true
-    },
-    {
-     "id": "keycode-info",
-     "name": "Keycode info",
-     "description": "Find the javascript keycode, code, location and modifiers of any pressed key.",
-     "category": "Web",
-     "keywords": [
-      "keycode",
-      "info",
-      "code",
-      "javascript",
-      "event",
-      "keycodes",
-      "which",
-      "keyboard",
-      "press",
-      "modifier",
-      "alt",
-      "ctrl",
-      "meta",
-      "shift"
-     ],
-     "native": null,
-     "external": "https://ittools.sajinshivdas.online/keycode-info",
-     "visible": true
+     "visible": true,
+     "featured": true
     },
     {
      "id": "slugify-string",
@@ -944,25 +971,6 @@
       "mode": "client"
      },
      "external": "https://ittools.sajinshivdas.online/slugify-string",
-     "visible": true
-    },
-    {
-     "id": "html-wysiwyg-editor",
-     "name": "HTML WYSIWYG editor",
-     "description": "Online, feature-rich WYSIWYG HTML editor which generates the source code of the content immediately.",
-     "category": "Web",
-     "keywords": [
-      "html",
-      "wysiwyg",
-      "editor",
-      "p",
-      "ul",
-      "ol",
-      "converter",
-      "live"
-     ],
-     "native": null,
-     "external": "https://ittools.sajinshivdas.online/html-wysiwyg-editor",
      "visible": true
     },
     {
@@ -1112,19 +1120,6 @@
       "mode": "client"
      },
      "external": "https://ittools.sajinshivdas.online/svg-placeholder-generator",
-     "visible": true
-    },
-    {
-     "id": "camera-recorder",
-     "name": "Camera recorder",
-     "description": "Take a picture or record a video from your webcam or camera.",
-     "category": "Images and videos",
-     "keywords": [
-      "camera",
-      "recoder"
-     ],
-     "native": null,
-     "external": "https://ittools.sajinshivdas.online/camera-recorder",
      "visible": true
     },
     {
@@ -1438,7 +1433,8 @@
       "mode": "client"
      },
      "external": "https://ittools.sajinshivdas.online/ipv4-subnet-calculator",
-     "visible": true
+     "visible": true,
+     "featured": true
     },
     {
      "id": "ipv4-address-converter",
@@ -1479,23 +1475,6 @@
       "mode": "client"
      },
      "external": "https://ittools.sajinshivdas.online/ipv4-range-expander",
-     "visible": true
-    },
-    {
-     "id": "mac-address-lookup",
-     "name": "MAC address lookup",
-     "description": "Find the vendor and manufacturer of a device by its MAC address.",
-     "category": "Network",
-     "keywords": [
-      "mac",
-      "address",
-      "lookup",
-      "vendor",
-      "parser",
-      "manufacturer"
-     ],
-     "native": null,
-     "external": "https://ittools.sajinshivdas.online/mac-address-lookup",
      "visible": true
     },
     {
@@ -1623,25 +1602,6 @@
      "visible": true
     },
     {
-     "id": "chronometer",
-     "name": "Chronometer",
-     "description": "Monitor the duration of a thing. Basically a chronometer with simple chronometer features.",
-     "category": "Measurement",
-     "keywords": [
-      "chronometer",
-      "time",
-      "lap",
-      "duration",
-      "measure",
-      "pause",
-      "resume",
-      "stopwatch"
-     ],
-     "native": null,
-     "external": "https://ittools.sajinshivdas.online/chronometer",
-     "visible": true
-    },
-    {
      "id": "temperature-converter",
      "name": "Temperature converter",
      "description": "Degrees temperature conversions for Kelvin, Celsius, Fahrenheit, Rankine, Delisle, Newton, Réaumur, and Rømer.",
@@ -1664,23 +1624,6 @@
       "mode": "client"
      },
      "external": "https://ittools.sajinshivdas.online/temperature-converter",
-     "visible": true
-    },
-    {
-     "id": "benchmark-builder",
-     "name": "Benchmark builder",
-     "description": "Easily compare execution time of tasks with this very simple online benchmark builder.",
-     "category": "Measurement",
-     "keywords": [
-      "benchmark",
-      "builder",
-      "execution",
-      "duration",
-      "mean",
-      "variance"
-     ],
-     "native": null,
-     "external": "https://ittools.sajinshivdas.online/benchmark-builder",
      "visible": true
     },
     {
@@ -1726,22 +1669,6 @@
       "mode": "client"
      },
      "external": "https://ittools.sajinshivdas.online/text-statistics",
-     "visible": true
-    },
-    {
-     "id": "emoji-picker",
-     "name": "Emoji picker",
-     "description": "Copy and paste emojis easily and get the unicode and code points value of each emoji.",
-     "category": "Text",
-     "keywords": [
-      "emoji",
-      "picker",
-      "unicode",
-      "copy",
-      "paste"
-     ],
-     "native": null,
-     "external": "https://ittools.sajinshivdas.online/emoji-picker",
      "visible": true
     },
     {
@@ -1807,43 +1734,6 @@
      "visible": true
     },
     {
-     "id": "ascii-text-drawer",
-     "name": "ASCII Art Text Generator",
-     "description": "Create ASCII art text with many fonts and styles.",
-     "category": "Text",
-     "keywords": [
-      "ascii",
-      "asciiart",
-      "text",
-      "drawer"
-     ],
-     "native": null,
-     "external": "https://ittools.sajinshivdas.online/ascii-text-drawer",
-     "visible": true
-    },
-    {
-     "id": "phone-parser-and-formatter",
-     "name": "Phone parser and formatter",
-     "description": "Parse, validate and format phone numbers. Get information about the phone number, like the country code, type, etc.",
-     "category": "Data",
-     "keywords": [
-      "phone",
-      "parser",
-      "formatter",
-      "validate",
-      "format",
-      "number",
-      "telephone",
-      "mobile",
-      "cell",
-      "international",
-      "national"
-     ],
-     "native": null,
-     "external": "https://ittools.sajinshivdas.online/phone-parser-and-formatter",
-     "visible": true
-    },
-    {
      "id": "iban-validator-and-parser",
      "name": "IBAN validator and parser",
      "description": "Validate and parse IBAN numbers. Check if an IBAN is valid and get the country, BBAN, if it is a QR-IBAN and the IBAN friendly format.",
@@ -1866,13 +1756,97 @@
    ]
   },
   {
-   "id": "cipher-lab",
-   "name": "Cipher Lab",
-   "description": "Encode, decode, encrypt, hash and analyse data — the cyber Swiss-army knife, with chainable recipes.",
+   "id": "cyberchef-toolkit",
+   "name": "CyberChef Toolkit",
+   "tagline": "Encode, decode, encrypt, hash and analyse data, and chain it all into recipes.",
+   "description": "The cyber Swiss-army knife: encodings, ciphers, hashes, public-key crypto, data formats, compression, forensics and packet parsing, with a recipe builder that chains operations.",
    "icon": "flask",
+   "accent": "#a78bfa",
    "source": "cyberchef",
    "sourceUrl": "https://cyberchef.sajinshivdas.online",
    "visible": true,
+   "categories": [
+    {
+     "name": "Data format",
+     "icon": "binary",
+     "description": "Base64, hex, binary, URL, HTML entities, JSON, CSV, YAML, CBOR and more."
+    },
+    {
+     "name": "Encryption / Encoding",
+     "icon": "lock",
+     "description": "Symmetric ciphers, classical ciphers and text encodings."
+    },
+    {
+     "name": "Public Key",
+     "icon": "key",
+     "description": "Parse certificates, CSRs and keys; RSA and ECDSA sign, verify and encrypt."
+    },
+    {
+     "name": "Arithmetic / Logic",
+     "icon": "calculator",
+     "description": "XOR, bit shifts, sums, means, medians and boolean operations."
+    },
+    {
+     "name": "Networking",
+     "icon": "network",
+     "description": "Parse IPs, URLs, user agents, packets and TLS handshakes; JA3/JA4 fingerprints."
+    },
+    {
+     "name": "Language",
+     "icon": "type",
+     "description": "Character encodings, Unicode normalisation and text analysis."
+    },
+    {
+     "name": "Utils",
+     "icon": "wrench",
+     "description": "Split, join, sort, filter, pad, diff and transform text."
+    },
+    {
+     "name": "Date / Time",
+     "icon": "clock",
+     "description": "Parse, convert and format timestamps across epochs and time zones."
+    },
+    {
+     "name": "Extractors",
+     "icon": "filter",
+     "description": "Pull IPs, emails, URLs, domains, hashes and file paths out of text."
+    },
+    {
+     "name": "Compression",
+     "icon": "archive",
+     "description": "Gzip, Zlib, Deflate, Zip, Tar, LZ4, LZString and more."
+    },
+    {
+     "name": "Hashing",
+     "icon": "hash",
+     "description": "MD, SHA-1/2/3, BLAKE, CRCs, HMAC, bcrypt, Argon2 and fuzzy hashes."
+    },
+    {
+     "name": "Code tidy",
+     "icon": "code",
+     "description": "Beautify and minify JSON, XML, SQL, CSS and JavaScript."
+    },
+    {
+     "name": "Forensics",
+     "icon": "search",
+     "description": "Detect file types, extract embedded files, parse EXIF, ELF and plists."
+    },
+    {
+     "name": "Multimedia",
+     "icon": "image",
+     "description": "Image edits, QR codes, charts and colour tools that run in the browser."
+    },
+    {
+     "name": "Other",
+     "icon": "sparkle",
+     "description": "Entropy, Magic auto-detection, BIP39, Enigma and more."
+    },
+    {
+     "name": "Flow control",
+     "icon": "layers",
+     "description": "Comments and jumps for building recipes."
+    }
+   ],
    "tools": [
     {
      "id": "to-hexdump",
@@ -2499,26 +2473,6 @@
      "visible": true
     },
     {
-     "id": "amf-encode",
-     "name": "AMF Encode",
-     "description": "Action Message Format (AMF) is a binary format used to serialize object graphs such as ActionScript objects and XML, or send messages between an Adobe Flash client and a remote service, usually a Flash Media Server or third party alternatives.",
-     "category": "Data format",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=AMF_Encode()",
-     "visible": true
-    },
-    {
-     "id": "amf-decode",
-     "name": "AMF Decode",
-     "description": "Action Message Format (AMF) is a binary format used to serialize object graphs such as ActionScript objects and XML, or send messages between an Adobe Flash client and a remote service, usually a Flash Media Server or third party alternatives.",
-     "category": "Data format",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=AMF_Decode()",
-     "visible": true
-    },
-    {
      "id": "to-hex-content",
      "name": "To Hex Content",
      "description": "Converts special characters in a string to hexadecimal. This format is used by SNORT for representing hex within ASCII text. e.g. foo=bar becomes foo|3d|bar .",
@@ -2740,16 +2694,6 @@
      "visible": true
     },
     {
-     "id": "avro-to-json",
-     "name": "Avro to JSON",
-     "description": "Converts Avro encoded data into JSON.",
-     "category": "Data format",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Avro_to_JSON()",
-     "visible": true
-    },
-    {
      "id": "cbor-encode",
      "name": "CBOR Encode",
      "description": "Concise Binary Object Representation (CBOR) is a binary data serialization format loosely based on JSON. Like JSON it allows the transmission of data objects that contain name–value pairs, but in a more concise manner. This increases processing and transfer speeds at the cost of human readability. I",
@@ -2916,7 +2860,8 @@
       "mode": "client"
      },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=AES_Encrypt()",
-     "visible": true
+     "visible": true,
+     "featured": true
     },
     {
      "id": "aes-decrypt",
@@ -3036,46 +2981,6 @@
      "visible": true
     },
     {
-     "id": "ls47-encrypt",
-     "name": "LS47 Encrypt",
-     "description": "",
-     "category": "Encryption / Encoding",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=LS47_Encrypt()",
-     "visible": true
-    },
-    {
-     "id": "ls47-decrypt",
-     "name": "LS47 Decrypt",
-     "description": "",
-     "category": "Encryption / Encoding",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=LS47_Decrypt()",
-     "visible": true
-    },
-    {
-     "id": "rc2-encrypt",
-     "name": "RC2 Encrypt",
-     "description": "",
-     "category": "Encryption / Encoding",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=RC2_Encrypt()",
-     "visible": true
-    },
-    {
-     "id": "rc2-decrypt",
-     "name": "RC2 Decrypt",
-     "description": "",
-     "category": "Encryption / Encoding",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=RC2_Decrypt()",
-     "visible": true
-    },
-    {
      "id": "rc4",
      "name": "RC4",
      "description": "",
@@ -3154,26 +3059,6 @@
      "visible": true
     },
     {
-     "id": "sm4-encrypt",
-     "name": "SM4 Encrypt",
-     "description": "SM4 is a 128-bit block cipher, currently established as a national standard (GB/T 32907-2016) of China. Multiple block cipher modes are supported. When using CBC or ECB mode, the PKCS#7 padding scheme is used.",
-     "category": "Encryption / Encoding",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=SM4_Encrypt()",
-     "visible": true
-    },
-    {
-     "id": "sm4-decrypt",
-     "name": "SM4 Decrypt",
-     "description": "SM4 is a 128-bit block cipher, currently established as a national standard (GB/T 32907-2016) of China.",
-     "category": "Encryption / Encoding",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=SM4_Decrypt()",
-     "visible": true
-    },
-    {
      "id": "rc6-encrypt",
      "name": "RC6 Encrypt",
      "description": "RC6 is a symmetric key block cipher derived from RC5. It was designed by Ron Rivest, Matt Robshaw, Ray Sidney, and Yiqun Lisa Yin to meet the requirements of the AES competition, and was one of the five finalists. RC6 is parameterised as RC6-w/r/b where w is word size in bits (any multiple of 8 from",
@@ -3200,26 +3085,6 @@
      "visible": true
     },
     {
-     "id": "ascon-encrypt",
-     "name": "Ascon Encrypt",
-     "description": "Ascon-AEAD128 authenticated encryption as standardised in NIST SP 800-232. Ascon is a family of lightweight authenticated encryption algorithms designed for constrained devices such as IoT sensors and embedded systems. Key: Must be exactly 16 bytes (128 bits). Nonce: Must be exactly 16 bytes (128 bi",
-     "category": "Encryption / Encoding",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Ascon_Encrypt()",
-     "visible": true
-    },
-    {
-     "id": "ascon-decrypt",
-     "name": "Ascon Decrypt",
-     "description": "Ascon-AEAD128 authenticated decryption as standardised in NIST SP 800-232. Decrypts ciphertext and verifies the authentication tag. Decryption will fail if the ciphertext or associated data has been tampered with. Key: Must be exactly 16 bytes (128 bits). Nonce: Must be exactly 16 bytes (128 bits). ",
-     "category": "Encryption / Encoding",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Ascon_Decrypt()",
-     "visible": true
-    },
-    {
      "id": "present-encrypt",
      "name": "PRESENT Encrypt",
      "description": "PRESENT is an ultra-lightweight block cipher designed for constrained environments such as RFID tags and sensor networks. It operates on 64-bit blocks and supports 80-bit or 128-bit keys with 31 rounds. Standardised in ISO/IEC 29192-2:2019. When using CBC mode, the PKCS#7 padding scheme is used.",
@@ -3243,96 +3108,6 @@
       "mode": "client"
      },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=PRESENT_Decrypt()",
-     "visible": true
-    },
-    {
-     "id": "twofish-encrypt",
-     "name": "Twofish Encrypt",
-     "description": "Twofish is a symmetric key block cipher designed by Bruce Schneier. It was one of the five AES finalists. Twofish operates on 128-bit blocks and supports key sizes of 128, 192, or 256 bits with 16 rounds of a Feistel network. When using CBC or ECB mode, the PKCS#7 padding scheme is used.",
-     "category": "Encryption / Encoding",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Twofish_Encrypt()",
-     "visible": true
-    },
-    {
-     "id": "twofish-decrypt",
-     "name": "Twofish Decrypt",
-     "description": "Twofish is a symmetric key block cipher designed by Bruce Schneier. It was one of the five AES finalists. Twofish operates on 128-bit blocks and supports key sizes of 128, 192, or 256 bits with 16 rounds of a Feistel network. When using CBC or ECB mode, the PKCS#7 padding scheme is used.",
-     "category": "Encryption / Encoding",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Twofish_Decrypt()",
-     "visible": true
-    },
-    {
-     "id": "gost-encrypt",
-     "name": "GOST Encrypt",
-     "description": "",
-     "category": "Encryption / Encoding",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=GOST_Encrypt()",
-     "visible": true
-    },
-    {
-     "id": "gost-decrypt",
-     "name": "GOST Decrypt",
-     "description": "",
-     "category": "Encryption / Encoding",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=GOST_Decrypt()",
-     "visible": true
-    },
-    {
-     "id": "gost-sign",
-     "name": "GOST Sign",
-     "description": "Sign a plaintext message using one of the GOST block ciphers.",
-     "category": "Encryption / Encoding",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=GOST_Sign()",
-     "visible": true
-    },
-    {
-     "id": "gost-verify",
-     "name": "GOST Verify",
-     "description": "Verify the signature of a plaintext message using one of the GOST block ciphers. Enter the signature in the MAC field.",
-     "category": "Encryption / Encoding",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=GOST_Verify()",
-     "visible": true
-    },
-    {
-     "id": "gost-key-wrap",
-     "name": "GOST Key Wrap",
-     "description": "A key wrapping algorithm for protecting keys in untrusted storage using one of the GOST block cipers.",
-     "category": "Encryption / Encoding",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=GOST_Key_Wrap()",
-     "visible": true
-    },
-    {
-     "id": "gost-key-unwrap",
-     "name": "GOST Key Unwrap",
-     "description": "A decryptor for keys wrapped using one of the GOST block ciphers.",
-     "category": "Encryption / Encoding",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=GOST_Key_Unwrap()",
-     "visible": true
-    },
-    {
-     "id": "ror13",
-     "name": "ROR13",
-     "description": "Computes a ROR13 hash used in API hashing techniques.",
-     "category": "Encryption / Encoding",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=ROR13()",
      "visible": true
     },
     {
@@ -3973,66 +3748,6 @@
      "visible": true
     },
     {
-     "id": "bombe",
-     "name": "Bombe",
-     "description": "",
-     "category": "Encryption / Encoding",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Bombe()",
-     "visible": true
-    },
-    {
-     "id": "multiple-bombe",
-     "name": "Multiple Bombe",
-     "description": "",
-     "category": "Encryption / Encoding",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Multiple_Bombe()",
-     "visible": true
-    },
-    {
-     "id": "typex",
-     "name": "Typex",
-     "description": "",
-     "category": "Encryption / Encoding",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Typex()",
-     "visible": true
-    },
-    {
-     "id": "lorenz",
-     "name": "Lorenz",
-     "description": "",
-     "category": "Encryption / Encoding",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Lorenz()",
-     "visible": true
-    },
-    {
-     "id": "colossus",
-     "name": "Colossus",
-     "description": "",
-     "category": "Encryption / Encoding",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Colossus()",
-     "visible": true
-    },
-    {
-     "id": "sigaba",
-     "name": "SIGABA",
-     "description": "Encipher/decipher with the WW2 SIGABA machine. SIGABA, otherwise known as ECM Mark II, was used by the United States for message encryption during WW2 up to the 1950s. It was developed in the 1930s by the US Army and Navy, and has up to this day never been broken. Consisting of 15 rotors: 5 cipher r",
-     "category": "Encryption / Encoding",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=SIGABA()",
-     "visible": true
-    },
-    {
      "id": "flask-session-decode",
      "name": "Flask Session Decode",
      "description": "Decodes the payload of a Flask session cookie (itsdangerous) into JSON.",
@@ -4046,26 +3761,6 @@
      "visible": true
     },
     {
-     "id": "flask-session-sign",
-     "name": "Flask Session Sign",
-     "description": "Signs a JSON payload to produce a Flask session cookie (itsdangerous HMAC).",
-     "category": "Encryption / Encoding",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Flask_Session_Sign()",
-     "visible": true
-    },
-    {
-     "id": "flask-session-verify",
-     "name": "Flask Session Verify",
-     "description": "Verifies the HMAC signature of a Flask session cookie (itsdangerous) generated.",
-     "category": "Encryption / Encoding",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Flask_Session_Verify()",
-     "visible": true
-    },
-    {
      "id": "parse-x-509-certificate",
      "name": "Parse X.509 certificate",
      "description": "X.509 is an ITU-T standard for a public key infrastructure (PKI) and Privilege Management Infrastructure (PMI). It is commonly involved with SSL/TLS security. This operation displays the contents of a certificate in a human readable format, similar to the openssl command line tool. Tags: X509, serve",
@@ -4076,7 +3771,8 @@
       "mode": "client"
      },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Parse_X.509_certificate()",
-     "visible": true
+     "visible": true,
+     "featured": true
     },
     {
      "id": "parse-x-509-crl",
@@ -4141,76 +3837,6 @@
       "mode": "client"
      },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=JWK_to_PEM()",
-     "visible": true
-    },
-    {
-     "id": "generate-pgp-key-pair",
-     "name": "Generate PGP Key Pair",
-     "description": "Generates a new public/private PGP key pair. Supports RSA and Eliptic Curve (EC) keys. WARNING: Cryptographic operations in CyberChef should not be relied upon to provide security in any situation. No guarantee is offered for their correctness. We advise you not to use keys generated from CyberChef ",
-     "category": "Public Key",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Generate_PGP_Key_Pair()",
-     "visible": true
-    },
-    {
-     "id": "pgp-encrypt",
-     "name": "PGP Encrypt",
-     "description": "Input: the message you want to encrypt.\\\\n \\\\nArguments: the ASCII-armoured PGP public key of the recipient.\\\\n \\\\nPretty Good Privacy is an encryption standard (OpenPGP) used for encrypting, decrypting, and signing messages.\\\\n \\\\nThis function uses the Keybase implementation of PGP.",
-     "category": "Public Key",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=PGP_Encrypt()",
-     "visible": true
-    },
-    {
-     "id": "pgp-decrypt",
-     "name": "PGP Decrypt",
-     "description": "Input: the ASCII-armoured PGP message you want to decrypt.\\\\n \\\\nArguments: the ASCII-armoured PGP private key of the recipient, \\\\n(and the private key password if necessary).\\\\n \\\\nPretty Good Privacy is an encryption standard (OpenPGP) used for encrypting, decrypting, and signing messages.\\\\n \\\\n",
-     "category": "Public Key",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=PGP_Decrypt()",
-     "visible": true
-    },
-    {
-     "id": "pgp-sign",
-     "name": "PGP Sign",
-     "description": "Input: the message you want to sign\\\\n \\\\nArguments: the ASCII-armoured PGP private key of the sender.\\\\n \\\\nPretty Good Privacy is an encryption standard (OpenPGP) used for encrypting, decrypting, and signing messages.\\\\n \\\\nThis function uses the Keybase implementation of PGP.",
-     "category": "Public Key",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=PGP_Sign()",
-     "visible": true
-    },
-    {
-     "id": "pgp-verify",
-     "name": "PGP Verify",
-     "description": "Input: the ASCII-armoured encrypted PGP message you want to verify.\\\\n \\\\nArgument: the ASCII-armoured PGP public key of the signer\\\\n \\\\nThis operation uses PGP to decrypt a clearsigned message.\\\\n \\\\nPretty Good Privacy is an encryption standard (OpenPGP) used for encrypting, decrypting, and signi",
-     "category": "Public Key",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=PGP_Verify()",
-     "visible": true
-    },
-    {
-     "id": "pgp-encrypt-and-sign",
-     "name": "PGP Encrypt and Sign",
-     "description": "Input: the cleartext you want to sign.\\\\n \\\\nArguments: the ASCII-armoured private key of the signer (plus the private key password if necessary)\\\\nand the ASCII-armoured PGP public key of the recipient.\\\\n \\\\nThis operation uses PGP to produce an encrypted digital signature.\\\\n \\\\nPretty Good Priva",
-     "category": "Public Key",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=PGP_Encrypt_and_Sign()",
-     "visible": true
-    },
-    {
-     "id": "pgp-decrypt-and-verify",
-     "name": "PGP Decrypt and Verify",
-     "description": "Input: the ASCII-armoured encrypted PGP message you want to verify.\\\\n \\\\nArguments: the ASCII-armoured PGP public key of the signer, \\\\nthe ASCII-armoured private key of the recipient (and the private key password if necessary).\\\\n \\\\nThis operation uses PGP to decrypt and verify an encrypted digit",
-     "category": "Public Key",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=PGP_Decrypt_and_Verify()",
      "visible": true
     },
     {
@@ -4380,26 +4006,6 @@
       "mode": "client"
      },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Public_Key_from_Private_Key()",
-     "visible": true
-    },
-    {
-     "id": "sm2-encrypt",
-     "name": "SM2 Encrypt",
-     "description": "Encrypts a message utilizing the SM2 standard",
-     "category": "Public Key",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=SM2_Encrypt()",
-     "visible": true
-    },
-    {
-     "id": "sm2-decrypt",
-     "name": "SM2 Decrypt",
-     "description": "Decrypts a message utilizing the SM2 standard",
-     "category": "Public Key",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=SM2_Decrypt()",
      "visible": true
     },
     {
@@ -5051,7 +4657,8 @@
       "mode": "client"
      },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=JA3_Fingerprint()",
-     "visible": true
+     "visible": true,
+     "featured": true
     },
     {
      "id": "ja3s-fingerprint",
@@ -6189,16 +5796,6 @@
      "visible": true
     },
     {
-     "id": "jsonata-query",
-     "name": "Jsonata Query",
-     "description": "Query and transform JSON data with a jsonata query.",
-     "category": "Extractors",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Jsonata_Query()",
-     "visible": true
-    },
-    {
      "id": "css-selector",
      "name": "CSS selector",
      "description": "Extract information from an HTML document with a CSS selector",
@@ -6235,26 +5832,6 @@
       "mode": "client"
      },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Extract_ID3()",
-     "visible": true
-    },
-    {
-     "id": "extract-audio-metadata",
-     "name": "Extract Audio Metadata",
-     "description": "Extract common audio metadata across MP3 (ID3v2/ID3v1/GEOB), WAV/BWF/BW64 (INFO/bext/iXML/axml), FLAC (Vorbis Comment/Picture), OGG (Vorbis/OpusTags), AAC (ADTS), AC3 (Dolby Digital), WMA (ASF), plus best-effort MP4/M4A and AIFF scanning. Outputs normalized JSON.",
-     "category": "Extractors",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Extract_Audio_Metadata()",
-     "visible": true
-    },
-    {
-     "id": "extract-files",
-     "name": "Extract Files",
-     "description": "Performs file carving to attempt to extract files from the input. This operation is currently capable of carving out the following formats:\\\\n \\\\n \\\\n JPG,JPEG,JPE,THM,MPO GIF PNG WEBP BMP ICO TGA FLV WAV MP3 PDF RTF DOCX,XLSX,PPTX EPUB EXE,DLL,DRV,VXD,SYS,OCX,VBX,COM,FON,SCR ELF,BIN,AXF,O,PRX,SO DY",
-     "category": "Extractors",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Extract_Files()",
      "visible": true
     },
     {
@@ -6388,26 +5965,6 @@
      "visible": true
     },
     {
-     "id": "bzip2-decompress",
-     "name": "Bzip2 Decompress",
-     "description": "Decompresses data using the Bzip2 algorithm.",
-     "category": "Compression",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Bzip2_Decompress()",
-     "visible": true
-    },
-    {
-     "id": "bzip2-compress",
-     "name": "Bzip2 Compress",
-     "description": "Bzip2 is a compression library developed by Julian Seward (of GHC fame) that uses the Burrows-Wheeler algorithm. It only supports compressing single files and its compression is slow, however is more effective than Deflate (.gz & .zip).",
-     "category": "Compression",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Bzip2_Compress()",
-     "visible": true
-    },
-    {
      "id": "tar",
      "name": "Tar",
      "description": "Packs the input into a tarball. No support for multiple files at this time.",
@@ -6457,26 +6014,6 @@
       "mode": "client"
      },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=LZString_Compress()",
-     "visible": true
-    },
-    {
-     "id": "lzma-decompress",
-     "name": "LZMA Decompress",
-     "description": "Decompresses data using the Lempel-Ziv-Markov chain Algorithm.",
-     "category": "Compression",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=LZMA_Decompress()",
-     "visible": true
-    },
-    {
-     "id": "lzma-compress",
-     "name": "LZMA Compress",
-     "description": "Compresses data using the Lempel–Ziv–Markov chain algorithm. Compression mode determines the speed and effectiveness of the compression: 1 is fastest and less effective, 9 is slowest and most effective",
-     "category": "Compression",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=LZMA_Compress()",
      "visible": true
     },
     {
@@ -6532,16 +6069,6 @@
      "visible": true
     },
     {
-     "id": "xpress-lz77-huffman-decompress",
-     "name": "XPRESS LZ77+Huffman Decompress",
-     "description": "Decompresses data using the XPRESS LZ77+Huffman algorithm (MS-XCA section 2.2). The uncompressed size must be known in advance, as it is from the WOF chunk table or WIM header, so it is taken as an argument.",
-     "category": "Compression",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=XPRESS_LZ77%2BHuffman_Decompress()",
-     "visible": true
-    },
-    {
      "id": "analyse-hash",
      "name": "Analyse hash",
      "description": "Tries to determine information about a given hash and suggests which algorithm may have been used to generate it based on its length.",
@@ -6581,16 +6108,6 @@
      "visible": true
     },
     {
-     "id": "md2",
-     "name": "MD2",
-     "description": "The MD2 (Message-Digest 2) algorithm is a cryptographic hash function developed by Ronald Rivest in 1989. The algorithm is optimized for 8-bit computers. Although MD2 is no longer considered secure, even as of 2014, it remains in use in public key infrastructures as part of certificates generated wi",
-     "category": "Hashing",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=MD2()",
-     "visible": true
-    },
-    {
      "id": "md4",
      "name": "MD4",
      "description": "The MD4 (Message-Digest 4) algorithm is a cryptographic hash function developed by Ronald Rivest in 1990. The digest length is 128 bits. The algorithm has influenced later designs, such as the MD5, SHA-1 and RIPEMD algorithms. The security of MD4 has been severely compromised.",
@@ -6614,16 +6131,6 @@
       "mode": "client"
      },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=MD5()",
-     "visible": true
-    },
-    {
-     "id": "md6",
-     "name": "MD6",
-     "description": "The MD6 (Message-Digest 6) algorithm is a cryptographic hash function. It uses a Merkle tree-like structure to allow for immense parallel computation of hashes for very long inputs.",
-     "category": "Hashing",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=MD6()",
      "visible": true
     },
     {
@@ -6731,16 +6238,6 @@
      "visible": true
     },
     {
-     "id": "has-160",
-     "name": "HAS-160",
-     "description": "HAS-160 is a cryptographic hash function designed for use with the Korean KCDSA digital signature algorithm. It is derived from SHA-1, with assorted changes intended to increase its security. It produces a 160-bit output. HAS-160 is used in the same way as SHA-1. First it divides input in blocks of ",
-     "category": "Hashing",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=HAS-160()",
-     "visible": true
-    },
-    {
      "id": "whirlpool",
      "name": "Whirlpool",
      "description": "Whirlpool is a cryptographic hash function designed by Vincent Rijmen (co-creator of AES) and Paulo S. L. M. Barreto, who first described it in 2000. Several variants exist: Whirlpool-0 is the original version released in 2000. Whirlpool-T is the first revision, released in 2001, improving the gener",
@@ -6751,16 +6248,6 @@
       "mode": "client"
      },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Whirlpool()",
-     "visible": true
-    },
-    {
-     "id": "snefru",
-     "name": "Snefru",
-     "description": "Snefru is a cryptographic hash function invented by Ralph Merkle in 1990 while working at Xerox PARC. The function supports 128-bit and 256-bit output. It was named after the Egyptian Pharaoh Sneferu, continuing the tradition of the Khufu and Khafre block ciphers. The original design of Snefru was s",
-     "category": "Hashing",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Snefru()",
      "visible": true
     },
     {
@@ -6800,46 +6287,6 @@
       "mode": "client"
      },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=BLAKE3()",
-     "visible": true
-    },
-    {
-     "id": "ascon-hash",
-     "name": "Ascon Hash",
-     "description": "Ascon-Hash256 produces a fixed 256-bit (32-byte) cryptographic hash as standardised in NIST SP 800-232. Ascon is a family of lightweight authenticated encryption and hashing algorithms designed for constrained devices such as IoT sensors and embedded systems. The algorithm was selected by NIST in 20",
-     "category": "Hashing",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Ascon_Hash()",
-     "visible": true
-    },
-    {
-     "id": "ascon-mac",
-     "name": "Ascon MAC",
-     "description": "Ascon-Mac produces a 128-bit (16-byte) message authentication code as part of the Ascon family standardised by NIST in SP 800-232. It provides authentication for messages using a secret key, ensuring both data integrity and authenticity. Ascon is designed for lightweight cryptography on constrained ",
-     "category": "Hashing",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Ascon_MAC()",
-     "visible": true
-    },
-    {
-     "id": "gost-hash",
-     "name": "GOST Hash",
-     "description": "The GOST hash function, defined in the standards GOST R 34.11-94 and GOST 34.311-95 is a 256-bit cryptographic hash function. It was initially defined in the Russian national standard GOST R 34.11-94 Information Technology – Cryptographic Information Security – Hash Function . The equivalent standar",
-     "category": "Hashing",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=GOST_Hash()",
-     "visible": true
-    },
-    {
-     "id": "streebog",
-     "name": "Streebog",
-     "description": "Streebog is a cryptographic hash function defined in the Russian national standard GOST R 34.11-2012 Information Technology – Cryptographic Information Security – Hash Function . It was created to replace an obsolete GOST hash function defined in the old standard GOST R 34.11-94, and as an asymmetri",
-     "category": "Hashing",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Streebog()",
      "visible": true
     },
     {
@@ -7154,16 +6601,6 @@
      "visible": true
     },
     {
-     "id": "syntax-highlighter",
-     "name": "Syntax highlighter",
-     "description": "",
-     "category": "Code tidy",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Syntax_highlighter()",
-     "visible": true
-    },
-    {
      "id": "generic-code-beautify",
      "name": "Generic Code Beautify",
      "description": "Attempts to pretty print C-style languages such as C, C++, C#, Java, PHP, JavaScript etc. This will not do a perfect job, and the resulting code may not work any more. This operation is designed purely to make obfuscated or minified code more easy to read and understand. Things which will not work p",
@@ -7174,26 +6611,6 @@
       "mode": "client"
      },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Generic_Code_Beautify()",
-     "visible": true
-    },
-    {
-     "id": "javascript-parser",
-     "name": "JavaScript Parser",
-     "description": "Returns an Abstract Syntax Tree for valid JavaScript code.",
-     "category": "Code tidy",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=JavaScript_Parser()",
-     "visible": true
-    },
-    {
-     "id": "javascript-beautify",
-     "name": "JavaScript Beautify",
-     "description": "Parses and pretty prints valid JavaScript code. Also works with JavaScript Object Notation (JSON).",
-     "category": "Code tidy",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=JavaScript_Beautify()",
      "visible": true
     },
     {
@@ -7314,16 +6731,6 @@
      "visible": true
     },
     {
-     "id": "jq",
-     "name": "Jq",
-     "description": "jq is a lightweight and flexible command-line JSON processor.",
-     "category": "Code tidy",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Jq()",
-     "visible": true
-    },
-    {
      "id": "php-deserialize",
      "name": "PHP Deserialize",
      "description": "",
@@ -7347,16 +6754,6 @@
       "mode": "client"
      },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=PHP_Serialize()",
-     "visible": true
-    },
-    {
-     "id": "microsoft-script-decoder",
-     "name": "Microsoft Script Decoder",
-     "description": "",
-     "category": "Code tidy",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Microsoft_Script_Decoder()",
      "visible": true
     },
     {
@@ -7486,16 +6883,6 @@
      "visible": true
     },
     {
-     "id": "yara-rules",
-     "name": "YARA Rules",
-     "description": "",
-     "category": "Forensics",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=YARA_Rules()",
-     "visible": true
-    },
-    {
      "id": "remove-exif",
      "name": "Remove EXIF",
      "description": "Removes EXIF data from a JPEG image.\\\\n \\\\nEXIF data embedded in photos usually contains information about the image file itself as well as the device used to create it.",
@@ -7587,16 +6974,6 @@
      "visible": true
     },
     {
-     "id": "play-media",
-     "name": "Play Media",
-     "description": "Plays the input as audio or video depending on the type. Tags: sound, movie, mp3, mp4, mov, webm, wav, ogg",
-     "category": "Multimedia",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Play_Media()",
-     "visible": true
-    },
-    {
      "id": "generate-image",
      "name": "Generate Image",
      "description": "Generates an image using the input as pixel values.",
@@ -7607,16 +6984,6 @@
       "mode": "client"
      },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Generate_Image()",
-     "visible": true
-    },
-    {
-     "id": "optical-character-recognition",
-     "name": "Optical Character Recognition",
-     "description": "Optical character recognition or optical character reader (OCR) is the mechanical or electronic conversion of images of typed, handwritten or printed text into machine-encoded text. Supported image formats: png, jpg, bmp, pbm.",
-     "category": "Multimedia",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Optical_Character_Recognition()",
      "visible": true
     },
     {
@@ -7906,16 +7273,6 @@
      "visible": true
     },
     {
-     "id": "render-pdf",
-     "name": "Render PDF",
-     "description": "Displays the input as a PDF preview. Supports Raw and Base64 input formats.",
-     "category": "Multimedia",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Render_PDF()",
-     "visible": true
-    },
-    {
      "id": "entropy",
      "name": "Entropy",
      "description": "",
@@ -7978,26 +7335,6 @@
       "mode": "client"
      },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=P-list_Viewer()",
-     "visible": true
-    },
-    {
-     "id": "disassemble-x86",
-     "name": "Disassemble x86",
-     "description": "Disassembly is the process of translating machine language into assembly language. This operation supports 64-bit, 32-bit and 16-bit code written for Intel or AMD x86 processors. It is particularly useful for reverse engineering shellcode. Input should be in hexadecimal.",
-     "category": "Other",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Disassemble_x86()",
-     "visible": true
-    },
-    {
-     "id": "disassemble-arm",
-     "name": "Disassemble ARM",
-     "description": "Disassembles ARM machine code into assembly language. Supports ARM (32-bit), Thumb, and ARM64 (AArch64) architectures using the Capstone disassembly framework. Input should be in hexadecimal.",
-     "category": "Other",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Disassemble_ARM()",
      "visible": true
     },
     {
@@ -8092,16 +7429,6 @@
      "visible": true
     },
     {
-     "id": "parse-qr-code",
-     "name": "Parse QR Code",
-     "description": "Reads an image file and attempts to detect and read a Quick Response (QR) code from the image. Normalise Image Attempts to normalise the image before parsing it to improve detection of a QR code.",
-     "category": "Other",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Parse_QR_Code()",
-     "visible": true
-    },
-    {
      "id": "haversine-distance",
      "name": "Haversine distance",
      "description": "Returns the distance between two pairs of GPS latitude and longitude co-ordinates in metres. e.g. 51.487263,-0.124323, 38.9517,-77.1467",
@@ -8167,16 +7494,6 @@
      "visible": true
     },
     {
-     "id": "automated-validation-test-op",
-     "name": "Automated Validation Test Op",
-     "description": "Operation used specifically to test automated parameter validation.",
-     "category": "Other",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Automated_Validation_Test_Op()",
-     "visible": true
-    },
-    {
      "id": "magic",
      "name": "Magic",
      "description": "The Magic operation attempts to detect various properties of the input data and suggests which operations could help to make more sense of it. Options Depth: If an operation appears to match the data, it will be run and the result will be analysed further. This argument controls the maximum number o",
@@ -8187,87 +7504,8 @@
       "mode": "client"
      },
      "external": "https://cyberchef.sajinshivdas.online/#recipe=Magic()",
-     "visible": true
-    },
-    {
-     "id": "fork",
-     "name": "Fork",
-     "description": "",
-     "category": "Flow control",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Fork()",
-     "visible": true
-    },
-    {
-     "id": "subsection",
-     "name": "Subsection",
-     "description": "",
-     "category": "Flow control",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Subsection()",
-     "visible": true
-    },
-    {
-     "id": "merge",
-     "name": "Merge",
-     "description": "Consolidate all branches back into a single trunk. The opposite of Fork. Unticking the Merge All checkbox will only consolidate all branches up to the nearest Fork/Subsection.",
-     "category": "Flow control",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Merge()",
-     "visible": true
-    },
-    {
-     "id": "register",
-     "name": "Register",
-     "description": "Extract data from the input and store it in registers which can then be passed into subsequent operations as arguments. Regular expression capture groups are used to select the data to extract. To use registers in arguments, refer to them using the notation $Rn where n is the register number, starti",
-     "category": "Flow control",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Register()",
-     "visible": true
-    },
-    {
-     "id": "label",
-     "name": "Label",
-     "description": "Provides a location for conditional and fixed jumps to redirect execution to.",
-     "category": "Flow control",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Label()",
-     "visible": true
-    },
-    {
-     "id": "jump",
-     "name": "Jump",
-     "description": "Jump forwards or backwards to the specified Label",
-     "category": "Flow control",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Jump()",
-     "visible": true
-    },
-    {
-     "id": "conditional-jump",
-     "name": "Conditional Jump",
-     "description": "Conditionally jump forwards or backwards to the specified Label based on whether the data matches the specified regular expression.",
-     "category": "Flow control",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Conditional_Jump()",
-     "visible": true
-    },
-    {
-     "id": "return",
-     "name": "Return",
-     "description": "End execution of operations at this point in the recipe.",
-     "category": "Flow control",
-     "keywords": [],
-     "native": null,
-     "external": "https://cyberchef.sajinshivdas.online/#recipe=Return()",
-     "visible": true
+     "visible": true,
+     "featured": true
     },
     {
      "id": "comment",
@@ -8285,13 +7523,52 @@
    ]
   },
   {
-   "id": "web-recon",
-   "name": "Web Recon",
-   "description": "Website intelligence and OSINT: DNS, TLS, headers, mail security, technology and exposure checks.",
+   "id": "web-toolkit",
+   "name": "Web Toolkit",
+   "tagline": "Live intelligence on any website: DNS, TLS, headers, mail and exposure.",
+   "description": "Website intelligence and OSINT that runs live from the server: infrastructure, TLS and certificates, DNS, HTTP security headers, content, mail security and threat checks.",
    "icon": "radar",
+   "accent": "#34d399",
    "source": "webcheck",
    "sourceUrl": "https://webcheck.sajinshivdas.online",
    "visible": true,
+   "categories": [
+    {
+     "name": "Infrastructure",
+     "icon": "server",
+     "description": "IP, location, server info, open ports and carbon footprint."
+    },
+    {
+     "name": "TLS & Certificates",
+     "icon": "shield",
+     "description": "Certificate chain, TLS versions, cipher suites and OCSP stapling."
+    },
+    {
+     "name": "DNS & Domain",
+     "icon": "globe",
+     "description": "DNS records, DNSSEC, WHOIS, subdomains, zone transfers and DNS trace."
+    },
+    {
+     "name": "HTTP & Security",
+     "icon": "lock",
+     "description": "Security headers, HSTS, cookies, redirects, CORS and HTTP requests."
+    },
+    {
+     "name": "Content & SEO",
+     "icon": "search",
+     "description": "robots.txt, sitemaps, social tags, linked pages, rank and page quality."
+    },
+    {
+     "name": "Email",
+     "icon": "mail",
+     "description": "MX, SPF, DKIM, DMARC and mail server TLS."
+    },
+    {
+     "name": "Threat Intelligence",
+     "icon": "target",
+     "description": "DNS blocklist checks across major reputation lists."
+    }
+   ],
    "tools": [
     {
      "id": "get-ip",
@@ -8317,7 +7594,8 @@
       "mode": "server"
      },
      "external": "https://webcheck.sajinshivdas.online/check",
-     "visible": true
+     "visible": true,
+     "featured": true
     },
     {
      "id": "dns",
@@ -8330,7 +7608,8 @@
       "mode": "server"
      },
      "external": "https://webcheck.sajinshivdas.online/check",
-     "visible": true
+     "visible": true,
+     "featured": true
     },
     {
      "id": "cookies",
@@ -8369,7 +7648,8 @@
       "mode": "server"
      },
      "external": "https://webcheck.sajinshivdas.online/check",
-     "visible": true
+     "visible": true,
+     "featured": true
     },
     {
      "id": "quality",
@@ -8463,16 +7743,6 @@
      "visible": true
     },
     {
-     "id": "trace-route",
-     "name": "Traceroute",
-     "description": "Traceroute is a network diagnostic tool used to track in real-time the pathway taken by a packet of information from one system to another. It records each hop along the route, providing details about the IPs of routers and the delay at each point.",
-     "category": "Infrastructure",
-     "keywords": [],
-     "native": null,
-     "external": "https://webcheck.sajinshivdas.online/check",
-     "visible": true
-    },
-    {
      "id": "carbon",
      "name": "Carbon Footprint",
      "description": "This task calculates the estimated carbon footprint of a website. It's based on the amount of data being transferred and processed, and the energy usage of the servers that host and deliver the website. The larger the website and the more complex its features, the higher its carbon footprint is likely to be.",
@@ -8495,16 +7765,6 @@
       "op": "server-info",
       "mode": "server"
      },
-     "external": "https://webcheck.sajinshivdas.online/check",
-     "visible": true
-    },
-    {
-     "id": "vulnerabilities",
-     "name": "Vulnerabilities",
-     "description": "This task lists the known CVEs (Common Vulnerabilities and Exposures) that Shodan associates with the services running on the target host, based on their detected product and version. Each entry links to its NVD record. If Shodan has scanned the host and found none, it reports that no known vulnerabilities are on file.",
-     "category": "Threat Intelligence",
-     "keywords": [],
-     "native": null,
      "external": "https://webcheck.sajinshivdas.online/check",
      "visible": true
     },
@@ -8649,7 +7909,8 @@
       "mode": "server"
      },
      "external": "https://webcheck.sajinshivdas.online/check",
-     "visible": true
+     "visible": true,
+     "featured": true
     },
     {
      "id": "firewall",
@@ -8717,16 +7978,6 @@
      "visible": true
     },
     {
-     "id": "threats",
-     "name": "Malware & Phishing Detection",
-     "description": "Checks if a site appears in several common malware and phishing lists, to determine it's threat level.",
-     "category": "Threat Intelligence",
-     "keywords": [],
-     "native": null,
-     "external": "https://webcheck.sajinshivdas.online/check",
-     "visible": true
-    },
-    {
      "id": "tls-connection",
      "name": "TLS Connection",
      "description": "This shows what was actually negotiated during a live TLS handshake from this server to the target. It includes the protocol version, the cipher suite chosen, ALPN, and whether the certificate is trusted. It is the ground-truth view of what a real client would see right now.",
@@ -8766,16 +8017,6 @@
      "visible": true
     },
     {
-     "id": "screenshot",
-     "name": "Screenshot",
-     "description": "This check takes a screenshot of webpage that the requested URL / IP resolves to, and displays it.",
-     "category": "Content & SEO",
-     "keywords": [],
-     "native": null,
-     "external": "https://webcheck.sajinshivdas.online/check",
-     "visible": true
-    },
-    {
      "id": "subdomains",
      "name": "Subdomains",
      "description": "Discovers subdomains belonging to a target domain by querying public Certificate Transparency logs (via crt.sh). Every TLS certificate issued for a hostname is logged publicly, so the CT logs effectively reveal any subdomain the operator has ever requested a cert for. The check resolves the registrable domain (eTLD+1), then collects, deduplicates and filters the SAN values from every cert ever issued under that zone.",
@@ -8793,11 +8034,50 @@
   {
    "id": "network-toolkit",
    "name": "Network Toolkit",
-   "description": "Subnetting, CIDR, IPv6, DNS, DHCP and live network diagnostics for network engineers.",
+   "tagline": "Subnetting, CIDR, IPv6, DNS, DHCP and live network diagnostics.",
+   "description": "Network engineering in one place: subnet and CIDR maths, IP conversions, DNS record and DNSSEC builders, DHCP option encoders, live lookups and quick-reference sheets.",
    "icon": "network",
+   "accent": "#f472b6",
    "source": "networking-toolbox",
    "sourceUrl": "https://networking-toolbox.sajinshivdas.online",
    "visible": true,
+   "categories": [
+    {
+     "name": "Subnetting",
+     "icon": "grid",
+     "description": "IPv4 and IPv6 subnet calculators, VLSM, supernets and subnet planning."
+    },
+    {
+     "name": "CIDR",
+     "icon": "layers",
+     "description": "CIDR masks, ranges, summarisation, splitting, gaps and set operations."
+    },
+    {
+     "name": "IP Tools",
+     "icon": "binary",
+     "description": "Convert, validate, enumerate and generate IPv4 and IPv6 addresses."
+    },
+    {
+     "name": "DNS Tools",
+     "icon": "globe",
+     "description": "Build DNS records, reverse zones, zone files and DNSSEC material."
+    },
+    {
+     "name": "DHCP",
+     "icon": "plug",
+     "description": "Encode DHCPv4 and DHCPv6 options, plan scopes and generate configs."
+    },
+    {
+     "name": "Lookups",
+     "icon": "radar",
+     "description": "Live DNS, HTTP, TLS, network, email and RDAP diagnostics."
+    },
+    {
+     "name": "Reference",
+     "icon": "book",
+     "description": "Quick-reference sheets for CIDR, IPv6, special addresses and protocols."
+    }
+   ],
    "tools": [
     {
      "id": "subnetting--ipv4-subnet-calculator",
@@ -8817,7 +8097,8 @@
       "mode": "client"
      },
      "external": "https://networking-toolbox.sajinshivdas.online/subnetting/ipv4-subnet-calculator",
-     "visible": true
+     "visible": true,
+     "featured": true
     },
     {
      "id": "subnetting--ipv6-subnet-calculator",
@@ -8970,7 +8251,8 @@
       "mode": "client"
      },
      "external": "https://networking-toolbox.sajinshivdas.online/cidr/summarize",
-     "visible": true
+     "visible": true,
+     "featured": true
     },
     {
      "id": "cidr--split",
@@ -10733,7 +10015,8 @@
       "mode": "server"
      },
      "external": "https://networking-toolbox.sajinshivdas.online/diagnostics/dns/lookup",
-     "visible": true
+     "visible": true,
+     "featured": true
     },
     {
      "id": "diagnostics--dns--reverse-lookup",
@@ -11647,27 +10930,6 @@
      "visible": true
     },
     {
-     "id": "diagnostics--email--greylist-tester",
-     "name": "Greylisting Tester",
-     "description": "Test if mail server implements greylisting by analyzing multiple connection attempts",
-     "category": "Lookups · Email Diagnostics",
-     "keywords": [
-      "greylist",
-      "greylisting",
-      "smtp",
-      "mail",
-      "server",
-      "spam",
-      "filter",
-      "anti-spam",
-      "email",
-      "delay"
-     ],
-     "native": null,
-     "external": "https://networking-toolbox.sajinshivdas.online/diagnostics/email/greylist-tester",
-     "visible": true
-    },
-    {
      "id": "diagnostics--rdap--domain",
      "name": "Domain RDAP Lookup",
      "description": "Query domain registration data using RDAP through IANA bootstrap registry with structured JSON responses",
@@ -11741,7 +11003,7 @@
      "id": "reference--cidr",
      "name": "CIDR Notation Explained",
      "description": "What CIDR is, why it replaced IP classes, and how to read network prefixes",
-     "category": "Ref · Fundamentals",
+     "category": "Reference · Fundamentals",
      "keywords": [
       "cidr explained",
       "classless routing",
@@ -11760,7 +11022,7 @@
      "id": "reference--vlsm",
      "name": "VLSM in Plain English",
      "description": "Variable Length Subnet Masking - when to use it and common pitfalls",
-     "category": "Ref · Fundamentals",
+     "category": "Reference · Fundamentals",
      "keywords": [
       "vlsm explained",
       "variable length subnet",
@@ -11779,7 +11041,7 @@
      "id": "reference--supernetting",
      "name": "Route Summarization / Supernetting",
      "description": "Combine multiple networks into single routes for efficient routing",
-     "category": "Ref · Fundamentals",
+     "category": "Reference · Fundamentals",
      "keywords": [
       "route summarization",
       "supernetting",
@@ -11798,7 +11060,7 @@
      "id": "reference--ipv6-address-types",
      "name": "IPv6 Address Types & Key Prefixes",
      "description": "Global unicast, ULA, link-local, multicast, and special IPv6 addresses",
-     "category": "Ref · IPv6 Addressing",
+     "category": "Reference · IPv6 Addressing",
      "keywords": [
       "ipv6 address types",
       "global unicast",
@@ -11818,7 +11080,7 @@
      "id": "reference--ipv6-prefix-lengths",
      "name": "Common IPv6 Prefix Lengths",
      "description": "Quick reference for /128, /127, /64, /60, /56, /48, /32 with typical uses",
-     "category": "Ref · IPv6 Addressing",
+     "category": "Reference · IPv6 Addressing",
      "keywords": [
       "ipv6 prefix lengths",
       "/128 /64 /48",
@@ -11836,7 +11098,7 @@
      "id": "reference--ipv6-embedded-ipv4",
      "name": "IPv4 in IPv6",
      "description": "IPv4-mapped addresses, 6to4, Teredo, and transition mechanisms",
-     "category": "Ref · IPv6 Addressing",
+     "category": "Reference · IPv6 Addressing",
      "keywords": [
       "ipv4-mapped ipv6",
       "6to4",
@@ -11856,7 +11118,7 @@
      "id": "reference--ipv6-privacy-addresses",
      "name": "IPv6 Privacy Addresses",
      "description": "SLAAC privacy extensions: temporary vs stable interface identifiers",
-     "category": "Ref · IPv6 Addressing",
+     "category": "Reference · IPv6 Addressing",
      "keywords": [
       "ipv6 privacy",
       "slaac extensions",
@@ -11875,7 +11137,7 @@
      "id": "reference--common-subnets",
      "name": "Common Subnet Sizes",
      "description": "Quick reference for common subnet sizes and host counts",
-     "category": "Ref · Special Addresses",
+     "category": "Reference · Special Addresses",
      "keywords": [
       "subnet sizes",
       "host counts",
@@ -11893,7 +11155,7 @@
      "id": "reference--network-classes",
      "name": "Network Classes (A/B/C)",
      "description": "Legacy network classes and their modern CIDR equivalents",
-     "category": "Ref · Special Addresses",
+     "category": "Reference · Special Addresses",
      "keywords": [
       "network classes",
       "class a b c",
@@ -11911,7 +11173,7 @@
      "id": "reference--reserved-ranges",
      "name": "Reserved IP Ranges",
      "description": "Comprehensive list of reserved and special-use IP address ranges",
-     "category": "Ref · Special Addresses",
+     "category": "Reference · Special Addresses",
      "keywords": [
       "reserved ip ranges",
       "special-use addresses",
@@ -11928,7 +11190,7 @@
      "id": "reference--special-use-ipv4",
      "name": "Special-Use IPv4 Blocks (RFC 6890)",
      "description": "Reserved IPv4 ranges including private networks, CGNAT, and test blocks",
-     "category": "Ref · Special Addresses",
+     "category": "Reference · Special Addresses",
      "keywords": [
       "rfc 6890",
       "special-use ipv4",
@@ -11947,7 +11209,7 @@
      "id": "reference--private-vs-public-ip",
      "name": "Private vs Public IP Addresses",
      "description": "Understanding private/public IPs, NAT implications, and identification",
-     "category": "Ref · Special Addresses",
+     "category": "Reference · Special Addresses",
      "keywords": [
       "private vs public ip",
       "rfc 1918",
@@ -11965,7 +11227,7 @@
      "id": "reference--cgnat",
      "name": "Carrier-Grade NAT Explained",
      "description": "CGNAT (100.64.0.0/10), how to identify it, and service impacts",
-     "category": "Ref · Special Addresses",
+     "category": "Reference · Special Addresses",
      "keywords": [
       "cgnat explained",
       "100.64.0.0/10",
@@ -11984,7 +11246,7 @@
      "id": "reference--link-local-apipa",
      "name": "Link-Local & APIPA Addresses",
      "description": "IPv4 APIPA (169.254/16) and IPv6 link-local (fe80::/10) at a glance",
-     "category": "Ref · Special Addresses",
+     "category": "Reference · Special Addresses",
      "keywords": [
       "link-local",
       "apipa 169.254",
@@ -12003,7 +11265,7 @@
      "id": "reference--multicast",
      "name": "IPv4 & IPv6 Multicast Basics",
      "description": "Multicast scopes, well-known groups, and local subnet limitations",
-     "category": "Ref · Special Addresses",
+     "category": "Reference · Special Addresses",
      "keywords": [
       "multicast basics",
       "224.0.0.0 ff00::",
@@ -12022,7 +11284,7 @@
      "id": "reference--reverse-dns",
      "name": "Reverse DNS (PTR Records)",
      "description": "How in-addr.arpa and ip6.arpa work with examples for IPv4 and IPv6",
-     "category": "Ref · DNS & Protocols",
+     "category": "Reference · DNS & Protocols",
      "keywords": [
       "reverse dns explained",
       "ptr records",
@@ -12041,7 +11303,7 @@
      "id": "reference--reverse-zones",
      "name": "Reverse Zones for CIDR Delegation",
      "description": "Minimal reverse DNS zones needed to delegate IPv4 and IPv6 CIDR blocks",
-     "category": "Ref · DNS & Protocols",
+     "category": "Reference · DNS & Protocols",
      "keywords": [
       "reverse zones",
       "cidr delegation",
@@ -12059,7 +11321,7 @@
      "id": "reference--icmp",
      "name": "ICMP & ICMPv6: Common Types",
      "description": "Practical guide to ICMP message types for network troubleshooting",
-     "category": "Ref · DNS & Protocols",
+     "category": "Reference · DNS & Protocols",
      "keywords": [
       "icmp message types",
       "ping traceroute",
@@ -12078,7 +11340,7 @@
      "id": "reference--arp-vs-ndp",
      "name": "ARP vs NDP",
      "description": "Side-by-side comparison of IPv4 ARP and IPv6 Neighbor Discovery",
-     "category": "Ref · DNS & Protocols",
+     "category": "Reference · DNS & Protocols",
      "keywords": [
       "arp vs ndp",
       "neighbor discovery",
@@ -12097,7 +11359,7 @@
      "id": "reference--asn",
      "name": "What is an ASN?",
      "description": "Autonomous Systems, BGP basics, and how IP addresses map to ASNs",
-     "category": "Ref · Network Operations",
+     "category": "Reference · Network Operations",
      "keywords": [
       "asn explained",
       "autonomous system",
@@ -12116,7 +11378,7 @@
      "id": "reference--ports",
      "name": "Common TCP/UDP Ports",
      "description": "Quick reference for frequently used port numbers and services",
-     "category": "Ref · Network Operations",
+     "category": "Reference · Network Operations",
      "keywords": [
       "tcp udp ports",
       "well-known ports",
@@ -12135,7 +11397,7 @@
      "id": "reference--wildcard-masks",
      "name": "ACL Wildcard Masks",
      "description": "Wildcard masks vs netmasks, quick conversions and ACL examples",
-     "category": "Ref · Network Operations",
+     "category": "Reference · Network Operations",
      "keywords": [
       "wildcard masks",
       "acl rules",
@@ -12154,7 +11416,7 @@
      "id": "reference--mtu-mss",
      "name": "Common MTU/MSS Values",
      "description": "MTU and MSS values for Ethernet, PPPoE, VPN, and overhead calculations",
-     "category": "Ref · Network Operations",
+     "category": "Reference · Network Operations",
      "keywords": [
       "mtu mss values",
       "ethernet pppoe",

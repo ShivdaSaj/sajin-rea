@@ -1,30 +1,32 @@
 # Infosec Tools
 
-One site that combines four self-hosted toolkits as tabs. The tool catalog was built by analysing each site with [REA](https://github.com/morluto/rea). Tools are being rebuilt natively in phases; any tool not rebuilt yet links to the original instance.
+A portal of four toolkits, styled like [Forensics Atlas](https://forensics.sajinshivdas.online/). Each toolkit was rebuilt natively from a self-hosted site after static analysis with [REA](https://github.com/morluto/rea). Only rebuilt tools are published: the 89 tools that couldn't be rebuilt without large external libraries, datasets or API keys are excluded.
 
-| Tab | Source site | Tools | Native now |
+| Toolkit | Rebuilt from | Tools | Categories |
 |---|---|---|---|
-| **IT Utilities** | ittools.sajinshivdas.online (IT-Tools) | 86 | 76 |
-| **Cipher Lab** | cyberchef.sajinshivdas.online (CyberChef) | 504 | 430 |
-| **Web Recon** | webcheck.sajinshivdas.online (Web-Check) | 39 | 35 |
-| **Network Toolkit** | networking-toolbox.sajinshivdas.online | 160 | 159 |
-| **Total** | | **789** | **700** |
+| **IT Toolkit** | ittools.sajinshivdas.online (IT-Tools) | 76 | 10 |
+| **CyberChef Toolkit** | cyberchef.sajinshivdas.online (CyberChef) | 430 | 16 |
+| **Web Toolkit** | webcheck.sajinshivdas.online (Web-Check) | 35 | 7 |
+| **Network Toolkit** | networking-toolbox.sajinshivdas.online | 159 | 7 |
+| **Total** | | **700** | **40** |
 
-- **Native** tools run entirely in the browser: encoders and data formats, hashes and checksums (SHA-2/3, BLAKE2, RIPEMD, CRC family…), ciphers (AES, ChaCha20, Salsa20, RC4, TEA, classical), KDFs (PBKDF2, HKDF, scrypt), X.509/CSR/CRL and ASN.1 parsing, RSA/ECDSA signing and encryption, YAML/TOML/XML/MessagePack/CBOR conversion, compression, subnet/CIDR/IPv6 math, DNS and DNSSEC record builders, DHCP option encoders and network reference sheets. Phase 3 added block ciphers (DES/3DES, Blowfish, RC6, PRESENT, Rabbit), password hashing (bcrypt, Argon2, LM) and more digests (SHA-0, SM3, Whirlpool, BLAKE3, SSDEEP), a QR encoder, canvas image tools and charts, forensics (file type, embedded files, ELF, EXIF, plist, ID3), archives (Zip, Tar, LZ4, LZNT1, XPRESS), packet parsers with JA3/JA4/HASSH fingerprints, and more formats and utilities. File and image tools accept a dropped file or pasted hex/base64 and offer the result as a download. Cipher Lab also has a CyberChef-style **recipe builder** that chains operations.
-- **Live** tools run on the server: DNS, propagation, resolver timing, SPF/DMARC/DKIM and SPF flattening, DNSSEC, TLS chain/versions/OCSP stapling, mail STARTTLS, security headers, CORS, compression, HSTS, cookies, redirects, RDAP/WHOIS/ASN, BGP prefix and RPKI, DNSBL, CT-log subdomains, IPv6 reachability, open ports, Tranco rank, carbon footprint, PageSpeed quality, DNS zone-transfer (AXFR) testing, iterative DNS trace and safe HTTP requests (GET/HEAD/OPTIONS only). Every outbound request goes through an SSRF guard (`lib/netsafe.mjs`). The guard refuses private, loopback, link-local, CGNAT, metadata and reserved addresses, and connects only to the IP it checked.
-- **Link** tools aren't rebuilt yet. They open the matching tool on your existing instance.
+The site has a home page (hero, toolkit cards, a how-it-works stepper, category cards for each toolkit, recommended tools and REA provenance), a **Toolkits** page with a tab for each toolkit, an **Explore** page with a toolkit and category sidebar, a **recipe builder** for the CyberChef Toolkit, a **Saved** shortlist, and a Ctrl K search palette. Clicking a tool opens it in a side drawer where it runs straight away; each tool also has a full page.
+
+- **Browser** tools (621) run entirely in the browser: encoders and data formats, hashes and checksums (SHA-2/3, BLAKE2/3, RIPEMD, CRC family, SSDEEP…), ciphers (AES, DES/3DES, Blowfish, ChaCha20, Salsa20, RC4, Rabbit, classical), KDFs and password hashes (PBKDF2, HKDF, scrypt, bcrypt, Argon2), X.509/CSR/CRL and ASN.1 parsing, RSA/ECDSA, YAML/TOML/XML/MessagePack/CBOR conversion, compression and archives, forensics (file type, embedded files, ELF, EXIF, plist), QR codes and image tools, packet parsers with JA3/JA4/HASSH fingerprints, subnet/CIDR/IPv6 maths, DNS and DNSSEC record builders, DHCP option encoders and reference sheets. File and image tools accept a dropped file or pasted hex/Base64 and offer the result as a download.
+- **Live** checks (79) run on the server: DNS, propagation, resolver timing, SPF/DMARC/DKIM and SPF flattening, DNSSEC, TLS chain/versions/OCSP stapling, mail STARTTLS, security headers, CORS, compression, HSTS, cookies, redirects, RDAP/WHOIS/ASN, BGP prefix and RPKI, DNSBL, CT-log subdomains, IPv6 reachability, open ports, Tranco rank, carbon footprint, PageSpeed quality, zone-transfer (AXFR) testing, iterative DNS trace and safe HTTP requests (GET/HEAD/OPTIONS only). Every outbound request goes through an SSRF guard (`lib/netsafe.mjs`). The guard refuses private, loopback, link-local, CGNAT, metadata and reserved addresses, and connects only to the IP it checked.
 
 ## Admin panel
 
-`/admin` signs in with `ADMIN_PASSWORD`. From there you can:
-- rename, describe, reorder, hide, add or delete tabs
-- add, edit, hide or delete tools
-- point a tool at any native or live implementation, with preset arguments
-- set a tool's link to the original
-- mark tools as featured on the landing page
-- import and export the catalog as JSON
+`/admin` signs in with `ADMIN_PASSWORD` and uses the same design as the site. From there you can:
+- **Site settings**: title, brand, home page hero text (with a live preview), footer text, the default colour theme (dark, light, ember, terminal, ocean, paper, contrast) and accent colours
+- **Toolkits**: add, rename, describe, recolour, reorder, hide or delete toolkits
+- **Categories** in each toolkit: add, rename (the tools follow), describe, pick an icon, reorder, move all tools to another category, delete empty ones
+- **Tools** in each toolkit: add, edit, preview, move to another toolkit, hide, feature on the home page or delete. Each tool gets a browser or live implementation (searchable picker), preset options, a sub-category, keywords and an optional link
+- **Backups & import**: restore any backup, export or import the catalog as JSON, reset to the shipped seed
 
-When a new release ships a newer seed catalog, the server upgrades the stored catalog on start-up: tools gain new native implementations and new tools are added, while admin renames, hidden tools, deletions and deliberately unlinked tools are kept. A backup is written first.
+Changes are collected locally and go live when you press **Save** (or Ctrl+S).
+
+When a new release ships a newer seed catalog, the server upgrades the stored catalog on start-up: new tools are added and tools gain new implementations, while admin renames, hidden tools, deletions and category edits are kept. A backup is written first. A catalog from before the toolkit restructure (v1: IT Utilities, Cipher Lab, Web Recon, Network Toolkit) is migrated once to the four toolkits, with link-only tools removed and admin renames kept.
 
 Every save takes a backup first (the latest 50 are kept). You can restore any backup, or reset to the REA-built seed. The catalog lives in the `/data` volume, so it survives redeploys.
 
@@ -53,8 +55,8 @@ node scripts/build-catalog.mjs                             # rebuild seed/catalo
 
 There are no npm dependencies; Node.js 22+ is all you need. To rebuild another tool natively:
 1. Add an op to `public/ops/*.js`, or to `lib/server-ops.mjs` for server checks.
-2. Map the source tool to it in `scripts/build-catalog.mjs`.
-3. Rebuild the seed catalog, or link the tool to the op from the admin panel.
+2. Map the source tool to it in `scripts/build-catalog.mjs` (category cards and featured tools are defined there too).
+3. Rebuild the seed catalog, or add the tool from the admin panel.
 
 ## Where the catalog comes from
 
@@ -62,5 +64,7 @@ There are no npm dependencies; Node.js 22+ is all you need. To rebuild another t
 - The four sites were mirrored over HTTPS.
 - REA 6.9.0 `analyze-javascript-application` ran statically on each mirror. No target code was executed.
 - Each site's tool list was read from its own registry in the same bundles: IT-Tools' tool definitions, CyberChef's categories and operation config, Web-Check's job registry, and Networking Toolbox's navigation data.
+
+Fonts (Inter and JetBrains Mono, SIL OFL 1.1) are self-hosted in `public/fonts` because the content security policy only allows same-origin resources. The base styles in `public/atlas.css` come from Forensics Atlas so the two sites share one look.
 
 REA completed on CyberChef, Web-Check and Networking Toolbox. On IT-Tools it hit its 300-second per-bundle limit, so it produced only partial Evidence. IT-Tools' route registry was still read in full.

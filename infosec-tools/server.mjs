@@ -19,9 +19,58 @@ const TRUST_PROXY = process.env.TRUST_PROXY !== "false";
 const SECURE_COOKIE = process.env.COOKIE_SECURE !== "false";
 
 // ---------- catalog store ----------
+const SEED = JSON.parse(fs.readFileSync(path.join(ROOT, "seed", "catalog.json"), "utf8"));
+const key = (t, x) => `${t}/${x}`;
+const topCat = (c) => String(c || "General").split(" · ")[0];
+function stampSeed(c, seed = SEED) {
+  c.seedGeneratedAt = seed.generatedAt;
+  c.seedIds = seed.tabs.flatMap((t) => t.tools.map((x) => key(t.id, x.id)));
+  c.seedNative = seed.tabs.flatMap((t) => t.tools.filter((x) => x.native).map((x) => key(t.id, x.id)));
+  return c;
+}
+// Every top-level category used by a tool gets a card entry (seed metadata if known, blank otherwise).
+function syncCategories(tab, seedTab) {
+  tab.categories = Array.isArray(tab.categories) ? tab.categories : [];
+  for (const name of new Set(tab.tools.map((x) => topCat(x.category)))) {
+    if (tab.categories.some((c) => c.name === name)) continue;
+    const m = seedTab?.categories?.find((c) => c.name === name);
+    tab.categories.push(m ? structuredClone(m) : { name, icon: "sparkle", description: "" });
+  }
+}
+function writeCatalogSync(c, backupTag) {
+  if (backupTag && fs.existsSync(CATALOG_FILE)) fs.copyFileSync(CATALOG_FILE, path.join(DATA_DIR, "backups", `catalog-${new Date().toISOString().replace(/[:.]/g, "-")}-${backupTag}.json`));
+  fs.writeFileSync(CATALOG_FILE + ".tmp", JSON.stringify(c, null, 1)); fs.renameSync(CATALOG_FILE + ".tmp", CATALOG_FILE);
+}
 fs.mkdirSync(path.join(DATA_DIR, "backups"), { recursive: true });
-if (!fs.existsSync(CATALOG_FILE)) { const seed = JSON.parse(fs.readFileSync(path.join(ROOT, "seed", "catalog.json"), "utf8")); seed.seedGeneratedAt = seed.generatedAt; seed.seedIds = seed.tabs.flatMap((t) => t.tools.map((x) => `${t.id}/${x.id}`)); seed.seedNative = seed.tabs.flatMap((t) => t.tools.filter((x) => x.native).map((x) => `${t.id}/${x.id}`)); fs.writeFileSync(CATALOG_FILE, JSON.stringify(seed, null, 1)); }
+if (!fs.existsSync(CATALOG_FILE)) writeCatalogSync(stampSeed(structuredClone(SEED)));
 let catalog = JSON.parse(fs.readFileSync(CATALOG_FILE, "utf8"));
+
+// v1 -> v2: the four tabs become toolkits with new ids and names, link-only tools are removed,
+// and each toolkit gains category cards. Admin renames are kept; a backup is written first.
+const V1_TABS = { "it-utilities": ["it-toolkit", "IT Utilities"], "cipher-lab": ["cyberchef-toolkit", "Cipher Lab"], "web-recon": ["web-toolkit", "Web Recon"], "network-toolkit": ["network-toolkit", "Network Toolkit"] };
+function migrateToV2(c, seed = SEED) {
+  if ((c.version || 1) >= 2) return null;
+  let removed = 0;
+  for (const tab of c.tabs) {
+    const [newId, oldName] = V1_TABS[tab.id] || [tab.id, null];
+    const st = seed.tabs.find((s) => s.id === newId);
+    tab.id = newId;
+    if (st) {
+      if (tab.name === oldName) { tab.name = st.name; tab.description = st.description; tab.icon = st.icon; }
+      tab.tagline ??= st.tagline; tab.accent ??= st.accent;
+    }
+    const before = tab.tools.length; tab.tools = tab.tools.filter((x) => x.native); removed += before - tab.tools.length;
+    for (const x of tab.tools) {
+      x.category = String(x.category || "General").replace(/^Ref( · |$)/, "Reference$1");
+      if (x.featured === undefined && st?.tools.find((s) => s.id === x.id)?.featured) x.featured = true;
+    }
+    syncCategories(tab, st);
+  }
+  c.site = { ...seed.site, ...(c.site || {}), title: c.title || seed.site.title };
+  c.version = 2; stampSeed(c, seed);
+  return removed;
+}
+{ const removed = migrateToV2(catalog); if (removed !== null) { writeCatalogSync(catalog, "pre-v2"); console.log(`[seed] migrated catalog to v2 toolkits: ${removed} link-only tools removed`); } }
 
 // Seed upgrade: when a new release ships a newer seed catalog, bring its improvements into the
 // stored (admin-editable) catalog without overwriting admin decisions:
@@ -29,9 +78,8 @@ let catalog = JSON.parse(fs.readFileSync(CATALOG_FILE, "utf8"));
 //  - tools/tabs new to the seed are added; ones the admin deleted are not restored;
 //  - names, descriptions, visibility and order are left as the admin set them.
 function upgradeFromSeed() {
-  const seed = JSON.parse(fs.readFileSync(path.join(ROOT, "seed", "catalog.json"), "utf8"));
+  const seed = SEED;
   if (catalog.seedGeneratedAt === seed.generatedAt) return;
-  const key = (t, x) => `${t}/${x}`;
   const firstUpgrade = !Array.isArray(catalog.seedIds);
   // Phase 1 shipped the full inventory, so on the first upgrade every current seed tool counts as
   // "previously seeded": nothing is re-added, and tools the admin deleted stay deleted.
@@ -46,41 +94,55 @@ function upgradeFromSeed() {
       if (!cur) { if (!prevIds.has(k)) { tab.tools.push(structuredClone(sx)); added++; } continue; }
       if (!cur.native && sx.native && (firstUpgrade || !prevNative.has(k))) { cur.native = structuredClone(sx.native); filled++; }
     }
+    syncCategories(tab, st);
   }
-  catalog.seedGeneratedAt = seed.generatedAt;
-  catalog.seedIds = seed.tabs.flatMap((t) => t.tools.map((x) => key(t.id, x.id)));
-  catalog.seedNative = seed.tabs.flatMap((t) => t.tools.filter((x) => x.native).map((x) => key(t.id, x.id)));
-  const stamp = new Date().toISOString().replace(/[:.]/g, "-");
-  fs.copyFileSync(CATALOG_FILE, path.join(DATA_DIR, "backups", `catalog-${stamp}-pre-upgrade.json`));
-  fs.writeFileSync(CATALOG_FILE + ".tmp", JSON.stringify(catalog, null, 1)); fs.renameSync(CATALOG_FILE + ".tmp", CATALOG_FILE);
+  stampSeed(catalog, seed);
+  writeCatalogSync(catalog, "pre-upgrade");
   console.log(`[seed] upgraded catalog to seed ${seed.generatedAt}: ${filled} tools gained native implementations, ${added} tools and ${tabsAdded} tabs added`);
 }
 upgradeFromSeed();
 const provenance = JSON.parse(fs.readFileSync(path.join(ROOT, "seed", "provenance.json"), "utf8"));
 
 const ID_RE = /^[a-z0-9][a-z0-9._-]{0,80}$/i;
+const COLOR_RE = /^#[0-9a-f]{6}$/i;
+const THEMES = ["dark", "light", "ember", "terminal", "ocean", "paper", "contrast"];
 const str = (v, max = 2000) => (typeof v === "string" ? v.slice(0, max) : "");
+const SITE_FIELDS = { title: 80, brandPrefix: 40, brandSuffix: 40, eyebrow: 80, heading: 80, highlight: 80, headingEnd: 80, lead: 400, footer: 600 };
+function validateSite(s = {}) {
+  const out = {}; for (const [k, max] of Object.entries(SITE_FIELDS)) out[k] = str(s[k], max) || SEED.site[k] || "";
+  out.theme = THEMES.includes(s.theme) ? s.theme : "dark";
+  out.accent = COLOR_RE.test(s.accent || "") ? s.accent : ""; out.accent2 = COLOR_RE.test(s.accent2 || "") ? s.accent2 : "";
+  return out;
+}
 function validateCatalog(c) {
   if (!c || typeof c !== "object" || !Array.isArray(c.tabs)) throw httpError(400, "Catalog must have a tabs array");
   const tabIds = new Set();
   const tabs = c.tabs.map((t) => {
-    if (!ID_RE.test(t.id || "") || tabIds.has(t.id)) throw httpError(400, `Invalid or duplicate tab id "${t.id}"`); tabIds.add(t.id);
-    if (!str(t.name, 80).trim()) throw httpError(400, `Tab "${t.id}" needs a name`);
+    if (!ID_RE.test(t.id || "") || tabIds.has(t.id)) throw httpError(400, `Invalid or duplicate toolkit id "${t.id}"`); tabIds.add(t.id);
+    if (!str(t.name, 80).trim()) throw httpError(400, `Toolkit "${t.id}" needs a name`);
     const toolIds = new Set();
     const tools = (Array.isArray(t.tools) ? t.tools : []).map((x) => {
-      if (!ID_RE.test(x.id || "") || toolIds.has(x.id)) throw httpError(400, `Invalid or duplicate tool id "${x.id}" in tab "${t.id}"`); toolIds.add(x.id);
+      if (!ID_RE.test(x.id || "") || toolIds.has(x.id)) throw httpError(400, `Invalid or duplicate tool id "${x.id}" in toolkit "${t.name}"`); toolIds.add(x.id);
       if (!str(x.name, 120).trim()) throw httpError(400, `Tool "${x.id}" needs a name`);
-      const ext = str(x.external, 2000); if (ext && !/^https?:\/\//i.test(ext)) throw httpError(400, `Tool "${x.id}" link must start with http(s)://`);
+      const ext = str(x.external, 2000); if (ext && !/^https?:\/\//i.test(ext)) throw httpError(400, `Tool "${x.name}" link must start with http(s)://`);
       let native = null;
       if (x.native && x.native.op) { native = { op: str(x.native.op, 80), mode: x.native.mode === "server" ? "server" : "client" }; if (x.native.preset && typeof x.native.preset === "object") native.preset = Object.fromEntries(Object.entries(x.native.preset).slice(0, 20).map(([k, v]) => [str(k, 40), str(String(v), 400)])); }
-      if (native?.mode === "server" && !serverOps[native.op]) throw httpError(400, `Tool "${x.id}" uses unknown server op "${native.op}"`);
-      return { id: x.id, name: str(x.name, 120).trim(), description: str(x.description, 2000), category: str(x.category, 120) || "General", keywords: (Array.isArray(x.keywords) ? x.keywords : []).slice(0, 30).map((k) => str(String(k), 60)), native, external: ext, visible: x.visible !== false, featured: !!x.featured };
+      if (native?.mode === "server" && !serverOps[native.op]) throw httpError(400, `Tool "${x.name}" uses unknown server check "${native.op}"`);
+      if (!native && !ext) throw httpError(400, `Tool "${x.name}" needs an implementation or a link`);
+      return { id: x.id, name: str(x.name, 120).trim(), description: str(x.description, 2000), category: str(x.category, 120).trim() || "General", keywords: (Array.isArray(x.keywords) ? x.keywords : []).slice(0, 30).map((k) => str(String(k), 60)), native, external: ext, visible: x.visible !== false, featured: !!x.featured };
     });
-    const src = str(t.sourceUrl, 500); if (src && !/^https?:\/\//i.test(src)) throw httpError(400, `Tab "${t.id}" source URL must start with http(s)://`);
-    return { id: t.id, name: str(t.name, 80).trim(), description: str(t.description, 1000), icon: str(t.icon, 30) || "wrench", source: str(t.source, 60), sourceUrl: src, visible: t.visible !== false, tools };
+    const src = str(t.sourceUrl, 500); if (src && !/^https?:\/\//i.test(src)) throw httpError(400, `Toolkit "${t.name}" source URL must start with http(s)://`);
+    const catNames = new Set();
+    const categories = (Array.isArray(t.categories) ? t.categories : []).map((cat) => ({ name: str(cat?.name, 120).trim(), icon: str(cat?.icon, 30) || "sparkle", description: str(cat?.description, 400) }))
+      .filter((cat) => cat.name && !catNames.has(cat.name) && catNames.add(cat.name));
+    const tab = { id: t.id, name: str(t.name, 80).trim(), tagline: str(t.tagline, 200), description: str(t.description, 1000), icon: str(t.icon, 30) || "toolbox", accent: COLOR_RE.test(t.accent || "") ? t.accent : "#22d3ee",
+      source: str(t.source, 60), sourceUrl: src, visible: t.visible !== false, categories, tools };
+    syncCategories(tab, null);
+    return tab;
   });
+  const site = validateSite(c.site);
   // Seed bookkeeping is server-owned: carry it over regardless of what the client sent.
-  return { version: 1, title: str(c.title, 80) || "Infosec Tools", tagline: str(c.tagline, 200), updatedAt: new Date().toISOString(), seedGeneratedAt: catalog.seedGeneratedAt, seedIds: catalog.seedIds, seedNative: catalog.seedNative, tabs };
+  return { version: 2, title: site.title || "Infosec Tools", site, updatedAt: new Date().toISOString(), seedGeneratedAt: catalog.seedGeneratedAt, seedIds: catalog.seedIds, seedNative: catalog.seedNative, tabs };
 }
 async function saveCatalog(next, who) {
   const stamp = new Date().toISOString().replace(/[:.]/g, "-");
@@ -90,7 +152,8 @@ async function saveCatalog(next, who) {
   const backups = (await fsp.readdir(path.join(DATA_DIR, "backups"))).sort(); for (const f of backups.slice(0, -50)) await fsp.unlink(path.join(DATA_DIR, "backups", f)).catch(() => {});
   console.log(`[admin] catalog saved by ${who} (${next.tabs.reduce((n, t) => n + t.tools.length, 0)} tools)`);
 }
-const publicCatalog = () => ({ title: catalog.title, tagline: catalog.tagline, updatedAt: catalog.updatedAt, provenance, tabs: catalog.tabs.filter((t) => t.visible).map((t) => ({ ...t, tools: t.tools.filter((x) => x.visible) })) });
+const publicCatalog = () => ({ title: catalog.title, site: validateSite(catalog.site), updatedAt: catalog.updatedAt, provenance,
+  tabs: catalog.tabs.filter((t) => t.visible).map((t) => { const tools = t.tools.filter((x) => x.visible); const used = new Set(tools.map((x) => topCat(x.category))); return { ...t, categories: (t.categories || []).filter((c) => used.has(c.name)), tools }; }) });
 
 // ---------- auth ----------
 const sessions = new Map(); // token -> expiry
@@ -117,12 +180,16 @@ const SEC_HEADERS = {
 function send(res, status, body, headers = {}) { res.writeHead(status, { ...SEC_HEADERS, ...headers }); res.end(body); }
 const json = (res, status, obj, headers = {}) => send(res, status, JSON.stringify(obj), { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store", ...headers });
 async function readJson(req, max = 5 * 1024 * 1024) { const chunks = []; let n = 0; for await (const c of req) { n += c.length; if (n > max) throw httpError(413, "Request too large"); chunks.push(c); } try { return JSON.parse(Buffer.concat(chunks).toString("utf8") || "{}"); } catch { throw httpError(400, "Invalid JSON body"); } }
-const MIME = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8", ".json": "application/json", ".svg": "image/svg+xml", ".txt": "text/plain; charset=utf-8", ".png": "image/png", ".ico": "image/x-icon", ".webmanifest": "application/manifest+json" };
+const MIME = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8", ".json": "application/json", ".svg": "image/svg+xml", ".txt": "text/plain; charset=utf-8", ".png": "image/png", ".woff2": "font/woff2", ".ico": "image/x-icon", ".webmanifest": "application/manifest+json" };
 
 async function serveStatic(req, res, pathname) {
   let rel = decodeURIComponent(pathname); if (rel === "/" || !path.extname(rel)) rel = rel.startsWith("/admin") ? "/admin.html" : "/index.html";
   const file = path.normalize(path.join(PUBLIC, rel)); if (!file.startsWith(PUBLIC + path.sep)) return send(res, 403, "Forbidden");
-  try { const data = await fsp.readFile(file); send(res, 200, data, { "Content-Type": MIME[path.extname(file)] || "application/octet-stream", "Cache-Control": /\.(html)$/.test(file) ? "no-cache" : "public, max-age=300" }); }
+  try { let data = await fsp.readFile(file);
+    // The configured theme is applied before first paint (theme.js only overrides it with the visitor's own toggle).
+    if (file.endsWith(".html")) { const site = validateSite(catalog.site); data = data.toString("utf8").replaceAll("{{THEME}}", site.theme).replaceAll("{{MODE}}", ["light", "paper"].includes(site.theme) ? "light" : "dark")
+      .replaceAll("{{ACCENT_STYLE}}", [site.accent && `--accent:${site.accent}`, site.accent2 && `--accent-2:${site.accent2}`].filter(Boolean).join(";")).replaceAll("{{TITLE}}", site.title.replace(/[<>&"]/g, "")); }
+    send(res, 200, data, { "Content-Type": MIME[path.extname(file)] || "application/octet-stream", "Cache-Control": /\.(html)$/.test(file) ? "no-cache" : "public, max-age=300" }); }
   catch { send(res, 404, "Not found", { "Content-Type": "text/plain" }); }
 }
 
@@ -159,8 +226,9 @@ async function handle(req, res) {
     if (p === "/api/admin/catalog" && req.method === "PUT") { const next = validateCatalog(await readJson(req)); await saveCatalog(next, ip); return json(res, 200, { ok: true, updatedAt: next.updatedAt }); }
     if (p === "/api/admin/server-ops" && req.method === "GET") return json(res, 200, Object.fromEntries(Object.entries(serverOps).map(([k, v]) => [k, v.name])));
     if (p === "/api/admin/backups" && req.method === "GET") return json(res, 200, (await fsp.readdir(path.join(DATA_DIR, "backups"))).sort().reverse());
-    if (p === "/api/admin/restore" && req.method === "POST") { const { file } = await readJson(req, 4096); if (!/^catalog-[\w-]+\.json$/.test(file || "")) throw httpError(400, "Invalid backup name"); const next = validateCatalog(JSON.parse(await fsp.readFile(path.join(DATA_DIR, "backups", file), "utf8"))); await saveCatalog(next, ip); return json(res, 200, { ok: true }); }
-    if (p === "/api/admin/reset" && req.method === "POST") { const seed = JSON.parse(await fsp.readFile(path.join(ROOT, "seed", "catalog.json"), "utf8")); const next = validateCatalog(seed); next.seedGeneratedAt = seed.generatedAt; next.seedIds = seed.tabs.flatMap((t) => t.tools.map((x) => `${t.id}/${x.id}`)); next.seedNative = seed.tabs.flatMap((t) => t.tools.filter((x) => x.native).map((x) => `${t.id}/${x.id}`)); await saveCatalog(next, ip); return json(res, 200, { ok: true }); }
+    if (p === "/api/admin/restore" && req.method === "POST") { const { file } = await readJson(req, 4096); if (!/^catalog-[\w-]+\.json$/.test(file || "")) throw httpError(400, "Invalid backup name"); const raw = JSON.parse(await fsp.readFile(path.join(DATA_DIR, "backups", file), "utf8")); migrateToV2(raw); const next = validateCatalog(raw); await saveCatalog(next, ip); return json(res, 200, { ok: true }); }
+    if (p === "/api/admin/reset" && req.method === "POST") { const next = stampSeed(validateCatalog(structuredClone(SEED))); await saveCatalog(next, ip); return json(res, 200, { ok: true }); }
+    if (p === "/api/admin/meta" && req.method === "GET") return json(res, 200, { themes: THEMES });
     throw httpError(404, "Unknown admin endpoint");
   }
   if (p.startsWith("/api/")) throw httpError(404, "Unknown endpoint");
